@@ -1,0 +1,529 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Module: featurize &mdash; cesium 0.4.dev0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/output_cells.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="cesium 0.4.dev0 documentation" href="../index.html"/>
+        <link rel="up" title="API Reference" href="api.html"/>
+        <link rel="prev" title="Module: datasets" href="cesium.datasets.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cesium
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cesium.html"><code class="docutils literal"><span class="pre">cesium</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.build_model.html">Module: <code class="docutils literal"><span class="pre">build_model</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.data_management.html">Module: <code class="docutils literal"><span class="pre">data_management</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.datasets.html">Module: <code class="docutils literal"><span class="pre">datasets</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Module: <code class="docutils literal"><span class="pre">featurize</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#celery-available">celery_available</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#featurize-data-files">featurize_data_files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#featurize-time-series">featurize_time_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load-and-store-feature-data">load_and_store_feature_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timeseries"><code class="docutils literal"><span class="pre">TimeSeries</span></code></a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.obs_feature_tools.html">Module: <code class="docutils literal"><span class="pre">obs_feature_tools</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_feature_tools.html">Module: <code class="docutils literal"><span class="pre">science_feature_tools</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html">Module: <code class="docutils literal"><span class="pre">science_features</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.time_series.html">Module: <code class="docutils literal"><span class="pre">time_series</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.transformation.html">Module: <code class="docutils literal"><span class="pre">transformation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.util.html">Module: <code class="docutils literal"><span class="pre">util</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">cesium</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="api.html">API Reference</a> &raquo;</li>
+      
+    <li>Module: <code class="docutils literal"><span class="pre">featurize</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cesium.featurize">
+<span id="module-featurize"></span><h1>Module: <code class="xref py py-mod docutils literal"><span class="pre">featurize</span></code><a class="headerlink" href="#module-cesium.featurize" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.featurize.celery_available" title="cesium.featurize.celery_available"><code class="xref py py-obj docutils literal"><span class="pre">cesium.featurize.celery_available</span></code></a>()</td>
+<td>Test Celery task; this is much faster than running <cite>celery status</cite>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.featurize.featurize_data_files" title="cesium.featurize.featurize_data_files"><code class="xref py py-obj docutils literal"><span class="pre">cesium.featurize.featurize_data_files</span></code></a>(ts_paths)</td>
+<td>Generate features for labeled time series data.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.featurize.featurize_time_series" title="cesium.featurize.featurize_time_series"><code class="xref py py-obj docutils literal"><span class="pre">cesium.featurize.featurize_time_series</span></code></a>(...)</td>
+<td>Versatile feature generation function for one or more time series.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.featurize.load_and_store_feature_data" title="cesium.featurize.load_and_store_feature_data"><code class="xref py py-obj docutils literal"><span class="pre">cesium.featurize.load_and_store_feature_data</span></code></a>(...)</td>
+<td>Read features from CSV file and save as an xarray.Dataset.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.featurize.TimeSeries" title="cesium.featurize.TimeSeries"><code class="xref py py-obj docutils literal"><span class="pre">cesium.featurize.TimeSeries</span></code></a>([t,&nbsp;m,&nbsp;e,&nbsp;...])</td>
+<td>Class representing a single time series of measurements and metadata.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="celery-available">
+<h2>celery_available<a class="headerlink" href="#celery-available" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.featurize.celery_available">
+<code class="descclassname">cesium.featurize.</code><code class="descname">celery_available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.celery_available" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test Celery task; this is much faster than running <cite>celery status</cite>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="featurize-data-files">
+<h2>featurize_data_files<a class="headerlink" href="#featurize-data-files" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.featurize.featurize_data_files">
+<code class="descclassname">cesium.featurize.</code><code class="descname">featurize_data_files</code><span class="sig-paren">(</span><em>ts_paths</em>, <em>features_to_use=[]</em>, <em>output_path=None</em>, <em>first_N=None</em>, <em>custom_script_path=None</em>, <em>use_docker=True</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.featurize_data_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate features for labeled time series data.</p>
+<p>Each file should consist of one comma-separated line of per data point,
+where each line contains either pairs (time, value) or triples (time,
+value, error).</p>
+<p>If <cite>output_path</cite> is provided, features are saved as an xarray.Dataset in
+netCDF format.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ts_paths</strong> : str</p>
+<blockquote>
+<div><p>Path to netCDF files containing serialized TimeSeries objects.</p>
+</div></blockquote>
+<p><strong>features_to_use</strong> : list of str, optional</p>
+<blockquote>
+<div><p>List of feature names to be generated. Defaults to an empty
+list, which will result in only meta_features features being stored.</p>
+</div></blockquote>
+<p><strong>output_path</strong> : str, optional</p>
+<blockquote>
+<div><p>Path to which the output xarray.Dataset of feature data will be saved
+(if applicable).</p>
+</div></blockquote>
+<p><strong>first_N</strong> : int, optional</p>
+<blockquote>
+<div><p>Integer indicating the maximum number of time series to featurize.
+Can be used to reduce the number of files for testing purposes. If
+<cite>first_N</cite> is None then all time series will be featurized.</p>
+</div></blockquote>
+<p><strong>custom_script_path</strong> : str, optional</p>
+<blockquote>
+<div><p>Path to Python script containing function definitions for the
+generation of any custom features. Defaults to None.</p>
+</div></blockquote>
+<p><strong>use_docker</strong> : bool, optional</p>
+<blockquote>
+<div><p>Bool specifying whether to generate custom features inside a Docker
+container. Defaults to True.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">xarray.Dataset</p>
+<blockquote class="last">
+<div><p>Featureset with <cite>data_vars</cite> containing feature values, and <cite>coords</cite>
+containing filenames and targets (if applicable).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="featurize-time-series">
+<h2>featurize_time_series<a class="headerlink" href="#featurize-time-series" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.featurize.featurize_time_series">
+<code class="descclassname">cesium.featurize.</code><code class="descname">featurize_time_series</code><span class="sig-paren">(</span><em>times</em>, <em>values</em>, <em>errors=None</em>, <em>features_to_use=[]</em>, <em>targets=None</em>, <em>meta_features={}</em>, <em>labels=None</em>, <em>custom_script_path=None</em>, <em>custom_functions=None</em>, <em>use_docker=True</em>, <em>use_celery=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.featurize_time_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>Versatile feature generation function for one or more time series.</p>
+<p>For a single time series, inputs may have the form:</p>
+<ul class="simple">
+<li><cite>times</cite>:  (n,) array or (p, n) array (for p channels of measurement)</li>
+<li><cite>values</cite>: (n,) array or (p, n) array (for p channels of measurement)</li>
+<li><cite>errors</cite>: (n,) array or (p, n) array (for p channels of measurement)</li>
+</ul>
+<p>For multiple time series, inputs may have the form:</p>
+<ul class="simple">
+<li><cite>times</cite>: list of (n,) arrays, list of (p, n) arrays (for p channels of
+measurement), or list of lists of (n,) arrays (for
+multichannel data with different time values per channel)</li>
+<li><cite>values</cite>: list of (n,) arrays, list of (p, n) arrays (for p channels of
+measurement), or list of lists of (n,) arrays (for
+multichannel data with different time values per channel)</li>
+<li><cite>errors</cite>: list of (n,) arrays, list of (p, n) arrays (for p channels of
+measurement), or list of lists of (n,) arrays (for
+multichannel data with different time values per channel)</li>
+</ul>
+<p>In the case of multichannel measurements, each channel will be
+featurized separately, and the data variables of the output
+<cite>xarray.Dataset</cite> will be indexed by a <cite>channel</cite> coordinate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>times</strong> : array, list of array, or list of lists of array</p>
+<blockquote>
+<div><p>Array containing time values for a single time series, or a list of
+arrays each containing time values for a single time series, or a list
+of lists of arrays for multichannel data with different time values per
+channel</p>
+</div></blockquote>
+<p><strong>values</strong> : array or list of array</p>
+<blockquote>
+<div><p>Array containing measurement values for a single time series, or a list
+of arrays each containing (possibly multivariate) measurement values
+for a single time series, or a list of lists of arrays for multichannel
+data with different time values per channel</p>
+</div></blockquote>
+<p><strong>errors</strong> : array or list/tuple of array, optional</p>
+<blockquote>
+<div><p>Array containing measurement error values for a single time series, or
+a list of arrays each containing (possibly multivariate) measurement
+values for a single time series, or a list of lists of arrays for
+multichannel data with different time values per channel</p>
+</div></blockquote>
+<p><strong>features_to_use</strong> : list of str, optional</p>
+<blockquote>
+<div><p>List of feature names to be generated. Defaults to an empty list, which
+will result in only meta_features features being stored.</p>
+</div></blockquote>
+<p><strong>targets</strong> : str/float or array-like, optional</p>
+<blockquote>
+<div><p>Target or sequence of targets, one per time series (if applicable);
+will be stored in the <cite>target</cite> coordinate of the resulting
+<cite>xarray.Dataset</cite>.</p>
+</div></blockquote>
+<p><strong>meta_features</strong> : dict/Pandas.Series or list of dicts/Pandas.DataFrame</p>
+<blockquote>
+<div><p>dict/Series (for a single time series) or DataFrame (for multiple time
+series) of metafeature information; features are added to the output
+featureset, and their values are consumable by custom feature scripts.</p>
+</div></blockquote>
+<p><strong>labels</strong> : str or list of str, optional</p>
+<blockquote>
+<div><p>Label or list of labels for each time series, if applicable; will be
+stored in the <cite>name</cite> coordinate of the resulting <cite>xarray.Dataset</cite>.</p>
+</div></blockquote>
+<p><strong>custom_script_path</strong> : str, optional</p>
+<blockquote>
+<div><p>Path to Python script containing function definitions for the
+generation of any custom features. Defaults to None.</p>
+</div></blockquote>
+<p><strong>custom_functions</strong> : dict, optional</p>
+<blockquote>
+<div><p>Dictionary of custom feature functions to be evaluated for the given
+time series, or a dictionary representing a dask graph of function
+evaluations.  Dictionaries of functions should have keys <cite>feature_name</cite>
+and values functions that take arguments (t, m, e); in the case of a
+dask graph, these arrays should be referenced as &#8216;t&#8217;, &#8216;m&#8217;, &#8216;e&#8217;,
+respectively, and any values with keys present in <cite>features_to_use</cite>
+will be computed.</p>
+</div></blockquote>
+<p><strong>use_docker</strong> : bool, optional</p>
+<blockquote>
+<div><p>Bool specifying whether to generate custom features inside a Docker
+container. Defaults to True.</p>
+</div></blockquote>
+<p><strong>use_celery</strong> : bool, optional</p>
+<blockquote>
+<div><p>Boolean to control whether to distribute tasks to Celery workers (if
+Celery is available). Defaults to True.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">xarray.Dataset</p>
+<blockquote class="last">
+<div><p>Featureset with <cite>data_vars</cite> containing feature values and <cite>coords</cite>
+containing labels (<cite>name</cite>) and targets (<cite>target</cite>), if applicable.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="load-and-store-feature-data">
+<h2>load_and_store_feature_data<a class="headerlink" href="#load-and-store-feature-data" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.featurize.load_and_store_feature_data">
+<code class="descclassname">cesium.featurize.</code><code class="descname">load_and_store_feature_data</code><span class="sig-paren">(</span><em>features_path</em>, <em>output_path</em>, <em>first_N=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.load_and_store_feature_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read features from CSV file and save as an xarray.Dataset.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="timeseries">
+<h2><a class="reference internal" href="#cesium.featurize.TimeSeries" title="cesium.featurize.TimeSeries"><code class="xref py py-class docutils literal"><span class="pre">TimeSeries</span></code></a><a class="headerlink" href="#timeseries" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cesium.featurize.TimeSeries">
+<em class="property">class </em><code class="descclassname">cesium.featurize.</code><code class="descname">TimeSeries</code><span class="sig-paren">(</span><em>t=None</em>, <em>m=None</em>, <em>e=None</em>, <em>target=None</em>, <em>meta_features={}</em>, <em>name=None</em>, <em>path=None</em>, <em>channel_names=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.TimeSeries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Class representing a single time series of measurements and metadata.</p>
+<p>A <cite>TimeSeries</cite> object encapsulates a single set of time-domain
+measurements, along with any metadata describing the observation.
+Typically the observations will consist of times, measurements, and
+(optionally) measurement errors. The measurements can be scalar- or
+vector-valued (i.e., &#8220;multichannel&#8221;); for multichannel measurements, the 
+times and errors can also be vector-valued, or they can be shared across
+all channels of measurement.</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="4%" />
+<col width="96%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>time</td>
+<td>((n,) or (p, n) array or list of (n,) arrays) Array(s) of times corresponding to measurement values. If <cite>measurement</cite> is multidimensional, this can be one-dimensional (same times for each channel) or multidimensional (different times for each channel).</td>
+</tr>
+<tr class="row-even"><td>measurement</td>
+<td>((n,) or (p, n) array or list of (n,) arrays) Array(s) of measurement values; can be multidimensional for multichannel data. In the case of multichannel data with different numbers of measurements for each channel, <cite>measurement</cite> will be a list of arrays instead of a single two-dimensional array.</td>
+</tr>
+<tr class="row-odd"><td>error</td>
+<td>((n,) or (p, n) array or list of (n,) arrays) Array(s) of measurement errors for each value. If <cite>measurement</cite> is multidimensional, this can be one-dimensional (same times for each channel) or multidimensional (different times for each channel).</td>
+</tr>
+<tr class="row-even"><td>target</td>
+<td>(str, float, or None) Class label or target value for the given time series (if applicable).</td>
+</tr>
+<tr class="row-odd"><td>meta_features</td>
+<td>(dict) Dictionary of feature names/values specified independently of the featurization process in <cite>featurize</cite>.</td>
+</tr>
+<tr class="row-even"><td>name</td>
+<td>(str or None) Identifying name/label for the given time series (if applicable). Typically the name of the raw data file from which the time series was created.</td>
+</tr>
+<tr class="row-odd"><td>path</td>
+<td>(str or None) Path to the file where the time series is stored on disk (if applicable).</td>
+</tr>
+<tr class="row-even"><td>channel_names</td>
+<td>(list of str) List of names of channels of measurement; by default these are simply <cite>channel_{i}</cite>, but can be arbitrary depending on the nature of the different measurement channels.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.featurize.TimeSeries.channels" title="cesium.featurize.TimeSeries.channels"><code class="xref py py-obj docutils literal"><span class="pre">channels</span></code></a>()</td>
+<td>Iterates over measurement channels (whether one or multiple).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.featurize.TimeSeries.to_netcdf" title="cesium.featurize.TimeSeries.to_netcdf"><code class="xref py py-obj docutils literal"><span class="pre">to_netcdf</span></code></a>([path])</td>
+<td>Store TimeSeries object as a single netCDF.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cesium.featurize.TimeSeries.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>t=None</em>, <em>m=None</em>, <em>e=None</em>, <em>target=None</em>, <em>meta_features={}</em>, <em>name=None</em>, <em>path=None</em>, <em>channel_names=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.TimeSeries.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <cite>TimeSeries</cite> object from measurement values/metadata.</p>
+<p>See <cite>TimeSeries</cite> documentation for parameter values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cesium.featurize.TimeSeries.channels">
+<code class="descname">channels</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.TimeSeries.channels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterates over measurement channels (whether one or multiple).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cesium.featurize.TimeSeries.to_netcdf">
+<code class="descname">to_netcdf</code><span class="sig-paren">(</span><em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.TimeSeries.to_netcdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store TimeSeries object as a single netCDF.</p>
+<p>Each channel of measurements is stored in a separate HDF5 group; metadata
+describing the whole time series is stored in the group corresponding to
+the first channel.</p>
+<p>If <cite>path</cite> is omitted then the <cite>path</cite> attribute from the TimeSeries object
+is used.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="cesium.datasets.html" class="btn btn-neutral" title="Module: datasets" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, The cesium Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.4.dev0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

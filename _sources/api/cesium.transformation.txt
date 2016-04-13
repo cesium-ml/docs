@@ -1,0 +1,23 @@
+.. AUTO-GENERATED FILE -- DO NOT EDIT!
+
+Module: :mod:`transformation`
+=============================
+.. automodule:: cesium.transformation
+
+.. currentmodule:: cesium.transformation
+.. autosummary::
+
+   cesium.transformation.train_test_split
+   cesium.transformation.transform_ts_files
+
+
+train_test_split
+----------------
+
+.. autofunction:: cesium.transformation.train_test_split
+
+transform_ts_files
+------------------
+
+.. autofunction:: cesium.transformation.transform_ts_files
+
