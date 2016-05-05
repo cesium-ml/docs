@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Epilepsy Detection Using EEG Data &mdash; cesium 0.4.dev0 documentation</title>
+  <title>Featurization &mdash; cesium 0.4.dev0 documentation</title>
   
 
   
@@ -116,7 +116,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>Epilepsy Detection Using EEG Data</li>
+    <li>Featurization</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -128,8 +128,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="epilepsy-detection-using-eeg-data">
-<span id="epilepsy-detection-using-eeg-data"></span><h1>Epilepsy Detection Using EEG Data<a class="headerlink" href="#epilepsy-detection-using-eeg-data" title="Permalink to this headline">¶</a></h1>
+  <p>Title: Epilepsy Detection Using EEG Data
+Tags: example
+Status: draft</p>
+<blockquote>
+<div>IPython notebook: <a href="{attach}notebooks/EEG_Example.ipynb" download="EEG_Example.ipynb">download</a></div></blockquote>
 <p>In this example we&#8217;ll use the <a class="reference external" href="http://github.com/cesium-ml/cesium/"><code class="docutils literal"><span class="pre">cesium</span></code></a> library to compare
 various techniques for epilepsy detection using a classic EEG time series dataset from
 <a class="reference external" href="http://www.meb.uni-bonn.de/epileptologie/science/physik/eegdata.html">Andrzejak et al.</a>.
@@ -167,7 +170,7 @@ holdout set and comparing them to the true class labels.</p>
 </div>
 <p><img alt="png" src="../_images/EEG_Example_output_1_0.png" /></p>
 <div class="section" id="featurization">
-<span id="featurization"></span><h2>Featurization<a class="headerlink" href="#featurization" title="Permalink to this headline">¶</a></h2>
+<span id="featurization"></span><h1>Featurization<a class="headerlink" href="#featurization" title="Permalink to this headline">¶</a></h1>
 <p>Once the data is loaded, we can generate features for each time series using the
 <a class="reference external" href="https://cesium.readthedocs.org/en/latest/api/cesium.featurize.html"><code class="docutils literal"><span class="pre">cesium.featurize</span></code></a>
 module. The <code class="docutils literal"><span class="pre">featurize</span></code> module includes many built-in choices of features which can be applied
@@ -189,9 +192,11 @@ featurized serially.</p>
                    <span class="s1">&#39;skew&#39;</span><span class="p">,</span>
                    <span class="s1">&#39;std&#39;</span><span class="p">,</span>
                    <span class="s1">&#39;weighted_average&#39;</span><span class="p">]</span>
-<span class="n">fset_cesium</span> <span class="o">=</span> <span class="n">featurize</span><span class="o">.</span><span class="n">featurize_time_series</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;measurements&quot;</span><span class="p">],</span>
-                                             <span class="n">errors</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">features_to_use</span><span class="o">=</span><span class="n">features_to_use</span><span class="p">,</span>
-                                             <span class="n">targets</span><span class="o">=</span><span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">],</span> <span class="n">use_celery</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">fset_cesium</span> <span class="o">=</span> <span class="n">featurize</span><span class="o">.</span><span class="n">featurize_time_series</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">],</span>
+                                              <span class="n">values</span><span class="o">=</span><span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;measurements&quot;</span><span class="p">],</span>
+                                              <span class="n">errors</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                                              <span class="n">features_to_use</span><span class="o">=</span><span class="n">features_to_use</span><span class="p">,</span>
+                                              <span class="n">targets</span><span class="o">=</span><span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">],</span> <span class="n">use_celery</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">fset_cesium</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -203,16 +208,16 @@ Coordinates:
     target                     (name) object &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; ...
 Data variables:
     minimum                    (name, channel) float64 -146.0 -254.0 -146.0 ...
-    max_slope                  (name, channel) float64 1.111e+04 2.065e+04 ...
-    maximum                    (name, channel) float64 141.0 169.0 184.0 ...
-    std                        (name, channel) float64 40.41 48.81 47.14 ...
-    median                     (name, channel) float64 -4.0 -51.0 13.0 -4.0 ...
-    weighted_average           (name, channel) float64 -4.132 -52.44 12.71 ...
-    skew                       (name, channel) float64 0.0328 -0.09271 ...
-    percent_close_to_median    (name, channel) float64 0.505 0.6405 0.516 ...
     median_absolute_deviation  (name, channel) float64 28.0 32.0 31.0 31.0 ...
-    percent_beyond_1_std       (name, channel) float64 0.1626 0.1455 0.1523 ...
+    skew                       (name, channel) float64 0.0328 -0.09271 ...
+    weighted_average           (name, channel) float64 -4.132 -52.44 12.71 ...
+    std                        (name, channel) float64 40.41 48.81 47.14 ...
+    max_slope                  (name, channel) float64 1.111e+04 2.065e+04 ...
     amplitude                  (name, channel) float64 143.5 211.5 165.0 ...
+    percent_close_to_median    (name, channel) float64 0.505 0.6405 0.516 ...
+    percent_beyond_1_std       (name, channel) float64 0.1626 0.1455 0.1523 ...
+    maximum                    (name, channel) float64 141.0 169.0 184.0 ...
+    median                     (name, channel) float64 -4.0 -51.0 13.0 -4.0 ...
 
 </pre></div>
 </div>
@@ -223,7 +228,7 @@ learning model: feature values are stored as data variables, and the time series
 label are stored as coordinates (a <code class="docutils literal"><span class="pre">channel</span></code> coordinate will also be used later for
 multi-channel data).</p>
 <div class="section" id="custom-feature-functions">
-<span id="custom-feature-functions"></span><h3>Custom feature functions<a class="headerlink" href="#custom-feature-functions" title="Permalink to this headline">¶</a></h3>
+<span id="custom-feature-functions"></span><h2>Custom feature functions<a class="headerlink" href="#custom-feature-functions" title="Permalink to this headline">¶</a></h2>
 <p>Custom feature functions not built into <code class="docutils literal"><span class="pre">cesium</span></code> may be passed in using the
 <code class="docutils literal"><span class="pre">custom_functions</span></code> keyword, either as a dictionary <code class="docutils literal"><span class="pre">{feature_name:</span> <span class="pre">function}</span></code>, or as a
 <a class="reference external" href="http://dask.pydata.org/en/latest/custom-graphs.html">dask graph</a>. Functions should take
@@ -278,17 +283,17 @@ Coordinates:
   * name       (name) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 ...
     target     (name) object &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; ...
 Data variables:
-    skew       (name, channel) float64 0.0328 -0.09271 -0.0041 0.06368 ...
+    abs_diffs  (name, channel) float64 4.695e+04 6.112e+04 5.127e+04 ...
     mean2      (name, channel) float64 1.65e+03 5.133e+03 2.384e+03 ...
     mean       (name, channel) float64 -4.132 -52.44 12.71 -3.992 -18.0 ...
+    skew       (name, channel) float64 0.0328 -0.09271 -0.0041 0.06368 ...
     std        (name, channel) float64 40.41 48.81 47.14 47.07 44.91 45.02 ...
-    abs_diffs  (name, channel) float64 4.695e+04 6.112e+04 5.127e+04 ...
 
 </pre></div>
 </div>
 </div>
 <div class="section" id="multi-channel-time-series">
-<span id="multi-channel-time-series"></span><h3>Multi-channel time series<a class="headerlink" href="#multi-channel-time-series" title="Permalink to this headline">¶</a></h3>
+<span id="multi-channel-time-series"></span><h2>Multi-channel time series<a class="headerlink" href="#multi-channel-time-series" title="Permalink to this headline">¶</a></h2>
 <p>The EEG time series considered here consist of univariate signal measurements along a
 uniform time grid. But
 <a class="reference external" href="https://cesium.readthedocs.org/en/latest/api/cesium.featurize.html#cesium.featurize.featurize_time_series"><code class="docutils literal"><span class="pre">featurize_time_series</span></code></a>
@@ -316,11 +321,11 @@ Coordinates:
   * name       (name) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 ...
     target     (name) object &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; ...
 Data variables:
-    skew       (name, channel) float64 -0.0433 0.06578 0.2999 0.1239 0.1179 ...
-    mean2      (name, channel) float64 1.294e+04 5.362e+03 2.321e+03 664.4 ...
     abs_diffs  (name, channel) float64 2.513e+04 1.806e+04 3.241e+04 ...
-    std        (name, channel) float64 112.5 72.97 48.17 25.77 10.15 119.8 ...
+    mean2      (name, channel) float64 1.294e+04 5.362e+03 2.321e+03 664.4 ...
     mean       (name, channel) float64 -17.08 -6.067 -0.9793 0.1546 0.03555 ...
+    std        (name, channel) float64 112.5 72.97 48.17 25.77 10.15 119.8 ...
+    skew       (name, channel) float64 -0.0433 0.06578 0.2999 0.1239 0.1179 ...
 
 </pre></div>
 </div>
@@ -334,7 +339,7 @@ required to train models or make predictions for multichannel featuresets using 
 </div>
 </div>
 <div class="section" id="model-building">
-<span id="model-building"></span><h2>Model Building<a class="headerlink" href="#model-building" title="Permalink to this headline">¶</a></h2>
+<span id="model-building"></span><h1>Model Building<a class="headerlink" href="#model-building" title="Permalink to this headline">¶</a></h1>
 <p>Model building in <code class="docutils literal"><span class="pre">cesium</span></code> is handled by the
 <a class="reference external" href="https://cesium.readthedocs.org/en/latest/api/cesium.build_model.html#cesium.build_model.build_model_from_featureset"><code class="docutils literal"><span class="pre">build_model_from_featureset</span></code></a>
 function in the <code class="docutils literal"><span class="pre">cesium.build_model</span></code> submodule. The featureset output by
@@ -371,7 +376,7 @@ and a 3-nearest neighbors classifier for the others, as suggested by <a class="r
 </div>
 </div>
 <div class="section" id="prediction">
-<span id="prediction"></span><h2>Prediction<a class="headerlink" href="#prediction" title="Permalink to this headline">¶</a></h2>
+<span id="prediction"></span><h1>Prediction<a class="headerlink" href="#prediction" title="Permalink to this headline">¶</a></h1>
 <p>Making predictions for new time series based on these models follows the same pattern:
 first the time series are featurized using
 <a class="reference external" href="https://cesium.readthedocs.org/en/latest/api/cesium.featurize.html#cesium.featurize.featurize_time_series"><code class="docutils literal"><span class="pre">featurize_timeseries</span></code></a>,
@@ -396,18 +401,20 @@ and then predictions are made based on these features using
           <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_dwt</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">test</span><span class="p">])))</span>
 </pre></div>
 </div>
-<div class="highlight-output"><div class="highlight"><pre><span></span>Built-in cesium features: training accuracy=100.00%, test accuracy=84.00%
+<div class="highlight-output"><div class="highlight"><pre><span></span>Built-in cesium features: training accuracy=99.20%, test accuracy=82.40%
 Guo et al. features: training accuracy=90.93%, test accuracy=84.80%
 Wavelet transform features: training accuracy=100.00%, test accuracy=95.20%
 
 </pre></div>
 </div>
 <p>The workflow presented here is intentionally simplistic and omits many important steps
-such as feature selection, model parameter selection, etc. Since we make use of standard
-<code class="docutils literal"><span class="pre">scikit-learn</span></code> models, additional steps can be incorporated in the same way they would be
-for any other (non-time domain) machine learning problem.</p>
-<p>IPython notebook: <a href="EEG_Example.ipynb" download="EEG_Example.ipynb">download</a></p>
-</div>
+such as feature selection, model parameter selection, etc., which may all be
+incorporated just as they would for any other <code class="docutils literal"><span class="pre">scikit-learn</span></code> analysis.
+But with essentially three function calls (<code class="docutils literal"><span class="pre">featurize_time_series</span></code>,
+<code class="docutils literal"><span class="pre">build_model_from_featureset</span></code>, and <code class="docutils literal"><span class="pre">model_predictions</span></code>), we are able to build a
+model from a set of time series and make predictions on new, unlabeled data. In
+upcoming posts we&#8217;ll introduce the web frontend for <code class="docutils literal"><span class="pre">cesium</span></code> and describe how
+the same analysis can be performed in a browser with no setup or coding required.</p>
 </div>
 
 
