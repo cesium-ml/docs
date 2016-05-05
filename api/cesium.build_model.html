@@ -35,7 +35,7 @@
     <link rel="top" title="cesium 0.4.dev0 documentation" href="../index.html"/>
         <link rel="up" title="API Reference" href="api.html"/>
         <link rel="next" title="Module: data_management" href="cesium.data_management.html"/>
-        <link rel="prev" title="cesium" href="cesium.html"/> 
+        <link rel="prev" title="API Reference" href="api.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -86,9 +86,9 @@
             
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html#testing">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="cesium.html"><code class="docutils literal"><span class="pre">cesium</span></code></a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Module: <code class="docutils literal"><span class="pre">build_model</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#build-model-from-featureset">build_model_from_featureset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-and-pickle-model">create_and_pickle_model</a></li>
@@ -177,7 +177,7 @@
 <h2>build_model_from_featureset<a class="headerlink" href="#build-model-from-featureset" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="cesium.build_model.build_model_from_featureset">
-<code class="descclassname">cesium.build_model.</code><code class="descname">build_model_from_featureset</code><span class="sig-paren">(</span><em>featureset</em>, <em>model=None</em>, <em>model_type=None</em>, <em>model_options={}</em>, <em>params_to_optimize=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.build_model.build_model_from_featureset" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">cesium.build_model.</code><code class="descname">build_model_from_featureset</code><span class="sig-paren">(</span><em>featureset</em>, <em>model=None</em>, <em>model_type=None</em>, <em>model_options={}</em>, <em>params_to_optimize=None</em>, <em>cv=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.build_model.build_model_from_featureset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build model from (non-rectangular) xarray.Dataset of features.</p>
 </dd></dl>
 
@@ -228,7 +228,7 @@ as values, or a list of such dictionaries. Defaults to None.</p>
 <h2>fit_model_optimize_hyperparams<a class="headerlink" href="#fit-model-optimize-hyperparams" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="cesium.build_model.fit_model_optimize_hyperparams">
-<code class="descclassname">cesium.build_model.</code><code class="descname">fit_model_optimize_hyperparams</code><span class="sig-paren">(</span><em>data</em>, <em>targets</em>, <em>model</em>, <em>params_to_optimize</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.build_model.fit_model_optimize_hyperparams" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">cesium.build_model.</code><code class="descname">fit_model_optimize_hyperparams</code><span class="sig-paren">(</span><em>data</em>, <em>targets</em>, <em>model</em>, <em>params_to_optimize</em>, <em>cv=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.build_model.fit_model_optimize_hyperparams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Optimize estimator hyperparameters.</p>
 <p>Perform hyperparamter optimization using
 <cite>sklearn.grid_search.GridSearchCV</cite>.</p>
@@ -252,6 +252,11 @@ as values, or a list of such dictionaries. Defaults to None.</p>
 <blockquote>
 <div><p>Dictionary with parameter names as keys and lists of values to try
 as values, or a list of such dictionaries.</p>
+</div></blockquote>
+<p><strong>cv</strong> : int, cross-validation generator or an iterable, optional</p>
+<blockquote>
+<div><p>Number of folds (defaults to 3) or an iterable yielding train/test
+splits. See documentation for <cite>GridSearchCV</cite> for details.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -284,7 +289,7 @@ as values, or a list of such dictionaries.</p>
         <a href="cesium.data_management.html" class="btn btn-neutral float-right" title="Module: data_management" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="cesium.html" class="btn btn-neutral" title="cesium" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="api.html" class="btn btn-neutral" title="API Reference" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

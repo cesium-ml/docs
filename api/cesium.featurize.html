@@ -85,9 +85,9 @@
             
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html#testing">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="cesium.html"><code class="docutils literal"><span class="pre">cesium</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.build_model.html">Module: <code class="docutils literal"><span class="pre">build_model</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.data_management.html">Module: <code class="docutils literal"><span class="pre">data_management</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.datasets.html">Module: <code class="docutils literal"><span class="pre">datasets</span></code></a></li>
@@ -191,7 +191,7 @@
 <h2>featurize_data_files<a class="headerlink" href="#featurize-data-files" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="cesium.featurize.featurize_data_files">
-<code class="descclassname">cesium.featurize.</code><code class="descname">featurize_data_files</code><span class="sig-paren">(</span><em>ts_paths</em>, <em>features_to_use=[]</em>, <em>output_path=None</em>, <em>first_N=None</em>, <em>custom_script_path=None</em>, <em>use_docker=True</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.featurize_data_files" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">cesium.featurize.</code><code class="descname">featurize_data_files</code><span class="sig-paren">(</span><em>ts_paths</em>, <em>features_to_use=[]</em>, <em>output_path=None</em>, <em>first_N=None</em>, <em>custom_script_path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.featurize_data_files" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate features for labeled time series data.</p>
 <p>Each file should consist of one comma-separated line of per data point,
 where each line contains either pairs (time, value) or triples (time,
@@ -227,11 +227,6 @@ Can be used to reduce the number of files for testing purposes. If
 <div><p>Path to Python script containing function definitions for the
 generation of any custom features. Defaults to None.</p>
 </div></blockquote>
-<p><strong>use_docker</strong> : bool, optional</p>
-<blockquote>
-<div><p>Bool specifying whether to generate custom features inside a Docker
-container. Defaults to True.</p>
-</div></blockquote>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">xarray.Dataset</p>
@@ -250,7 +245,7 @@ containing filenames and targets (if applicable).</p>
 <h2>featurize_time_series<a class="headerlink" href="#featurize-time-series" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="cesium.featurize.featurize_time_series">
-<code class="descclassname">cesium.featurize.</code><code class="descname">featurize_time_series</code><span class="sig-paren">(</span><em>times</em>, <em>values</em>, <em>errors=None</em>, <em>features_to_use=[]</em>, <em>targets=None</em>, <em>meta_features={}</em>, <em>labels=None</em>, <em>custom_script_path=None</em>, <em>custom_functions=None</em>, <em>use_docker=True</em>, <em>use_celery=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.featurize_time_series" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">cesium.featurize.</code><code class="descname">featurize_time_series</code><span class="sig-paren">(</span><em>times</em>, <em>values</em>, <em>errors=None</em>, <em>features_to_use=[]</em>, <em>targets=None</em>, <em>meta_features={}</em>, <em>labels=None</em>, <em>custom_script_path=None</em>, <em>custom_functions=None</em>, <em>use_celery=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.featurize_time_series" title="Permalink to this definition">¶</a></dt>
 <dd><p>Versatile feature generation function for one or more time series.</p>
 <p>For a single time series, inputs may have the form:</p>
 <ul class="simple">
@@ -334,11 +329,6 @@ and values functions that take arguments (t, m, e); in the case of a
 dask graph, these arrays should be referenced as &#8216;t&#8217;, &#8216;m&#8217;, &#8216;e&#8217;,
 respectively, and any values with keys present in <cite>features_to_use</cite>
 will be computed.</p>
-</div></blockquote>
-<p><strong>use_docker</strong> : bool, optional</p>
-<blockquote>
-<div><p>Bool specifying whether to generate custom features inside a Docker
-container. Defaults to True.</p>
 </div></blockquote>
 <p><strong>use_celery</strong> : bool, optional</p>
 <blockquote>

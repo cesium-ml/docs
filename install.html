@@ -84,17 +84,8 @@
             
             
                 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#installation-library">Installation (library)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installation-web-app">Installation (web app)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#starting-the-web-app">Starting the web app</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#back-end">Back-end</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#front-end">Front-end</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#testing">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/api.html">API</a></li>
 </ul>
@@ -141,12 +132,13 @@
             
   <div class="section" id="installation">
 <span id="installation"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="installation-library">
-<span id="installation-library"></span><h2>Installation (library)<a class="headerlink" href="#installation-library" title="Permalink to this headline">¶</a></h2>
 <p>The latest version of <code class="docutils literal"><span class="pre">cesium</span></code> can be installed via <code class="docutils literal"><span class="pre">pip</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span>pip install cesium
 </pre></div>
 </div>
+<p><em>Note:</em> We depend on NetCDF4, which currently has no Linux wheel, so tries to
+compile itself.  You may therefore need to install the netcdf4 headers and
+library separately.</p>
 <p>The cesium library has the following dependencies:</p>
 <ul class="simple">
 <li><a class="reference external" href="http://www.numpy.org/">numpy</a></li>
@@ -156,74 +148,23 @@
 <li><a class="reference external" href="http://cython.org/">cython</a></li>
 <li><a class="reference external" href="http://dask.pydata.org/">dask</a></li>
 <li><a class="reference external" href="http://xarray.pydata.org/">xarray</a></li>
+<li><a class="reference external" href="http://unidata.github.io/netcdf4-python/">NetCDF4</a></li>
 </ul>
-<p>The easiest way to install the necessary dependencies is using <code class="docutils literal"><span class="pre">conda</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>conda install numpy scipy pandas scikit-learn cython dask xarray
-</pre></div>
-</div>
-<p>The <code class="docutils literal"><span class="pre">cesium</span></code> library is compatible with both Python 2 and 3.</p>
-</div>
-<div class="section" id="installation-web-app">
-<span id="installation-web-app"></span><h2>Installation (web app)<a class="headerlink" href="#installation-web-app" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Install the library dependencies above:</li>
-</ul>
-<div class="highlight-python"><div class="highlight"><pre><span></span>conda install numpy scipy pandas scikit-learn cython dask xarray
-</pre></div>
-</div>
+<p>For parallel processing, you will also need:</p>
 <ul class="simple">
 <li>Install <a class="reference external" href="https://www.rabbitmq.com/download.html">RabbitMQ</a><ul>
 <li>Ensure server is running with <code class="docutils literal"><span class="pre">rabbitmq-server</span> <span class="pre">-detached</span></code></li>
 </ul>
 </li>
-<li>Install <a class="reference external" href="https://www.rethinkdb.com/docs/install/">RethinkDB</a></li>
-<li>Install <a class="reference external" href="https://docs.docker.com/engine/installation/">Docker</a> (optional)<ul>
-<li>Only required to support the execution of user-specified (custom) feature extraction functions</li>
-<li>Pull down the required images: <code class="docutils literal"><span class="pre">tools/docker_pull.sh</span></code></li>
-<li>Alternatively (but this takes much longer), build the images on your own machine:
-<code class="docutils literal"><span class="pre">tools/build_docker_images.sh</span></code></li>
 </ul>
-</li>
-<li>Install the <code class="docutils literal"><span class="pre">cesium</span></code> package (from source)<ul>
-<li>Clone the (git repo)[https://github.com/cesium/cesium]:
-<code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/cesium/cesium.git</span></code></li>
-<li>Within the source directory, install via <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code></li>
-</ul>
-</li>
-<li>Setup sample data and configuration files: <code class="docutils literal"><span class="pre">cesium</span> <span class="pre">--install</span></code><ul>
-<li>Optional: locate <code class="docutils literal"><span class="pre">~/.config/cesium/cesium.yaml</span></code> and customize authentication tokens</li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="starting-the-web-app">
-<span id="starting-the-web-app"></span><h2>Starting the web app<a class="headerlink" href="#starting-the-web-app" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Create the cesium database: <code class="docutils literal"><span class="pre">cesium</span> <span class="pre">--db-init</span></code></li>
-<li>Launch the web platform: <code class="docutils literal"><span class="pre">cd</span> <span class="pre">web_client</span> <span class="pre">&amp;&amp;</span> <span class="pre">make</span></code></li>
-<li>User authentication is required by default; disable by modifying
-&#8216;disable_auth&#8217; in the configuration file.</li>
-<li>Navigate to <code class="docutils literal"><span class="pre">http://localhost:5000</span></code>.</li>
-<li>The port can be configured in <code class="docutils literal"><span class="pre">web_client/nginx.conf</span></code>.</li>
-</ul>
+<p>The <code class="docutils literal"><span class="pre">cesium</span></code> library runs on Python 2 and 3.</p>
 </div>
 <div class="section" id="testing">
-<span id="testing"></span><h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="back-end">
-<span id="back-end"></span><h3>Back-end<a class="headerlink" href="#back-end" title="Permalink to this headline">¶</a></h3>
+<span id="testing"></span><h1>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">nose</span> <span class="pre">nose-exclude</span> <span class="pre">mock</span></code></li>
-<li><code class="docutils literal"><span class="pre">make</span> <span class="pre">test_backend</span></code></li>
+<li><code class="docutils literal"><span class="pre">make</span> <span class="pre">test</span></code></li>
 </ul>
-</div>
-<div class="section" id="front-end">
-<span id="front-end"></span><h3>Front-end<a class="headerlink" href="#front-end" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li>Install <a class="reference external" href="http://phantomjs.org/build.html">PhantomJS</a></li>
-<li><code class="docutils literal"><span class="pre">make</span> <span class="pre">test_frontend</span></code></li>
-</ul>
-</div>
-</div>
 </div>
 
 
