@@ -47,9 +47,10 @@ module. The `featurize` module includes many built-in choices of features which 
 for any type of time series data; here we've chosen a few generic features that do not have
 any special biological significance.
 
-If Celery is running, the time series will automatically be split among the available workers
-and featurized in parallel; setting `use_celery=False` will cause the time series to be
-featurized serially.
+By default, the time series will featurized in parallel using the
+`dask.multiprocessing` scheduler; other approaches, including serial and
+distributed approaches, can be implemented by passing in other `dask`
+schedulers as the `get` argument to `featurize_time_series`.
 
 ```python
 from cesium import featurize
@@ -68,7 +69,7 @@ fset_cesium = featurize.featurize_time_series(times=eeg["times"],
                                               values=eeg["measurements"],
                                               errors=None,
                                               features_to_use=features_to_use,
-                                              targets=eeg["classes"], use_celery=True)
+                                              targets=eeg["classes"])
 print(fset_cesium)
 ```
 
@@ -124,8 +125,7 @@ guo_features = {
 fset_guo = featurize.featurize_time_series(times=eeg["times"], values=eeg["measurements"],
                                            errors=None, targets=eeg["classes"], 
                                            features_to_use=list(guo_features.keys()),
-                                           custom_functions=guo_features,
-                                           use_celery=True)
+                                           custom_functions=guo_features)
 print(fset_guo)
 ```
 
@@ -212,14 +212,14 @@ preds_guo = model_predictions(fset_guo, model_guo, return_probs=False)
 preds_dwt = model_predictions(fset_dwt, model_dwt, return_probs=False)
 
 print("Built-in cesium features: training accuracy={:.2%}, test accuracy={:.2%}".format(
-          accuracy_score(preds_cesium[train], eeg["classes"][train]),
-          accuracy_score(preds_cesium[test], eeg["classes"][test])))
+          accuracy_score(preds_cesium.prediction.values[train], eeg["classes"][train]),
+          accuracy_score(preds_cesium.prediction.values[test], eeg["classes"][test])))
 print("Guo et al. features: training accuracy={:.2%}, test accuracy={:.2%}".format(
-          accuracy_score(preds_guo[train], eeg["classes"][train]),
-          accuracy_score(preds_guo[test], eeg["classes"][test])))
+          accuracy_score(preds_guo.prediction.values[train], eeg["classes"][train]),
+          accuracy_score(preds_guo.prediction.values[test], eeg["classes"][test])))
 print("Wavelet transform features: training accuracy={:.2%}, test accuracy={:.2%}".format(
-          accuracy_score(preds_dwt[train], eeg["classes"][train]),
-          accuracy_score(preds_dwt[test], eeg["classes"][test])))
+          accuracy_score(preds_dwt.prediction.values[train], eeg["classes"][train]),
+          accuracy_score(preds_dwt.prediction.values[test], eeg["classes"][test])))
 ```
 
 The workflow presented here is intentionally simplistic and omits many important steps

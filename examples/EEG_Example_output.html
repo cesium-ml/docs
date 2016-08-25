@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Epilepsy Detection Using EEG Data &mdash; cesium 0.4.dev0 documentation</title>
+  <title>Epilepsy Detection Using EEG Data &mdash; cesium 0.7.dev0 documentation</title>
   
 
   
@@ -32,7 +32,7 @@
   
 
   
-    <link rel="top" title="cesium 0.4.dev0 documentation" href="../index.html"/> 
+    <link rel="top" title="cesium 0.7.dev0 documentation" href="../index.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.4
+                0.6
               </div>
             
           
@@ -167,7 +167,17 @@ holdout set and comparing them to the true class labels.</p>
     <span class="n">subplot</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="png" src="../_images/EEG_Example_output_1_0.png" /></p>
+<div class="highlight-output"><div class="highlight"><pre><span></span>/home/travis/virtualenv/python3.5.2/lib/python3.5/site-packages/matplotlib/font_manager.py:273: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
+  warnings.warn(&#39;Matplotlib is building the font cache using fc-list. This may take a moment.&#39;)
+/home/travis/virtualenv/python3.5.2/lib/python3.5/site-packages/matplotlib/font_manager.py:273: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
+  warnings.warn(&#39;Matplotlib is building the font cache using fc-list. This may take a moment.&#39;)
+/home/travis/virtualenv/python3.5.2/lib/python3.5/site-packages/IPython/html.py:14: ShimWarning: The `IPython.html` package has been deprecated. You should import from `notebook` instead. `IPython.html.widgets` has moved to `ipywidgets`.
+  &quot;`IPython.html.widgets` has moved to `ipywidgets`.&quot;, ShimWarning)
+Loaded data from cached archive.
+
+</pre></div>
+</div>
+<p><img alt="png" src="../_images/EEG_Example_output_1_1.png" /></p>
 <div class="section" id="featurization">
 <span id="featurization"></span><h2>Featurization<a class="headerlink" href="#featurization" title="Permalink to this headline">¶</a></h2>
 <p>Once the data is loaded, we can generate features for each time series using the
@@ -175,9 +185,10 @@ holdout set and comparing them to the true class labels.</p>
 module. The <code class="docutils literal"><span class="pre">featurize</span></code> module includes many built-in choices of features which can be applied
 for any type of time series data; here we&#8217;ve chosen a few generic features that do not have
 any special biological significance.</p>
-<p>If Celery is running, the time series will automatically be split among the available workers
-and featurized in parallel; setting <code class="docutils literal"><span class="pre">use_celery=False</span></code> will cause the time series to be
-featurized serially.</p>
+<p>By default, the time series will featurized in parallel using the
+<code class="docutils literal"><span class="pre">dask.multiprocessing</span></code> scheduler; other approaches, including serial and
+distributed approaches, can be implemented by passing in other <code class="docutils literal"><span class="pre">dask</span></code>
+schedulers as the <code class="docutils literal"><span class="pre">get</span></code> argument to <code class="docutils literal"><span class="pre">featurize_time_series</span></code>.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span>
 <span class="kn">from</span> <span class="nn">cesium</span> <span class="kn">import</span> <span class="n">featurize</span>
 <span class="n">features_to_use</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;amplitude&#39;</span><span class="p">,</span>
@@ -195,28 +206,28 @@ featurized serially.</p>
                                               <span class="n">values</span><span class="o">=</span><span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;measurements&quot;</span><span class="p">],</span>
                                               <span class="n">errors</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
                                               <span class="n">features_to_use</span><span class="o">=</span><span class="n">features_to_use</span><span class="p">,</span>
-                                              <span class="n">targets</span><span class="o">=</span><span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">],</span> <span class="n">use_celery</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                                              <span class="n">targets</span><span class="o">=</span><span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">])</span>
 <span class="k">print</span><span class="p">(</span><span class="n">fset_cesium</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-output"><div class="highlight"><pre><span></span>&lt;xarray.Dataset&gt;
 Dimensions:                    (channel: 1, name: 500)
 Coordinates:
-  * channel                    (channel) int64 0
   * name                       (name) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 ...
-    target                     (name) object &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; ...
+  * channel                    (channel) int64 0
+    target                     (name) &lt;U10 &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; ...
 Data variables:
-    skew                       (name, channel) float64 0.0328 -0.09271 ...
-    median_absolute_deviation  (name, channel) float64 28.0 32.0 31.0 31.0 ...
-    maximum                    (name, channel) float64 141.0 169.0 184.0 ...
-    median                     (name, channel) float64 -4.0 -51.0 13.0 -4.0 ...
-    percent_beyond_1_std       (name, channel) float64 0.1626 0.1455 0.1523 ...
     std                        (name, channel) float64 40.41 48.81 47.14 ...
+    skew                       (name, channel) float64 0.0328 -0.09271 ...
+    max_slope                  (name, channel) float64 1.111e+04 2.065e+04 ...
     weighted_average           (name, channel) float64 -4.132 -52.44 12.71 ...
     minimum                    (name, channel) float64 -146.0 -254.0 -146.0 ...
-    amplitude                  (name, channel) float64 143.5 211.5 165.0 ...
+    maximum                    (name, channel) float64 141.0 169.0 184.0 ...
+    median                     (name, channel) float64 -4.0 -51.0 13.0 -4.0 ...
+    median_absolute_deviation  (name, channel) float64 28.0 32.0 31.0 31.0 ...
     percent_close_to_median    (name, channel) float64 0.505 0.6405 0.516 ...
-    max_slope                  (name, channel) float64 1.111e+04 2.065e+04 ...
+    amplitude                  (name, channel) float64 143.5 211.5 165.0 ...
+    percent_beyond_1_std       (name, channel) float64 0.1626 0.1455 0.1523 ...
 
 </pre></div>
 </div>
@@ -270,23 +281,22 @@ keyword argument.</p>
 <span class="n">fset_guo</span> <span class="o">=</span> <span class="n">featurize</span><span class="o">.</span><span class="n">featurize_time_series</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;measurements&quot;</span><span class="p">],</span>
                                            <span class="n">errors</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">],</span> 
                                            <span class="n">features_to_use</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">guo_features</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span>
-                                           <span class="n">custom_functions</span><span class="o">=</span><span class="n">guo_features</span><span class="p">,</span>
-                                           <span class="n">use_celery</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                                           <span class="n">custom_functions</span><span class="o">=</span><span class="n">guo_features</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">fset_guo</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-output"><div class="highlight"><pre><span></span>&lt;xarray.Dataset&gt;
 Dimensions:    (channel: 1, name: 500)
 Coordinates:
-  * channel    (channel) int64 0
   * name       (name) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 ...
-    target     (name) object &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; ...
+  * channel    (channel) int64 0
+    target     (name) &lt;U10 &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; ...
 Data variables:
-    mean2      (name, channel) float64 1.65e+03 5.133e+03 2.384e+03 ...
-    abs_diffs  (name, channel) float64 4.695e+04 6.112e+04 5.127e+04 ...
-    skew       (name, channel) float64 0.0328 -0.09271 -0.0041 0.06368 ...
     std        (name, channel) float64 40.41 48.81 47.14 47.07 44.91 45.02 ...
+    skew       (name, channel) float64 0.0328 -0.09271 -0.0041 0.06368 ...
+    abs_diffs  (name, channel) float64 4.695e+04 6.112e+04 5.127e+04 ...
     mean       (name, channel) float64 -4.132 -52.44 12.71 -3.992 -18.0 ...
+    mean2      (name, channel) float64 1.65e+03 5.133e+03 2.384e+03 ...
 
 </pre></div>
 </div>
@@ -316,15 +326,15 @@ featurize each band separately using the five functions from above.</p>
 <div class="highlight-output"><div class="highlight"><pre><span></span>&lt;xarray.Dataset&gt;
 Dimensions:    (channel: 5, name: 500)
 Coordinates:
-  * channel    (channel) int64 0 1 2 3 4
   * name       (name) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 ...
-    target     (name) object &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; ...
+  * channel    (channel) int64 0 1 2 3 4
+    target     (name) &lt;U10 &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; &#39;Normal&#39; ...
 Data variables:
-    mean2      (name, channel) float64 1.294e+04 5.362e+03 2.321e+03 664.4 ...
-    abs_diffs  (name, channel) float64 2.513e+04 1.806e+04 3.241e+04 ...
-    skew       (name, channel) float64 -0.0433 0.06578 0.2999 0.1239 0.1179 ...
     std        (name, channel) float64 112.5 72.97 48.17 25.77 10.15 119.8 ...
+    skew       (name, channel) float64 -0.0433 0.06578 0.2999 0.1239 0.1179 ...
+    abs_diffs  (name, channel) float64 2.513e+04 1.806e+04 3.241e+04 ...
     mean       (name, channel) float64 -17.08 -6.067 -0.9793 0.1546 0.03555 ...
+    mean2      (name, channel) float64 1.294e+04 5.362e+03 2.321e+03 664.4 ...
 
 </pre></div>
 </div>
@@ -390,17 +400,17 @@ and then predictions are made based on these features using
 <span class="n">preds_dwt</span> <span class="o">=</span> <span class="n">model_predictions</span><span class="p">(</span><span class="n">fset_dwt</span><span class="p">,</span> <span class="n">model_dwt</span><span class="p">,</span> <span class="n">return_probs</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Built-in cesium features: training accuracy={:.2%}, test accuracy={:.2%}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_cesium</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">train</span><span class="p">]),</span>
-          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_cesium</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">test</span><span class="p">])))</span>
+          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_cesium</span><span class="o">.</span><span class="n">prediction</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">train</span><span class="p">]),</span>
+          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_cesium</span><span class="o">.</span><span class="n">prediction</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">test</span><span class="p">])))</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Guo et al. features: training accuracy={:.2%}, test accuracy={:.2%}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_guo</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">train</span><span class="p">]),</span>
-          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_guo</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">test</span><span class="p">])))</span>
+          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_guo</span><span class="o">.</span><span class="n">prediction</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">train</span><span class="p">]),</span>
+          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_guo</span><span class="o">.</span><span class="n">prediction</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">test</span><span class="p">])))</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Wavelet transform features: training accuracy={:.2%}, test accuracy={:.2%}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_dwt</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">train</span><span class="p">]),</span>
-          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_dwt</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">test</span><span class="p">])))</span>
+          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_dwt</span><span class="o">.</span><span class="n">prediction</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">train</span><span class="p">]),</span>
+          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_dwt</span><span class="o">.</span><span class="n">prediction</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">test</span><span class="p">])))</span>
 </pre></div>
 </div>
-<div class="highlight-output"><div class="highlight"><pre><span></span>Built-in cesium features: training accuracy=99.73%, test accuracy=82.40%
+<div class="highlight-output"><div class="highlight"><pre><span></span>Built-in cesium features: training accuracy=100.00%, test accuracy=80.80%
 Guo et al. features: training accuracy=90.93%, test accuracy=84.80%
 Wavelet transform features: training accuracy=100.00%, test accuracy=95.20%
 
@@ -449,7 +459,7 @@ the same analysis can be performed in a browser with no setup or coding required
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.4.dev0',
+            VERSION:'0.7.dev0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

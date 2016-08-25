@@ -44,8 +44,19 @@ for label, subplot in zip(np.unique(eeg["classes"]), ax):
     subplot.set(xlabel="time (s)", ylabel="signal", title=label)
 ```
 
+```output
+/home/travis/virtualenv/python3.5.2/lib/python3.5/site-packages/matplotlib/font_manager.py:273: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
+  warnings.warn('Matplotlib is building the font cache using fc-list. This may take a moment.')
+/home/travis/virtualenv/python3.5.2/lib/python3.5/site-packages/matplotlib/font_manager.py:273: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
+  warnings.warn('Matplotlib is building the font cache using fc-list. This may take a moment.')
+/home/travis/virtualenv/python3.5.2/lib/python3.5/site-packages/IPython/html.py:14: ShimWarning: The `IPython.html` package has been deprecated. You should import from `notebook` instead. `IPython.html.widgets` has moved to `ipywidgets`.
+  "`IPython.html.widgets` has moved to `ipywidgets`.", ShimWarning)
+Loaded data from cached archive.
 
-![png](EEG_Example_output_files/EEG_Example_output_1_0.png)
+```
+
+
+![png](EEG_Example_output_files/EEG_Example_output_1_1.png)
 
 
 ## Featurization
@@ -55,9 +66,10 @@ module. The `featurize` module includes many built-in choices of features which 
 for any type of time series data; here we've chosen a few generic features that do not have
 any special biological significance.
 
-If Celery is running, the time series will automatically be split among the available workers
-and featurized in parallel; setting `use_celery=False` will cause the time series to be
-featurized serially.
+By default, the time series will featurized in parallel using the
+`dask.multiprocessing` scheduler; other approaches, including serial and
+distributed approaches, can be implemented by passing in other `dask`
+schedulers as the `get` argument to `featurize_time_series`.
 
 
 
@@ -79,7 +91,7 @@ fset_cesium = featurize.featurize_time_series(times=eeg["times"],
                                               values=eeg["measurements"],
                                               errors=None,
                                               features_to_use=features_to_use,
-                                              targets=eeg["classes"], use_celery=True)
+                                              targets=eeg["classes"])
 print(fset_cesium)
 ```
 
@@ -87,21 +99,21 @@ print(fset_cesium)
 <xarray.Dataset>
 Dimensions:                    (channel: 1, name: 500)
 Coordinates:
-  * channel                    (channel) int64 0
   * name                       (name) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 ...
-    target                     (name) object 'Normal' 'Normal' 'Normal' ...
+  * channel                    (channel) int64 0
+    target                     (name) <U10 'Normal' 'Normal' 'Normal' ...
 Data variables:
-    skew                       (name, channel) float64 0.0328 -0.09271 ...
-    median_absolute_deviation  (name, channel) float64 28.0 32.0 31.0 31.0 ...
-    maximum                    (name, channel) float64 141.0 169.0 184.0 ...
-    median                     (name, channel) float64 -4.0 -51.0 13.0 -4.0 ...
-    percent_beyond_1_std       (name, channel) float64 0.1626 0.1455 0.1523 ...
     std                        (name, channel) float64 40.41 48.81 47.14 ...
+    skew                       (name, channel) float64 0.0328 -0.09271 ...
+    max_slope                  (name, channel) float64 1.111e+04 2.065e+04 ...
     weighted_average           (name, channel) float64 -4.132 -52.44 12.71 ...
     minimum                    (name, channel) float64 -146.0 -254.0 -146.0 ...
-    amplitude                  (name, channel) float64 143.5 211.5 165.0 ...
+    maximum                    (name, channel) float64 141.0 169.0 184.0 ...
+    median                     (name, channel) float64 -4.0 -51.0 13.0 -4.0 ...
+    median_absolute_deviation  (name, channel) float64 28.0 32.0 31.0 31.0 ...
     percent_close_to_median    (name, channel) float64 0.505 0.6405 0.516 ...
-    max_slope                  (name, channel) float64 1.111e+04 2.065e+04 ...
+    amplitude                  (name, channel) float64 143.5 211.5 165.0 ...
+    percent_beyond_1_std       (name, channel) float64 0.1626 0.1455 0.1523 ...
 
 ```
 
@@ -163,8 +175,7 @@ guo_features = {
 fset_guo = featurize.featurize_time_series(times=eeg["times"], values=eeg["measurements"],
                                            errors=None, targets=eeg["classes"], 
                                            features_to_use=list(guo_features.keys()),
-                                           custom_functions=guo_features,
-                                           use_celery=True)
+                                           custom_functions=guo_features)
 print(fset_guo)
 ```
 
@@ -172,15 +183,15 @@ print(fset_guo)
 <xarray.Dataset>
 Dimensions:    (channel: 1, name: 500)
 Coordinates:
-  * channel    (channel) int64 0
   * name       (name) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 ...
-    target     (name) object 'Normal' 'Normal' 'Normal' 'Normal' 'Normal' ...
+  * channel    (channel) int64 0
+    target     (name) <U10 'Normal' 'Normal' 'Normal' 'Normal' 'Normal' ...
 Data variables:
-    mean2      (name, channel) float64 1.65e+03 5.133e+03 2.384e+03 ...
-    abs_diffs  (name, channel) float64 4.695e+04 6.112e+04 5.127e+04 ...
-    skew       (name, channel) float64 0.0328 -0.09271 -0.0041 0.06368 ...
     std        (name, channel) float64 40.41 48.81 47.14 47.07 44.91 45.02 ...
+    skew       (name, channel) float64 0.0328 -0.09271 -0.0041 0.06368 ...
+    abs_diffs  (name, channel) float64 4.695e+04 6.112e+04 5.127e+04 ...
     mean       (name, channel) float64 -4.132 -52.44 12.71 -3.992 -18.0 ...
+    mean2      (name, channel) float64 1.65e+03 5.133e+03 2.384e+03 ...
 
 ```
 
@@ -213,15 +224,15 @@ print(fset_dwt)
 <xarray.Dataset>
 Dimensions:    (channel: 5, name: 500)
 Coordinates:
-  * channel    (channel) int64 0 1 2 3 4
   * name       (name) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 ...
-    target     (name) object 'Normal' 'Normal' 'Normal' 'Normal' 'Normal' ...
+  * channel    (channel) int64 0 1 2 3 4
+    target     (name) <U10 'Normal' 'Normal' 'Normal' 'Normal' 'Normal' ...
 Data variables:
-    mean2      (name, channel) float64 1.294e+04 5.362e+03 2.321e+03 664.4 ...
-    abs_diffs  (name, channel) float64 2.513e+04 1.806e+04 3.241e+04 ...
-    skew       (name, channel) float64 -0.0433 0.06578 0.2999 0.1239 0.1179 ...
     std        (name, channel) float64 112.5 72.97 48.17 25.77 10.15 119.8 ...
+    skew       (name, channel) float64 -0.0433 0.06578 0.2999 0.1239 0.1179 ...
+    abs_diffs  (name, channel) float64 2.513e+04 1.806e+04 3.241e+04 ...
     mean       (name, channel) float64 -17.08 -6.067 -0.9793 0.1546 0.03555 ...
+    mean2      (name, channel) float64 1.294e+04 5.362e+03 2.321e+03 664.4 ...
 
 ```
 
@@ -292,18 +303,18 @@ preds_guo = model_predictions(fset_guo, model_guo, return_probs=False)
 preds_dwt = model_predictions(fset_dwt, model_dwt, return_probs=False)
 
 print("Built-in cesium features: training accuracy={:.2%}, test accuracy={:.2%}".format(
-          accuracy_score(preds_cesium[train], eeg["classes"][train]),
-          accuracy_score(preds_cesium[test], eeg["classes"][test])))
+          accuracy_score(preds_cesium.prediction.values[train], eeg["classes"][train]),
+          accuracy_score(preds_cesium.prediction.values[test], eeg["classes"][test])))
 print("Guo et al. features: training accuracy={:.2%}, test accuracy={:.2%}".format(
-          accuracy_score(preds_guo[train], eeg["classes"][train]),
-          accuracy_score(preds_guo[test], eeg["classes"][test])))
+          accuracy_score(preds_guo.prediction.values[train], eeg["classes"][train]),
+          accuracy_score(preds_guo.prediction.values[test], eeg["classes"][test])))
 print("Wavelet transform features: training accuracy={:.2%}, test accuracy={:.2%}".format(
-          accuracy_score(preds_dwt[train], eeg["classes"][train]),
-          accuracy_score(preds_dwt[test], eeg["classes"][test])))
+          accuracy_score(preds_dwt.prediction.values[train], eeg["classes"][train]),
+          accuracy_score(preds_dwt.prediction.values[test], eeg["classes"][test])))
 ```
 
 ```output
-Built-in cesium features: training accuracy=99.73%, test accuracy=82.40%
+Built-in cesium features: training accuracy=100.00%, test accuracy=80.80%
 Guo et al. features: training accuracy=90.93%, test accuracy=84.80%
 Wavelet transform features: training accuracy=100.00%, test accuracy=95.20%
 

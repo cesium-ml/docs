@@ -7,27 +7,33 @@ Module: :mod:`featurize`
 .. currentmodule:: cesium.featurize
 .. autosummary::
 
-   cesium.featurize.celery_available
-   cesium.featurize.featurize_data_files
+   cesium.featurize.assemble_featureset
+   cesium.featurize.featurize_single_ts
    cesium.featurize.featurize_time_series
+   cesium.featurize.featurize_ts_files
    cesium.featurize.load_and_store_feature_data
 
    cesium.featurize.TimeSeries
 
-celery_available
-----------------
+assemble_featureset
+-------------------
 
-.. autofunction:: cesium.featurize.celery_available
+.. autofunction:: cesium.featurize.assemble_featureset
 
-featurize_data_files
---------------------
+featurize_single_ts
+-------------------
 
-.. autofunction:: cesium.featurize.featurize_data_files
+.. autofunction:: cesium.featurize.featurize_single_ts
 
 featurize_time_series
 ---------------------
 
 .. autofunction:: cesium.featurize.featurize_time_series
+
+featurize_ts_files
+------------------
+
+.. autofunction:: cesium.featurize.featurize_ts_files
 
 load_and_store_feature_data
 ---------------------------

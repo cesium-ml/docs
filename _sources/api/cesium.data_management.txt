@@ -11,6 +11,7 @@ Module: :mod:`data_management`
    cesium.data_management.parse_headerfile
    cesium.data_management.parse_ts_data
 
+   cesium.data_management.DataFormatError
    cesium.data_management.TimeSeries
 
 parse_and_store_ts_data
@@ -28,6 +29,17 @@ parse_ts_data
 
 .. autofunction:: cesium.data_management.parse_ts_data
 
+
+:class:`DataFormatError`
+------------------------
+
+
+.. autoclass:: DataFormatError
+  :members:
+  :undoc-members:
+  :show-inheritance:
+
+  .. automethod:: __init__
 
 :class:`TimeSeries`
 -------------------

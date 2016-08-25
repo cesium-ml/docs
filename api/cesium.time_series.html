@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Module: time_series &mdash; cesium 0.4.dev0 documentation</title>
+  <title>Module: time_series &mdash; cesium 0.7.dev0 documentation</title>
   
 
   
@@ -32,7 +32,7 @@
   
 
   
-    <link rel="top" title="cesium 0.4.dev0 documentation" href="../index.html"/>
+    <link rel="top" title="cesium 0.7.dev0 documentation" href="../index.html"/>
         <link rel="up" title="API Reference" href="api.html"/>
         <link rel="prev" title="Module: science_features" href="cesium.science_features.html"/> 
 
@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                0.4
+                0.6
               </div>
             
           
@@ -95,7 +95,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cesium.obs_feature_tools.html">Module: <code class="docutils literal"><span class="pre">obs_feature_tools</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.science_feature_tools.html">Module: <code class="docutils literal"><span class="pre">science_feature_tools</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html">Module: <code class="docutils literal"><span class="pre">science_features</span></code></a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Module: <code class="docutils literal"><span class="pre">time_series</span></code></a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Module: <code class="docutils literal"><span class="pre">time_series</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#from-netcdf">from_netcdf</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#timeseries"><code class="docutils literal"><span class="pre">TimeSeries</span></code></a><ul class="simple">
 </ul>
@@ -197,13 +197,13 @@ all channels of measurement.</p>
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>time</td>
-<td>((n,) or (p, n) array or list of (n,) arrays) Array(s) of times corresponding to measurement values. If <cite>measurement</cite> is multidimensional, this can be one-dimensional (same times for each channel) or multidimensional (different times for each channel).</td>
+<td>((n,) or (p, n) array or list of (n,) arrays) Array(s) of times corresponding to measurement values. If <cite>measurement</cite> is two-dimensional, this can be one-dimensional (same times for each channel) or two-dimensional (different times for each channel). If <cite>time</cite> is one-dimensional then it will be broadcast to match <cite>measurement.shape</cite>.</td>
 </tr>
 <tr class="row-even"><td>measurement</td>
-<td>((n,) or (p, n) array or list of (n,) arrays) Array(s) of measurement values; can be multidimensional for multichannel data. In the case of multichannel data with different numbers of measurements for each channel, <cite>measurement</cite> will be a list of arrays instead of a single two-dimensional array.</td>
+<td>((n,) or (p, n) array or list of (n,) arrays) Array(s) of measurement values; can be two-dimensional for multichannel data. In the case of multichannel data with different numbers of measurements for each channel, <cite>measurement</cite> will be a list of arrays instead of a single two-dimensional array.</td>
 </tr>
 <tr class="row-odd"><td>error</td>
-<td>((n,) or (p, n) array or list of (n,) arrays) Array(s) of measurement errors for each value. If <cite>measurement</cite> is multidimensional, this can be one-dimensional (same times for each channel) or multidimensional (different times for each channel).</td>
+<td>((n,) or (p, n) array or list of (n,) arrays) Array(s) of measurement errors for each value. If <cite>measurement</cite> is two-dimensional, this can be one-dimensional (same times for each channel) or two-dimensional (different times for each channel). If <cite>error</cite> is one-dimensional then it will be broadcast match <cite>measurement.shape</cite>.</td>
 </tr>
 <tr class="row-even"><td>target</td>
 <td>(str, float, or None) Class label or target value for the given time series (if applicable).</td>
@@ -305,7 +305,7 @@ is used.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.4.dev0',
+            VERSION:'0.7.dev0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

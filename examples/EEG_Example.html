@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Epilepsy Detection Using EEG Data &mdash; cesium 0.4.dev0 documentation</title>
+  <title>Epilepsy Detection Using EEG Data &mdash; cesium 0.7.dev0 documentation</title>
   
 
   
@@ -32,7 +32,7 @@
   
 
   
-    <link rel="top" title="cesium 0.4.dev0 documentation" href="../index.html"/> 
+    <link rel="top" title="cesium 0.7.dev0 documentation" href="../index.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.4
+                0.6
               </div>
             
           
@@ -173,9 +173,10 @@ holdout set and comparing them to the true class labels.</p>
 module. The <code class="docutils literal"><span class="pre">featurize</span></code> module includes many built-in choices of features which can be applied
 for any type of time series data; here we&#8217;ve chosen a few generic features that do not have
 any special biological significance.</p>
-<p>If Celery is running, the time series will automatically be split among the available workers
-and featurized in parallel; setting <code class="docutils literal"><span class="pre">use_celery=False</span></code> will cause the time series to be
-featurized serially.</p>
+<p>By default, the time series will featurized in parallel using the
+<code class="docutils literal"><span class="pre">dask.multiprocessing</span></code> scheduler; other approaches, including serial and
+distributed approaches, can be implemented by passing in other <code class="docutils literal"><span class="pre">dask</span></code>
+schedulers as the <code class="docutils literal"><span class="pre">get</span></code> argument to <code class="docutils literal"><span class="pre">featurize_time_series</span></code>.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cesium</span> <span class="kn">import</span> <span class="n">featurize</span>
 <span class="n">features_to_use</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;amplitude&#39;</span><span class="p">,</span>
                    <span class="s1">&#39;percent_beyond_1_std&#39;</span><span class="p">,</span>
@@ -192,7 +193,7 @@ featurized serially.</p>
                                               <span class="n">values</span><span class="o">=</span><span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;measurements&quot;</span><span class="p">],</span>
                                               <span class="n">errors</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
                                               <span class="n">features_to_use</span><span class="o">=</span><span class="n">features_to_use</span><span class="p">,</span>
-                                              <span class="n">targets</span><span class="o">=</span><span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">],</span> <span class="n">use_celery</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                                              <span class="n">targets</span><span class="o">=</span><span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">])</span>
 <span class="k">print</span><span class="p">(</span><span class="n">fset_cesium</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -244,8 +245,7 @@ keyword argument.</p>
 <span class="n">fset_guo</span> <span class="o">=</span> <span class="n">featurize</span><span class="o">.</span><span class="n">featurize_time_series</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;measurements&quot;</span><span class="p">],</span>
                                            <span class="n">errors</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">],</span> 
                                            <span class="n">features_to_use</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">guo_features</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span>
-                                           <span class="n">custom_functions</span><span class="o">=</span><span class="n">guo_features</span><span class="p">,</span>
-                                           <span class="n">use_celery</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                                           <span class="n">custom_functions</span><span class="o">=</span><span class="n">guo_features</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">fset_guo</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -331,14 +331,14 @@ and then predictions are made based on these features using
 <span class="n">preds_dwt</span> <span class="o">=</span> <span class="n">model_predictions</span><span class="p">(</span><span class="n">fset_dwt</span><span class="p">,</span> <span class="n">model_dwt</span><span class="p">,</span> <span class="n">return_probs</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Built-in cesium features: training accuracy={:.2%}, test accuracy={:.2%}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_cesium</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">train</span><span class="p">]),</span>
-          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_cesium</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">test</span><span class="p">])))</span>
+          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_cesium</span><span class="o">.</span><span class="n">prediction</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">train</span><span class="p">]),</span>
+          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_cesium</span><span class="o">.</span><span class="n">prediction</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">test</span><span class="p">])))</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Guo et al. features: training accuracy={:.2%}, test accuracy={:.2%}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_guo</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">train</span><span class="p">]),</span>
-          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_guo</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">test</span><span class="p">])))</span>
+          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_guo</span><span class="o">.</span><span class="n">prediction</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">train</span><span class="p">]),</span>
+          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_guo</span><span class="o">.</span><span class="n">prediction</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">test</span><span class="p">])))</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Wavelet transform features: training accuracy={:.2%}, test accuracy={:.2%}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_dwt</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">train</span><span class="p">]),</span>
-          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_dwt</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">test</span><span class="p">])))</span>
+          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_dwt</span><span class="o">.</span><span class="n">prediction</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">train</span><span class="p">]),</span>
+          <span class="n">accuracy_score</span><span class="p">(</span><span class="n">preds_dwt</span><span class="o">.</span><span class="n">prediction</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;classes&quot;</span><span class="p">][</span><span class="n">test</span><span class="p">])))</span>
 </pre></div>
 </div>
 <p>The workflow presented here is intentionally simplistic and omits many important steps
@@ -384,7 +384,7 @@ the same analysis can be performed in a browser with no setup or coding required
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.4.dev0',
+            VERSION:'0.7.dev0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Module: util &mdash; cesium 0.4.dev0 documentation</title>
+  <title>Module: util &mdash; cesium 0.7.dev0 documentation</title>
   
 
   
@@ -32,7 +32,7 @@
   
 
   
-    <link rel="top" title="cesium 0.4.dev0 documentation" href="../index.html"/>
+    <link rel="top" title="cesium 0.7.dev0 documentation" href="../index.html"/>
         <link rel="up" title="API Reference" href="api.html"/>
         <link rel="prev" title="Module: transformation" href="cesium.transformation.html"/> 
 
@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                0.4
+                0.6
               </div>
             
           
@@ -97,11 +97,14 @@
 <li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html">Module: <code class="docutils literal"><span class="pre">science_features</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.time_series.html">Module: <code class="docutils literal"><span class="pre">time_series</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.transformation.html">Module: <code class="docutils literal"><span class="pre">transformation</span></code></a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Module: <code class="docutils literal"><span class="pre">util</span></code></a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Module: <code class="docutils literal"><span class="pre">util</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#extract-time-series">extract_time_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#make-list">make_list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#remove-files">remove_files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#shorten-fname">shorten_fname</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dataformaterror"><code class="docutils literal"><span class="pre">DataFormatError</span></code></a><ul class="simple">
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -169,6 +172,9 @@
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#cesium.util.shorten_fname" title="cesium.util.shorten_fname"><code class="xref py py-obj docutils literal"><span class="pre">cesium.util.shorten_fname</span></code></a>(file_path)</td>
 <td>Extract the name of a file (omitting directory names and extensions).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.util.DataFormatError" title="cesium.util.DataFormatError"><code class="xref py py-obj docutils literal"><span class="pre">cesium.util.DataFormatError</span></code></a>(value)</td>
+<td>TS data file or header file does not improperly formatted.</td>
 </tr>
 </tbody>
 </table>
@@ -242,6 +248,45 @@ None, a temporary directory is created.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="dataformaterror">
+<h2><a class="reference internal" href="#cesium.util.DataFormatError" title="cesium.util.DataFormatError"><code class="xref py py-class docutils literal"><span class="pre">DataFormatError</span></code></a><a class="headerlink" href="#dataformaterror" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cesium.util.DataFormatError">
+<em class="property">class </em><code class="descclassname">cesium.util.</code><code class="descname">DataFormatError</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.DataFormatError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></p>
+<p>TS data file or header file does not improperly formatted.</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>value</td>
+<td>(str) The exception message.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">with_traceback</span></code></td>
+<td>Exception.with_traceback(tb) &#8211; set self.__traceback__ to tb and return self.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cesium.util.DataFormatError.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.DataFormatError.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 
 
@@ -283,7 +328,7 @@ None, a temporary directory is created.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.4.dev0',
+            VERSION:'0.7.dev0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
