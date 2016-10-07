@@ -13,6 +13,7 @@ Module: :mod:`featurize`
    cesium.featurize.featurize_ts_files
    cesium.featurize.load_and_store_feature_data
 
+   cesium.featurize.Featureset
    cesium.featurize.TimeSeries
 
 assemble_featureset
@@ -40,6 +41,17 @@ load_and_store_feature_data
 
 .. autofunction:: cesium.featurize.load_and_store_feature_data
 
+
+:class:`Featureset`
+-------------------
+
+
+.. autoclass:: Featureset
+  :members:
+  :undoc-members:
+  :show-inheritance:
+
+  .. automethod:: __init__
 
 :class:`TimeSeries`
 -------------------
