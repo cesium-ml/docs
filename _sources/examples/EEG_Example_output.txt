@@ -21,7 +21,6 @@ First, we'll load the data and inspect a representative time series from each cl
 
 
 ```python
-
 %matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
@@ -45,10 +44,9 @@ for label, subplot in zip(np.unique(eeg["classes"]), ax):
 ```
 
 ```output
-/home/travis/virtualenv/python3.5.2/lib/python3.5/site-packages/IPython/html.py:14: ShimWarning: The `IPython.html` package has been deprecated. You should import from `notebook` instead. `IPython.html.widgets` has moved to `ipywidgets`.
+/home/travis/envs/cesium/lib/python3.5/site-packages/IPython/html.py:14: ShimWarning: The `IPython.html` package has been deprecated. You should import from `notebook` instead. `IPython.html.widgets` has moved to `ipywidgets`.
   "`IPython.html.widgets` has moved to `ipywidgets`.", ShimWarning)
-Loaded data from cached archive.
-
+Downloading data from https://github.com/cesium-ml/cesium-data/raw/master/andrzejak/
 ```
 
 
@@ -70,7 +68,6 @@ schedulers as the `get` argument to `featurize_time_series`.
 
 
 ```python
-
 from cesium import featurize
 features_to_use = ['amplitude',
                    'percent_beyond_1_std',
@@ -99,18 +96,17 @@ Coordinates:
   * channel                    (channel) int64 0
     target                     (name) <U10 'Normal' 'Normal' 'Normal' ...
 Data variables:
-    median_absolute_deviation  (name, channel) float64 28.0 32.0 31.0 31.0 ...
-    weighted_average           (name, channel) float64 -4.132 -52.44 12.71 ...
-    skew                       (name, channel) float64 0.0328 -0.09271 ...
-    minimum                    (name, channel) float64 -146.0 -254.0 -146.0 ...
     percent_beyond_1_std       (name, channel) float64 0.1626 0.1455 0.1523 ...
-    amplitude                  (name, channel) float64 143.5 211.5 165.0 ...
     percent_close_to_median    (name, channel) float64 0.505 0.6405 0.516 ...
+    skew                       (name, channel) float64 0.0328 -0.09271 ...
+    amplitude                  (name, channel) float64 143.5 211.5 165.0 ...
+    median_absolute_deviation  (name, channel) float64 28.0 32.0 31.0 31.0 ...
     median                     (name, channel) float64 -4.0 -51.0 13.0 -4.0 ...
+    minimum                    (name, channel) float64 -146.0 -254.0 -146.0 ...
     std                        (name, channel) float64 40.41 48.81 47.14 ...
-    maximum                    (name, channel) float64 141.0 169.0 184.0 ...
+    weighted_average           (name, channel) float64 -4.132 -52.44 12.71 ...
     max_slope                  (name, channel) float64 1.111e+04 2.065e+04 ...
-
+    maximum                    (name, channel) float64 141.0 169.0 184.0 ...
 ```
 
 ```output
@@ -118,7 +114,6 @@ Data variables:
   elif ((hasattr(key, '__iter__') and all(el in names for el in key)) or
 /home/travis/build/cesium-ml/cesium/cesium/featureset.py:86: FutureWarning: elementwise comparison failed; returning scalar instead, but in the future will perform elementwise comparison
   key in names):
-
 ```
 
 The output of
@@ -141,7 +136,6 @@ Here we'll compute five standard features for EEG analysis provided by [Guo et a
 
 
 ```python
-
 import numpy as np
 import scipy.stats
 
@@ -167,7 +161,6 @@ keyword argument.
 
 
 ```python
-
 guo_features = {
     'mean': mean_signal,
     'std': std_signal,
@@ -191,12 +184,11 @@ Coordinates:
   * channel    (channel) int64 0
     target     (name) <U10 'Normal' 'Normal' 'Normal' 'Normal' 'Normal' ...
 Data variables:
+    std        (name, channel) float64 40.41 48.81 47.14 47.07 44.91 45.02 ...
     mean       (name, channel) float64 -4.132 -52.44 12.71 -3.992 -18.0 ...
+    abs_diffs  (name, channel) float64 4.695e+04 6.112e+04 5.127e+04 ...
     mean2      (name, channel) float64 1.65e+03 5.133e+03 2.384e+03 ...
     skew       (name, channel) float64 0.0328 -0.09271 -0.0041 0.06368 ...
-    std        (name, channel) float64 40.41 48.81 47.14 47.07 44.91 45.02 ...
-    abs_diffs  (name, channel) float64 4.695e+04 6.112e+04 5.127e+04 ...
-
 ```
 
 ```output
@@ -204,7 +196,6 @@ Data variables:
   elif ((hasattr(key, '__iter__') and all(el in names for el in key)) or
 /home/travis/build/cesium-ml/cesium/cesium/featureset.py:86: FutureWarning: elementwise comparison failed; returning scalar instead, but in the future will perform elementwise comparison
   key in names):
-
 ```
 
 ### Multi-channel time series
@@ -219,7 +210,6 @@ featurize each band separately using the five functions from above.
 
 
 ```python
-
 import pywt
 
 n_channels = 5
@@ -240,12 +230,11 @@ Coordinates:
   * channel    (channel) int64 0 1 2 3 4
     target     (name) <U10 'Normal' 'Normal' 'Normal' 'Normal' 'Normal' ...
 Data variables:
+    std        (name, channel) float64 112.5 72.97 48.17 25.77 10.15 119.8 ...
     mean       (name, channel) float64 -17.08 -6.067 -0.9793 0.1546 0.03555 ...
+    abs_diffs  (name, channel) float64 2.513e+04 1.806e+04 3.241e+04 ...
     mean2      (name, channel) float64 1.294e+04 5.362e+03 2.321e+03 664.4 ...
     skew       (name, channel) float64 -0.0433 0.06578 0.2999 0.1239 0.1179 ...
-    std        (name, channel) float64 112.5 72.97 48.17 25.77 10.15 119.8 ...
-    abs_diffs  (name, channel) float64 2.513e+04 1.806e+04 3.241e+04 ...
-
 ```
 
 ```output
@@ -253,7 +242,6 @@ Data variables:
   elif ((hasattr(key, '__iter__') and all(el in names for el in key)) or
 /home/travis/build/cesium-ml/cesium/cesium/featureset.py:86: FutureWarning: elementwise comparison failed; returning scalar instead, but in the future will perform elementwise comparison
   key in names):
-
 ```
 
 The output featureset has the same form as before, except now the `channel` coordinate is
@@ -282,7 +270,6 @@ and a 3-nearest neighbors classifier for the others, as suggested by [Guo et al.
 
 
 ```python
-
 from cesium.build_model import build_model_from_featureset
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
@@ -305,9 +292,9 @@ model_dwt = build_model_from_featureset(fset_dwt.isel(name=train),
 ```
 
 ```output
-/home/travis/virtualenv/python3.5.2/lib/python3.5/site-packages/sklearn/cross_validation.py:44: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
+/home/travis/envs/cesium/lib/python3.5/site-packages/sklearn/cross_validation.py:44: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
   "This module will be removed in 0.20.", DeprecationWarning)
-/home/travis/virtualenv/python3.5.2/lib/python3.5/site-packages/sklearn/grid_search.py:43: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. This module will be removed in 0.20.
+/home/travis/envs/cesium/lib/python3.5/site-packages/sklearn/grid_search.py:43: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. This module will be removed in 0.20.
   DeprecationWarning)
 /home/travis/build/cesium-ml/cesium/cesium/featureset.py:85: FutureWarning: elementwise comparison failed; returning scalar instead, but in the future will perform elementwise comparison
   elif ((hasattr(key, '__iter__') and all(el in names for el in key)) or
@@ -321,7 +308,6 @@ model_dwt = build_model_from_featureset(fset_dwt.isel(name=train),
   elif ((hasattr(key, '__iter__') and all(el in names for el in key)) or
 /home/travis/build/cesium-ml/cesium/cesium/featureset.py:86: FutureWarning: elementwise comparison failed; returning scalar instead, but in the future will perform elementwise comparison
   key in names):
-
 ```
 
 ## Prediction
@@ -334,7 +320,6 @@ and then predictions are made based on these features using
 
 
 ```python
-
 from sklearn.metrics import accuracy_score
 from cesium.predict import model_predictions
 
@@ -354,18 +339,16 @@ print("Wavelet transform features: training accuracy={:.2%}, test accuracy={:.2%
 ```
 
 ```output
+Built-in cesium features: training accuracy=100.00%, test accuracy=83.20%
+Guo et al. features: training accuracy=90.93%, test accuracy=84.80%
+Wavelet transform features: training accuracy=100.00%, test accuracy=95.20%
+```
+
+```output
 /home/travis/build/cesium-ml/cesium/cesium/featureset.py:85: FutureWarning: elementwise comparison failed; returning scalar instead, but in the future will perform elementwise comparison
   elif ((hasattr(key, '__iter__') and all(el in names for el in key)) or
 /home/travis/build/cesium-ml/cesium/cesium/featureset.py:86: FutureWarning: elementwise comparison failed; returning scalar instead, but in the future will perform elementwise comparison
   key in names):
-
-```
-
-```output
-Built-in cesium features: training accuracy=100.00%, test accuracy=83.20%
-Guo et al. features: training accuracy=90.93%, test accuracy=84.80%
-Wavelet transform features: training accuracy=100.00%, test accuracy=95.20%
-
 ```
 
 The workflow presented here is intentionally simplistic and omits many important steps

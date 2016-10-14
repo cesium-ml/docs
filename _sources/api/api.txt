@@ -8,11 +8,10 @@ API Reference
    cesium.build_model
    cesium.data_management
    cesium.datasets
+   cesium.features.cadence_features
+   cesium.features.graphs
    cesium.featureset
    cesium.featurize
-   cesium.obs_feature_tools
-   cesium.science_feature_tools
-   cesium.science_features
    cesium.time_series
    cesium.transformation
    cesium.util

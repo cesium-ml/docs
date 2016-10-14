@@ -100,11 +100,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.data_management.html">Module: <code class="docutils literal"><span class="pre">data_management</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.datasets.html">Module: <code class="docutils literal"><span class="pre">datasets</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html">Module: <code class="docutils literal"><span class="pre">features.cadence_features</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html">Module: <code class="docutils literal"><span class="pre">features.graphs</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.featureset.html">Module: <code class="docutils literal"><span class="pre">featureset</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html">Module: <code class="docutils literal"><span class="pre">featurize</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.obs_feature_tools.html">Module: <code class="docutils literal"><span class="pre">obs_feature_tools</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.science_feature_tools.html">Module: <code class="docutils literal"><span class="pre">science_feature_tools</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.science_features.html">Module: <code class="docutils literal"><span class="pre">science_features</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.time_series.html">Module: <code class="docutils literal"><span class="pre">time_series</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.transformation.html">Module: <code class="docutils literal"><span class="pre">transformation</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.util.html">Module: <code class="docutils literal"><span class="pre">util</span></code></a></li>
@@ -177,8 +176,62 @@
 <h2>build_model_from_featureset<a class="headerlink" href="#build-model-from-featureset" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="cesium.build_model.build_model_from_featureset">
-<code class="descclassname">cesium.build_model.</code><code class="descname">build_model_from_featureset</code><span class="sig-paren">(</span><em>featureset</em>, <em>model=None</em>, <em>model_type=None</em>, <em>model_options={}</em>, <em>params_to_optimize=None</em>, <em>cv=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.build_model.build_model_from_featureset" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">cesium.build_model.</code><code class="descname">build_model_from_featureset</code><span class="sig-paren">(</span><em>featureset</em>, <em>model=None</em>, <em>model_type=None</em>, <em>model_parameters={}</em>, <em>params_to_optimize=None</em>, <em>cv=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.build_model.build_model_from_featureset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build model from (non-rectangular) xarray.Dataset of features.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>featureset</strong> : xarray.Dataset of features</p>
+<blockquote>
+<div><p>Features for training model.</p>
+</div></blockquote>
+<p><strong>model</strong> : scikit-learn model, optional</p>
+<blockquote>
+<div><p>Instantiated scikit-learn model. If None, <cite>model_type</cite> must not be.
+Defaults to None.</p>
+</div></blockquote>
+<p><strong>model_type</strong> : str, optional</p>
+<blockquote>
+<div><p>String indicating model to be used, e.g. &#8220;RandomForestClassifier&#8221;.
+If None, <cite>model</cite> must not be. Defaults to None.</p>
+</div></blockquote>
+<p><strong>model_parameters</strong> : dict, optional</p>
+<blockquote>
+<div><p>Dictionary with hyperparameter values to be used in model building.
+Keys are parameter names, values are the associated parameter values.
+These hyperparameters will be passed to the model constructor as-is
+(for hyperparameter optimization, see <cite>params_to_optimize</cite>).
+If None, default values will be used (see scikit-learn documentation
+for specifics).</p>
+</div></blockquote>
+<p><strong>params_to_optimize</strong> : dict or list of dict, optional</p>
+<blockquote>
+<div><p>During hyperparameter optimization, various model parameters
+are adjusted to give an optimal fit. This dictionary gives the
+different values that should be explored for each parameter. E.g.,
+<cite>{&#8216;alpha&#8217;: [1, 2], &#8216;beta&#8217;: [4, 5, 6]}</cite> would fit models on all
+6 combinations of alpha and beta and compare the resulting models&#8217;
+goodness-of-fit. If None, only those hyperparameters specified in
+<cite>model_parameters</cite> will be used (passed to model constructor as-is).
+Defaults to None.</p>
+</div></blockquote>
+<p><strong>cv</strong> : int, cross-validation generator or an iterable, optional</p>
+<blockquote>
+<div><p>Number of folds (defaults to 3 if None) or an iterable yielding
+train/test splits. See documentation for <cite>GridSearchCV</cite> for details.
+Defaults to None (yielding 3 folds).</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">sklearn estimator object</p>
+<blockquote class="last">
+<div><p>The fitted sklearn model.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -232,6 +285,18 @@ splits. See documentation for <cite>GridSearchCV</cite> for details.</p>
 <dt id="cesium.build_model.rectangularize_featureset">
 <code class="descclassname">cesium.build_model.</code><code class="descname">rectangularize_featureset</code><span class="sig-paren">(</span><em>featureset</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.build_model.rectangularize_featureset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert xarray.Dataset into (2d) Pandas.DataFrame for use with sklearn.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Pandas.DataFrame</p>
+<blockquote class="last">
+<div><p>2-D, sklearn-compatible Dataframe containing features.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
