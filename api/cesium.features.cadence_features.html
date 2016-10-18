@@ -90,6 +90,7 @@
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html#testing">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../feature_table.html">Time-Series Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cesium.build_model.html">Module: <code class="docutils literal"><span class="pre">build_model</span></code></a></li>
@@ -172,7 +173,7 @@
 <td>Build histogram of all possible delta_t&#8217;s without storing every value</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#cesium.features.cadence_features.double_to_single_step" title="cesium.features.cadence_features.double_to_single_step"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.cadence_features.double_to_single_step</span></code></a>(cads)</td>
-<td>Ratios t[i+2] - t[i] / (t[i+2] - t[i+1]).</td>
+<td>Ratios (t[i+2] - t[i]) / (t[i+2] - t[i+1]).</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#cesium.features.cadence_features.find_sorted_peaks" title="cesium.features.cadence_features.find_sorted_peaks"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.cadence_features.find_sorted_peaks</span></code></a>(x)</td>
 <td>Find peaks, i.e.</td>
@@ -212,7 +213,7 @@ that the next observation occurs within <cite>time</cite> minutes of an arbitrar
 <dl class="function">
 <dt id="cesium.features.cadence_features.double_to_single_step">
 <code class="descclassname">cesium.features.cadence_features.</code><code class="descname">double_to_single_step</code><span class="sig-paren">(</span><em>cads</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.cadence_features.double_to_single_step" title="Permalink to this definition">¶</a></dt>
-<dd><p>Ratios t[i+2] - t[i] / (t[i+2] - t[i+1]).</p>
+<dd><p>Ratios (t[i+2] - t[i]) / (t[i+2] - t[i+1]).</p>
 </dd></dl>
 
 </div>
@@ -225,8 +226,8 @@ that the next observation occurs within <cite>time</cite> minutes of an arbitrar
 they are greater than both their neighbors, and edge points are peaks if
 they are greater than their only neighbor. In the case of ties, we
 (arbitrarily) choose the first index in the sequence of equal values as the
-peak.</p>
-<p>Returns a list of tuples (i, x[i]) of peak indices i and values x[i],
+peak.
+Returns a list of tuples (i, x[i]) of peak indices i and values x[i],
 sorted in decreasing order by peak value.</p>
 </dd></dl>
 
