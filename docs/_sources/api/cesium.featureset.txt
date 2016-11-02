@@ -1,0 +1,23 @@
+.. AUTO-GENERATED FILE -- DO NOT EDIT!
+
+Module: :mod:`featureset`
+=========================
+.. automodule:: cesium.featureset
+
+.. currentmodule:: cesium.featureset
+.. autosummary::
+
+
+   cesium.featureset.Featureset
+
+
+:class:`Featureset`
+-------------------
+
+
+.. autoclass:: Featureset
+  :members:
+  :undoc-members:
+  :show-inheritance:
+
+  .. automethod:: __init__

@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Module: time_series &mdash; cesium 0.7.dev0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/output_cells.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="cesium 0.7.dev0 documentation" href="../index.html"/>
+        <link rel="up" title="API Reference" href="api.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cesium
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.6
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html#testing">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../feature_table.html">Time-Series Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cesium.build_model.html">Module: <code class="docutils literal"><span class="pre">build_model</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.data_management.html">Module: <code class="docutils literal"><span class="pre">data_management</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.datasets.html">Module: <code class="docutils literal"><span class="pre">datasets</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html">Module: <code class="docutils literal"><span class="pre">features.cadence_features</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html">Module: <code class="docutils literal"><span class="pre">features.graphs</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.featureset.html">Module: <code class="docutils literal"><span class="pre">featureset</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html">Module: <code class="docutils literal"><span class="pre">featurize</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Module: <code class="docutils literal"><span class="pre">time_series</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#from-netcdf">from_netcdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timeseries"><code class="docutils literal"><span class="pre">TimeSeries</span></code></a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.transformation.html">Module: <code class="docutils literal"><span class="pre">transformation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.util.html">Module: <code class="docutils literal"><span class="pre">util</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">cesium</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="api.html">API Reference</a> &raquo;</li>
+      
+    <li>Module: <code class="docutils literal"><span class="pre">time_series</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cesium.time_series">
+<span id="module-time-series"></span><h1>Module: <code class="xref py py-mod docutils literal"><span class="pre">time_series</span></code><a class="headerlink" href="#module-cesium.time_series" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.time_series.from_netcdf" title="cesium.time_series.from_netcdf"><code class="xref py py-obj docutils literal"><span class="pre">cesium.time_series.from_netcdf</span></code></a>(netcdf_path)</td>
+<td>Load serialized TimeSeries from netCDF file.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.time_series.TimeSeries" title="cesium.time_series.TimeSeries"><code class="xref py py-obj docutils literal"><span class="pre">cesium.time_series.TimeSeries</span></code></a>([t,&nbsp;m,&nbsp;e,&nbsp;...])</td>
+<td>Class representing a single time series of measurements and metadata.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="from-netcdf">
+<h2>from_netcdf<a class="headerlink" href="#from-netcdf" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.time_series.from_netcdf">
+<code class="descclassname">cesium.time_series.</code><code class="descname">from_netcdf</code><span class="sig-paren">(</span><em>netcdf_path</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.time_series.from_netcdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load serialized TimeSeries from netCDF file.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="timeseries">
+<h2><a class="reference internal" href="#cesium.time_series.TimeSeries" title="cesium.time_series.TimeSeries"><code class="xref py py-class docutils literal"><span class="pre">TimeSeries</span></code></a><a class="headerlink" href="#timeseries" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cesium.time_series.TimeSeries">
+<em class="property">class </em><code class="descclassname">cesium.time_series.</code><code class="descname">TimeSeries</code><span class="sig-paren">(</span><em>t=None</em>, <em>m=None</em>, <em>e=None</em>, <em>target=None</em>, <em>meta_features={}</em>, <em>name=None</em>, <em>path=None</em>, <em>channel_names=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.time_series.TimeSeries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Class representing a single time series of measurements and metadata.</p>
+<p>A <cite>TimeSeries</cite> object encapsulates a single set of time-domain
+measurements, along with any metadata describing the observation.
+Typically the observations will consist of times, measurements, and
+(optionally) measurement errors. The measurements can be scalar- or
+vector-valued (i.e., &#8220;multichannel&#8221;); for multichannel measurements, the 
+times and errors can also be vector-valued, or they can be shared across
+all channels of measurement.</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="4%" />
+<col width="96%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>time</td>
+<td>((n,) or (p, n) array or list of (n,) arrays) Array(s) of times corresponding to measurement values. If <cite>measurement</cite> is two-dimensional, this can be one-dimensional (same times for each channel) or two-dimensional (different times for each channel). If <cite>time</cite> is one-dimensional then it will be broadcast to match <cite>measurement.shape</cite>.</td>
+</tr>
+<tr class="row-even"><td>measurement</td>
+<td>((n,) or (p, n) array or list of (n,) arrays) Array(s) of measurement values; can be two-dimensional for multichannel data. In the case of multichannel data with different numbers of measurements for each channel, <cite>measurement</cite> will be a list of arrays instead of a single two-dimensional array.</td>
+</tr>
+<tr class="row-odd"><td>error</td>
+<td>((n,) or (p, n) array or list of (n,) arrays) Array(s) of measurement errors for each value. If <cite>measurement</cite> is two-dimensional, this can be one-dimensional (same times for each channel) or two-dimensional (different times for each channel). If <cite>error</cite> is one-dimensional then it will be broadcast match <cite>measurement.shape</cite>.</td>
+</tr>
+<tr class="row-even"><td>target</td>
+<td>(str, float, or None) Class label or target value for the given time series (if applicable).</td>
+</tr>
+<tr class="row-odd"><td>meta_features</td>
+<td>(dict) Dictionary of feature names/values specified independently of the featurization process in <cite>featurize</cite>.</td>
+</tr>
+<tr class="row-even"><td>name</td>
+<td>(str or None) Identifying name/label for the given time series (if applicable). Typically the name of the raw data file from which the time series was created.</td>
+</tr>
+<tr class="row-odd"><td>path</td>
+<td>(str or None) Path to the file where the time series is stored on disk (if applicable).</td>
+</tr>
+<tr class="row-even"><td>channel_names</td>
+<td>(list of str) List of names of channels of measurement; by default these are simply <cite>channel_{i}</cite>, but can be arbitrary depending on the nature of the different measurement channels.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.time_series.TimeSeries.channels" title="cesium.time_series.TimeSeries.channels"><code class="xref py py-obj docutils literal"><span class="pre">channels</span></code></a>()</td>
+<td>Iterates over measurement channels (whether one or multiple).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.time_series.TimeSeries.to_netcdf" title="cesium.time_series.TimeSeries.to_netcdf"><code class="xref py py-obj docutils literal"><span class="pre">to_netcdf</span></code></a>([path])</td>
+<td>Store TimeSeries object as a single netCDF.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cesium.time_series.TimeSeries.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>t=None</em>, <em>m=None</em>, <em>e=None</em>, <em>target=None</em>, <em>meta_features={}</em>, <em>name=None</em>, <em>path=None</em>, <em>channel_names=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.time_series.TimeSeries.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <cite>TimeSeries</cite> object from measurement values/metadata.</p>
+<p>See <cite>TimeSeries</cite> documentation for parameter values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cesium.time_series.TimeSeries.channels">
+<code class="descname">channels</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cesium.time_series.TimeSeries.channels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterates over measurement channels (whether one or multiple).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cesium.time_series.TimeSeries.to_netcdf">
+<code class="descname">to_netcdf</code><span class="sig-paren">(</span><em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.time_series.TimeSeries.to_netcdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store TimeSeries object as a single netCDF.</p>
+<p>Each channel of measurements is stored in a separate HDF5 group; metadata
+describing the whole time series is stored in the group corresponding to
+the first channel.</p>
+<p>If <cite>path</cite> is omitted then the <cite>path</cite> attribute from the TimeSeries object
+is used.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, The cesium Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.7.dev0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+.. AUTO-GENERATED FILE -- DO NOT EDIT!
+
+Module: :mod:`featurize`
+========================
+.. automodule:: cesium.featurize
+
+.. currentmodule:: cesium.featurize
+.. autosummary::
+
+   cesium.featurize.assemble_featureset
+   cesium.featurize.featurize_single_ts
+   cesium.featurize.featurize_time_series
+   cesium.featurize.featurize_ts_files
+   cesium.featurize.generate_dask_graph
+   cesium.featurize.load_and_store_feature_data
+
+   cesium.featurize.Featureset
+   cesium.featurize.TimeSeries
+
+assemble_featureset
+-------------------
+
+.. autofunction:: cesium.featurize.assemble_featureset
+
+featurize_single_ts
+-------------------
+
+.. autofunction:: cesium.featurize.featurize_single_ts
+
+featurize_time_series
+---------------------
+
+.. autofunction:: cesium.featurize.featurize_time_series
+
+featurize_ts_files
+------------------
+
+.. autofunction:: cesium.featurize.featurize_ts_files
+
+generate_dask_graph
+-------------------
+
+.. autofunction:: cesium.featurize.generate_dask_graph
+
+load_and_store_feature_data
+---------------------------
+
+.. autofunction:: cesium.featurize.load_and_store_feature_data
+
+
+:class:`Featureset`
+-------------------
+
+
+.. autoclass:: Featureset
+  :members:
+  :undoc-members:
+  :show-inheritance:
+
+  .. automethod:: __init__
+
+:class:`TimeSeries`
+-------------------
+
+
+.. autoclass:: TimeSeries
+  :members:
+  :undoc-members:
+  :show-inheritance:
+
+  .. automethod:: __init__

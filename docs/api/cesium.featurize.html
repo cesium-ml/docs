@@ -1,0 +1,1028 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Module: featurize &mdash; cesium 0.7.dev0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/output_cells.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="cesium 0.7.dev0 documentation" href="../index.html"/>
+        <link rel="up" title="API Reference" href="api.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cesium
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.6
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html#testing">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../feature_table.html">Time-Series Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cesium.build_model.html">Module: <code class="docutils literal"><span class="pre">build_model</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.data_management.html">Module: <code class="docutils literal"><span class="pre">data_management</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.datasets.html">Module: <code class="docutils literal"><span class="pre">datasets</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html">Module: <code class="docutils literal"><span class="pre">features.cadence_features</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html">Module: <code class="docutils literal"><span class="pre">features.graphs</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.featureset.html">Module: <code class="docutils literal"><span class="pre">featureset</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Module: <code class="docutils literal"><span class="pre">featurize</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#assemble-featureset">assemble_featureset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#featurize-single-ts">featurize_single_ts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#featurize-time-series">featurize_time_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#featurize-ts-files">featurize_ts_files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generate-dask-graph">generate_dask_graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load-and-store-feature-data">load_and_store_feature_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#featureset"><code class="docutils literal"><span class="pre">Featureset</span></code></a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#timeseries"><code class="docutils literal"><span class="pre">TimeSeries</span></code></a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.time_series.html">Module: <code class="docutils literal"><span class="pre">time_series</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.transformation.html">Module: <code class="docutils literal"><span class="pre">transformation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.util.html">Module: <code class="docutils literal"><span class="pre">util</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">cesium</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="api.html">API Reference</a> &raquo;</li>
+      
+    <li>Module: <code class="docutils literal"><span class="pre">featurize</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cesium.featurize">
+<span id="module-featurize"></span><h1>Module: <code class="xref py py-mod docutils literal"><span class="pre">featurize</span></code><a class="headerlink" href="#module-cesium.featurize" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.featurize.assemble_featureset" title="cesium.featurize.assemble_featureset"><code class="xref py py-obj docutils literal"><span class="pre">cesium.featurize.assemble_featureset</span></code></a>(...[,&nbsp;...])</td>
+<td>Transforms raw feature data (as returned by <cite>featurize_single_ts</cite>) into an xarray.Dataset.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.featurize.featurize_single_ts" title="cesium.featurize.featurize_single_ts"><code class="xref py py-obj docutils literal"><span class="pre">cesium.featurize.featurize_single_ts</span></code></a>(ts,&nbsp;...)</td>
+<td>Compute feature values for a given single time-series.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.featurize.featurize_time_series" title="cesium.featurize.featurize_time_series"><code class="xref py py-obj docutils literal"><span class="pre">cesium.featurize.featurize_time_series</span></code></a>(...)</td>
+<td>Versatile feature generation function for one or more time series.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.featurize.featurize_ts_files" title="cesium.featurize.featurize_ts_files"><code class="xref py py-obj docutils literal"><span class="pre">cesium.featurize.featurize_ts_files</span></code></a>(...[,&nbsp;...])</td>
+<td>Feature generation function for on-disk time series (NetCDF) files.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.featurize.generate_dask_graph" title="cesium.featurize.generate_dask_graph"><code class="xref py py-obj docutils literal"><span class="pre">cesium.featurize.generate_dask_graph</span></code></a>(t,&nbsp;m,&nbsp;e)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.featurize.load_and_store_feature_data" title="cesium.featurize.load_and_store_feature_data"><code class="xref py py-obj docutils literal"><span class="pre">cesium.featurize.load_and_store_feature_data</span></code></a>(...)</td>
+<td>Read features from CSV file and save as an xarray.Dataset.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.featurize.Featureset" title="cesium.featurize.Featureset"><code class="xref py py-obj docutils literal"><span class="pre">cesium.featurize.Featureset</span></code></a>([data_vars,&nbsp;...])</td>
+<td>Extension of <cite>xarray.Dataset</cite> class that implements some convenience functions specific to featuresets generated from a set of time series.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.featurize.TimeSeries" title="cesium.featurize.TimeSeries"><code class="xref py py-obj docutils literal"><span class="pre">cesium.featurize.TimeSeries</span></code></a>([t,&nbsp;m,&nbsp;e,&nbsp;...])</td>
+<td>Class representing a single time series of measurements and metadata.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="assemble-featureset">
+<h2>assemble_featureset<a class="headerlink" href="#assemble-featureset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.featurize.assemble_featureset">
+<code class="descclassname">cesium.featurize.</code><code class="descname">assemble_featureset</code><span class="sig-paren">(</span><em>feature_dicts</em>, <em>time_series=None</em>, <em>targets=None</em>, <em>meta_feature_dicts=None</em>, <em>names=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.assemble_featureset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms raw feature data (as returned by <cite>featurize_single_ts</cite>) into
+an xarray.Dataset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>feature_dicts</strong> : list of dict</p>
+<blockquote>
+<div><p>List of dicts (one per time series file) with feature names as keys and
+lists of feature values (one per channel) as values.</p>
+</div></blockquote>
+<p><strong>time_series</strong> : list of TimeSeries</p>
+<blockquote>
+<div><p>If provided, the target, name, and metafeatures from the time series
+objects will be used, overriding the <cite>targets</cite>, <cite>meta_feature_dicts</cite>,
+and <cite>names</cite> values.</p>
+</div></blockquote>
+<p><strong>targets</strong> : list or pandas.Series, optional</p>
+<blockquote>
+<div><p>If provided, the <cite>target</cite> coordinate of the featureset xarray.Dataset
+will be set accordingly.</p>
+</div></blockquote>
+<p><strong>meta_feature_dicts</strong> : list of dict</p>
+<blockquote>
+<div><p>If provided, the columns of <cite>metadata</cite> will be added as data variables
+to the featureset xarray.Dataset.</p>
+</div></blockquote>
+<p><strong>names</strong> : list of str</p>
+<blockquote>
+<div><p>If provided, the <cite>name</cite> coordinate of the featureset xarray.Dataset
+will be set accordingly.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">xarray.Dataset</p>
+<blockquote class="last">
+<div><p>Featureset with <cite>data_vars</cite> containing feature values, and <cite>coords</cite>
+containing names and targets (if applicable).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="featurize-single-ts">
+<h2>featurize_single_ts<a class="headerlink" href="#featurize-single-ts" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.featurize.featurize_single_ts">
+<code class="descclassname">cesium.featurize.</code><code class="descname">featurize_single_ts</code><span class="sig-paren">(</span><em>ts</em>, <em>features_to_use</em>, <em>custom_script_path=None</em>, <em>custom_functions=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.featurize_single_ts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute feature values for a given single time-series. Data is
+returned as dictionaries/lists of lists.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ts</strong> : TimeSeries object</p>
+<blockquote>
+<div><p>Single time series to be featurized.</p>
+</div></blockquote>
+<p><strong>features_to_use</strong> : list of str</p>
+<blockquote>
+<div><p>List of feature names to be generated.</p>
+</div></blockquote>
+<p><strong>custom_functions</strong> : dict, optional</p>
+<blockquote>
+<div><p>Dictionary of custom feature functions to be evaluated for the given
+time series, or a dictionary representing a dask graph of function
+evaluations. Dictionaries of functions should have keys <cite>feature_name</cite>
+and values functions that take arguments (t, m, e); in the case of a
+dask graph, these arrays should be referenced as &#8216;t&#8217;, &#8216;m&#8217;, &#8216;e&#8217;,
+respectively, and any values with keys present in <cite>features_to_use</cite>
+will be computed.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dict</p>
+<blockquote class="last">
+<div><p>Dictionary with feature names as keys, lists of feature values (one per
+channel) as values.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="featurize-time-series">
+<h2>featurize_time_series<a class="headerlink" href="#featurize-time-series" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.featurize.featurize_time_series">
+<code class="descclassname">cesium.featurize.</code><code class="descname">featurize_time_series</code><span class="sig-paren">(</span><em>times</em>, <em>values</em>, <em>errors=None</em>, <em>features_to_use=[]</em>, <em>targets=None</em>, <em>meta_features={}</em>, <em>labels=None</em>, <em>custom_script_path=None</em>, <em>custom_functions=None</em>, <em>scheduler=&lt;function get&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.featurize_time_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>Versatile feature generation function for one or more time series.</p>
+<p>For a single time series, inputs may have the form:</p>
+<ul class="simple">
+<li><cite>times</cite>:  (n,) array or (p, n) array (for p channels of measurement)</li>
+<li><cite>values</cite>: (n,) array or (p, n) array (for p channels of measurement)</li>
+<li><cite>errors</cite>: (n,) array or (p, n) array (for p channels of measurement)</li>
+</ul>
+<p>For multiple time series, inputs may have the form:</p>
+<ul class="simple">
+<li><cite>times</cite>: list of (n,) arrays, list of (p, n) arrays (for p channels of
+measurement), or list of lists of (n,) arrays (for
+multichannel data with different time values per channel)</li>
+<li><cite>values</cite>: list of (n,) arrays, list of (p, n) arrays (for p channels of
+measurement), or list of lists of (n,) arrays (for
+multichannel data with different time values per channel)</li>
+<li><cite>errors</cite>: list of (n,) arrays, list of (p, n) arrays (for p channels of
+measurement), or list of lists of (n,) arrays (for
+multichannel data with different time values per channel)</li>
+</ul>
+<p>In the case of multichannel measurements, each channel will be
+featurized separately, and the data variables of the output
+<cite>xarray.Dataset</cite> will be indexed by a <cite>channel</cite> coordinate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>times</strong> : array, list of array, or list of lists of array</p>
+<blockquote>
+<div><p>Array containing time values for a single time series, or a list of
+arrays each containing time values for a single time series, or a list
+of lists of arrays for multichannel data with different time values per
+channel</p>
+</div></blockquote>
+<p><strong>values</strong> : array or list of array</p>
+<blockquote>
+<div><p>Array containing measurement values for a single time series, or a list
+of arrays each containing (possibly multivariate) measurement values
+for a single time series, or a list of lists of arrays for multichannel
+data with different time values per channel</p>
+</div></blockquote>
+<p><strong>errors</strong> : array or list/tuple of array, optional</p>
+<blockquote>
+<div><p>Array containing measurement error values for a single time series, or
+a list of arrays each containing (possibly multivariate) measurement
+values for a single time series, or a list of lists of arrays for
+multichannel data with different time values per channel</p>
+</div></blockquote>
+<p><strong>features_to_use</strong> : list of str, optional</p>
+<blockquote>
+<div><p>List of feature names to be generated. Defaults to an empty list, which
+will result in only meta_features features being stored.</p>
+</div></blockquote>
+<p><strong>targets</strong> : str/float or array-like, optional</p>
+<blockquote>
+<div><p>Target or sequence of targets, one per time series (if applicable);
+will be stored in the <cite>target</cite> coordinate of the resulting
+<cite>xarray.Dataset</cite>.</p>
+</div></blockquote>
+<p><strong>meta_features</strong> : dict/Pandas.Series or list of dicts/Pandas.DataFrame</p>
+<blockquote>
+<div><p>dict/Series (for a single time series) or DataFrame (for multiple time
+series) of metafeature information; features are added to the output
+featureset, and their values are consumable by custom feature scripts.</p>
+</div></blockquote>
+<p><strong>labels</strong> : str or list of str, optional</p>
+<blockquote>
+<div><p>Label or list of labels for each time series, if applicable; will be
+stored in the <cite>name</cite> coordinate of the resulting <cite>xarray.Dataset</cite>.</p>
+</div></blockquote>
+<p><strong>custom_script_path</strong> : str, optional</p>
+<blockquote>
+<div><p>Path to Python script containing function definitions for the
+generation of any custom features. Defaults to None.</p>
+</div></blockquote>
+<p><strong>custom_functions</strong> : dict, optional</p>
+<blockquote>
+<div><p>Dictionary of custom feature functions to be evaluated for the given
+time series, or a dictionary representing a dask graph of function
+evaluations.  Dictionaries of functions should have keys <cite>feature_name</cite>
+and values functions that take arguments (t, m, e); in the case of a
+dask graph, these arrays should be referenced as &#8216;t&#8217;, &#8216;m&#8217;, &#8216;e&#8217;,
+respectively, and any values with keys present in <cite>features_to_use</cite>
+will be computed.</p>
+</div></blockquote>
+<p><strong>scheduler</strong> : function, optional</p>
+<blockquote>
+<div><p><cite>dask</cite> scheduler function used to perform feature extraction
+computation. Defaults to <cite>dask.multiprocessing.get</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">xarray.Dataset</p>
+<blockquote class="last">
+<div><p>Featureset with <cite>data_vars</cite> containing feature values and <cite>coords</cite>
+containing labels (<cite>name</cite>) and targets (<cite>target</cite>), if applicable.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="featurize-ts-files">
+<h2>featurize_ts_files<a class="headerlink" href="#featurize-ts-files" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.featurize.featurize_ts_files">
+<code class="descclassname">cesium.featurize.</code><code class="descname">featurize_ts_files</code><span class="sig-paren">(</span><em>ts_paths</em>, <em>features_to_use</em>, <em>output_path=None</em>, <em>custom_script_path=None</em>, <em>custom_functions=None</em>, <em>scheduler=&lt;function get&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.featurize_ts_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Feature generation function for on-disk time series (NetCDF) files.</p>
+<p>By default, computes features concurrently using the
+<cite>dask.multiprocessing.get</cite> scheduler. Other possible options include
+<cite>dask.async.get_sync</cite> for synchronous computation (e.g., when debugging),
+or <cite>dask.distributed.Executor.get</cite> for distributed computation.</p>
+<p>In the case of multichannel measurements, each channel will be
+featurized separately, and the data variables of the output
+<cite>xarray.Dataset</cite> will be indexed by a <cite>channel</cite> coordinate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ts_paths</strong> : list of str</p>
+<blockquote>
+<div><p>List of paths to time series data, stored in NetCDF format. See
+<cite>time_series.from_netcdf</cite> for details.</p>
+</div></blockquote>
+<p><strong>features_to_use</strong> : list of str, optional</p>
+<blockquote>
+<div><p>List of feature names to be generated. Defaults to an empty list, which
+will result in only meta_features features being stored.</p>
+</div></blockquote>
+<p><strong>custom_script_path</strong> : str, optional</p>
+<blockquote>
+<div><p>Path to Python script containing function definitions for the
+generation of any custom features. Defaults to None.</p>
+</div></blockquote>
+<p><strong>custom_functions</strong> : dict, optional</p>
+<blockquote>
+<div><p>Dictionary of custom feature functions to be evaluated for the given
+time series, or a dictionary representing a dask graph of function
+evaluations.  Dictionaries of functions should have keys <cite>feature_name</cite>
+and values functions that take arguments (t, m, e); in the case of a
+dask graph, these arrays should be referenced as &#8216;t&#8217;, &#8216;m&#8217;, &#8216;e&#8217;,
+respectively, and any values with keys present in <cite>features_to_use</cite>
+will be computed.</p>
+</div></blockquote>
+<p><strong>scheduler</strong> : function, optional</p>
+<blockquote>
+<div><p><cite>dask</cite> scheduler function used to perform feature extraction
+computation. Defaults to <cite>dask.multiprocessing.get</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">xarray.Dataset</p>
+<blockquote class="last">
+<div><p>Featureset with <cite>data_vars</cite> containing feature values and <cite>coords</cite>
+containing labels (<cite>name</cite>) and targets (<cite>target</cite>), if applicable.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="generate-dask-graph">
+<h2>generate_dask_graph<a class="headerlink" href="#generate-dask-graph" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.featurize.generate_dask_graph">
+<code class="descclassname">cesium.featurize.</code><code class="descname">generate_dask_graph</code><span class="sig-paren">(</span><em>t</em>, <em>m</em>, <em>e</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.generate_dask_graph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="load-and-store-feature-data">
+<h2>load_and_store_feature_data<a class="headerlink" href="#load-and-store-feature-data" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.featurize.load_and_store_feature_data">
+<code class="descclassname">cesium.featurize.</code><code class="descname">load_and_store_feature_data</code><span class="sig-paren">(</span><em>features_path</em>, <em>output_path</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.load_and_store_feature_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read features from CSV file and save as an xarray.Dataset.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="featureset">
+<h2><a class="reference internal" href="#cesium.featurize.Featureset" title="cesium.featurize.Featureset"><code class="xref py py-class docutils literal"><span class="pre">Featureset</span></code></a><a class="headerlink" href="#featureset" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cesium.featurize.Featureset">
+<em class="property">class </em><code class="descclassname">cesium.featurize.</code><code class="descname">Featureset</code><span class="sig-paren">(</span><em>data_vars=None</em>, <em>coords=None</em>, <em>attrs=None</em>, <em>compat='broadcast_equals'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.Featureset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xarray.core.dataset.Dataset</span></code></p>
+<p>Extension of <cite>xarray.Dataset</cite> class that implements some convenience
+functions specific to featuresets generated from a set of time series.</p>
+<p>In particular, provides a method <cite>impute</cite> for filling missing values and
+overloads indexing so that the <cite>name</cite> attribute becomes the &#8220;primary&#8221;
+coordinate to simplify extracting features for specific time series.</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">T</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">attrs</span></code></td>
+<td>Dictionary of global attributes on this dataset</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">chunks</span></code></td>
+<td>Block dimensions for this dataset&#8217;s data or None if it&#8217;s not a dask array.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">coords</span></code></td>
+<td>Dictionary of xarray.DataArray objects corresponding to coordinate</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">data_vars</span></code></td>
+<td>Dictionary of xarray.DataArray objects corresponding to data variables</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">dims</span></code></td>
+<td>Mapping from dimension names to lengths.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">imag</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">indexes</span></code></td>
+<td>OrderedDict of pandas.Index objects used for label based indexing</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">loc</span></code></td>
+<td>Attribute for location based indexing.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">nbytes</span></code></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">real</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">variables</span></code></td>
+<td>Frozen dictionary of xarray.Variable objects constituting this</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">vars</span></code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">all</span></code>([dim,&nbsp;keep_attrs])</td>
+<td>Reduce this Dataset&#8217;s data by applying <cite>all</cite> along some dimension(s).</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">any</span></code>([dim,&nbsp;keep_attrs])</td>
+<td>Reduce this Dataset&#8217;s data by applying <cite>any</cite> along some dimension(s).</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">apply</span></code>(func[,&nbsp;keep_attrs,&nbsp;args])</td>
+<td>Apply a function over the data variables in this dataset.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">argmax</span></code>([dim,&nbsp;keep_attrs,&nbsp;skipna])</td>
+<td>Reduce this Dataset&#8217;s data by applying <cite>argmax</cite> along some dimension(s).</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">argmin</span></code>([dim,&nbsp;keep_attrs,&nbsp;skipna])</td>
+<td>Reduce this Dataset&#8217;s data by applying <cite>argmin</cite> along some dimension(s).</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">argsort</span></code>([axis,&nbsp;kind,&nbsp;order])</td>
+<td>Returns the indices that would sort this array.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">assign</span></code>(\*\*kwargs)</td>
+<td>Assign new data variables to a Dataset, returning a new object with all the original variables in addition to the new ones.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">assign_coords</span></code>(\*\*kwargs)</td>
+<td>Assign new coordinates to this object, returning a new object with all the original data in addition to the new coordinates.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">astype</span></code>(dtype[,&nbsp;order,&nbsp;casting,&nbsp;subok,&nbsp;copy])</td>
+<td>Copy of the array, cast to a specified type.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">broadcast_equals</span></code>(other)</td>
+<td>Two Datasets are broadcast equal if they are equal after broadcasting all variables against each other.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">chunk</span></code>([chunks,&nbsp;name_prefix,&nbsp;token,&nbsp;lock])</td>
+<td>Coerce all arrays in this dataset into dask arrays with the given chunks.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">clip</span></code>([min,&nbsp;max,&nbsp;out])</td>
+<td>Return an array whose values are limited to <code class="docutils literal"><span class="pre">[min,</span> <span class="pre">max]</span></code>.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">close</span></code>()</td>
+<td>Close any files linked to this dataset</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">conj</span></code>()</td>
+<td>Complex-conjugate all elements.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">conjugate</span></code>()</td>
+<td>Return the complex conjugate, element-wise.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">copy</span></code>([deep])</td>
+<td>Returns a copy of this dataset.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">count</span></code>([dim,&nbsp;keep_attrs])</td>
+<td>Reduce this Dataset&#8217;s data by applying <cite>count</cite> along some dimension(s).</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">diff</span></code>(dim[,&nbsp;n,&nbsp;label])</td>
+<td>Calculate the n-th order discrete difference along given axis.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">drop</span></code>(labels[,&nbsp;dim])</td>
+<td>Drop variables or index labels from this dataset.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">drop_vars</span></code>(\*names)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">dropna</span></code>(dim[,&nbsp;how,&nbsp;thresh,&nbsp;subset])</td>
+<td>Returns a new dataset with dropped labels for missing values along the provided dimension.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">dump</span></code>([path,&nbsp;mode,&nbsp;format,&nbsp;group,&nbsp;engine,&nbsp;...])</td>
+<td>Write dataset contents to a netCDF file.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">dump_to_store</span></code>(store[,&nbsp;encoder,&nbsp;sync,&nbsp;encoding])</td>
+<td>Store dataset contents to a backends.*DataStore object.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">dumps</span></code>([path,&nbsp;mode,&nbsp;format,&nbsp;group,&nbsp;engine,&nbsp;...])</td>
+<td>Write dataset contents to a netCDF file.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">equals</span></code>(other)</td>
+<td>Two Datasets are equal if they have matching variables and coordinates, all of which are equal.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">fillna</span></code>(value)</td>
+<td>Fill missing values in this object.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">filter_by_attrs</span></code>(\*\*kwargs)</td>
+<td>Returns a <code class="docutils literal"><span class="pre">Dataset</span></code> with variables that match specific conditions.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">from_dataframe</span></code>(dataframe)</td>
+<td>Convert a pandas.DataFrame into an xarray.Dataset</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">from_dict</span></code>(d)</td>
+<td>Convert a dictionary into an xarray.Dataset.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get</span></code>((k[,d])&nbsp;-&gt;&nbsp;D[k]&nbsp;if&nbsp;k&nbsp;in&nbsp;D,&nbsp;...)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">groupby</span></code>(group[,&nbsp;squeeze])</td>
+<td>Returns a GroupBy object for performing grouped operations.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">groupby_bins</span></code>(group,&nbsp;bins[,&nbsp;right,&nbsp;labels,&nbsp;...])</td>
+<td>Returns a GroupBy object for performing grouped operations.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">groupby_cls</span></code></td>
+<td>alias of <code class="xref py py-class docutils literal"><span class="pre">DatasetGroupBy</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">identical</span></code>(other)</td>
+<td>Like equals, but also checks all dataset attributes and the attributes on all variables and coordinates.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.featurize.Featureset.impute" title="cesium.featurize.Featureset.impute"><code class="xref py py-obj docutils literal"><span class="pre">impute</span></code></a>([strategy,&nbsp;value])</td>
+<td>Replace NaN/Inf values with imputed values as defined by <cite>strategy</cite>.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">isel</span></code>(\*\*indexers)</td>
+<td>Returns a new dataset with each array indexed along the specified dimension(s).</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">isel_points</span></code>([dim])</td>
+<td>Returns a new dataset with each array indexed pointwise along the specified dimension(s).</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">isnull</span></code>(\*args,&nbsp;\*\*kwargs)</td>
+<td>Detect missing values (NaN in numeric arrays, None/NaN in object arrays)</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">items</span></code>(...)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">keys</span></code>(...)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">load</span></code>()</td>
+<td>Manually trigger loading of this dataset&#8217;s data from disk or a remote source into memory and return this dataset.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">load_data</span></code>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">load_store</span></code>(store[,&nbsp;decoder])</td>
+<td>Create a new dataset from the contents of a backends.*DataStore</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">max</span></code>([dim,&nbsp;keep_attrs,&nbsp;skipna])</td>
+<td>Reduce this Dataset&#8217;s data by applying <cite>max</cite> along some dimension(s).</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">mean</span></code>([dim,&nbsp;keep_attrs,&nbsp;skipna])</td>
+<td>Reduce this Dataset&#8217;s data by applying <cite>mean</cite> along some dimension(s).</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">median</span></code>([dim,&nbsp;keep_attrs,&nbsp;skipna])</td>
+<td>Reduce this Dataset&#8217;s data by applying <cite>median</cite> along some dimension(s).</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">merge</span></code>(other[,&nbsp;inplace,&nbsp;overwrite_vars,&nbsp;...])</td>
+<td>Merge the arrays of two datasets into a single dataset.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">min</span></code>([dim,&nbsp;keep_attrs,&nbsp;skipna])</td>
+<td>Reduce this Dataset&#8217;s data by applying <cite>min</cite> along some dimension(s).</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">notnull</span></code>(\*args,&nbsp;\*\*kwargs)</td>
+<td>Replacement for numpy.isfinite / -numpy.isnan which is suitable for use on object arrays.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">pipe</span></code>(func,&nbsp;\*args,&nbsp;\*\*kwargs)</td>
+<td>Apply func(self, <a href="#id1"><span class="problematic" id="id2">*</span></a>args, <a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs)</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">prod</span></code>([dim,&nbsp;keep_attrs,&nbsp;skipna])</td>
+<td>Reduce this Dataset&#8217;s data by applying <cite>prod</cite> along some dimension(s).</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">reduce</span></code>(func[,&nbsp;dim,&nbsp;keep_attrs,&nbsp;...])</td>
+<td>Reduce this dataset by applying <cite>func</cite> along some dimension(s).</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">reindex</span></code>([indexers,&nbsp;method,&nbsp;tolerance,&nbsp;copy])</td>
+<td>Conform this object onto a new set of indexes, filling in missing values with NaN.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">reindex_like</span></code>(other[,&nbsp;method,&nbsp;tolerance,&nbsp;copy])</td>
+<td>Conform this object onto the indexes of another object, filling in missing values with NaN.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">rename</span></code>(name_dict[,&nbsp;inplace])</td>
+<td>Returns a new object with renamed variables and dimensions.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">resample</span></code>(freq,&nbsp;dim[,&nbsp;how,&nbsp;skipna,&nbsp;closed,&nbsp;...])</td>
+<td>Resample this object to a new temporal resolution.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">reset_coords</span></code>([names,&nbsp;drop,&nbsp;inplace])</td>
+<td>Given names of coordinates, reset them to become variables</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">roll</span></code>(\*\*shifts)</td>
+<td>Roll this dataset by an offset along one or more dimensions.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">rolling</span></code>([min_periods,&nbsp;center])</td>
+<td>Rolling window object.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">round</span></code>(\*args,&nbsp;\*\*kwargs)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">sel</span></code>([method,&nbsp;tolerance])</td>
+<td>Returns a new dataset with each array indexed by tick labels along the specified dimension(s).</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">sel_points</span></code>([dim,&nbsp;method,&nbsp;tolerance])</td>
+<td>Returns a new dataset with each array indexed pointwise by tick labels along the specified dimension(s).</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_coords</span></code>(names[,&nbsp;inplace])</td>
+<td>Given names of one or more variables, set them as coordinates</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">shift</span></code>(\*\*shifts)</td>
+<td>Shift this dataset by an offset along one or more dimensions.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">squeeze</span></code>([dim])</td>
+<td>Returns a new dataset with squeezed data.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">stack</span></code>(\*\*dimensions)</td>
+<td>Stack any number of existing dimensions into a single new dimension.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">std</span></code>([dim,&nbsp;keep_attrs,&nbsp;skipna])</td>
+<td>Reduce this Dataset&#8217;s data by applying <cite>std</cite> along some dimension(s).</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">sum</span></code>([dim,&nbsp;keep_attrs,&nbsp;skipna])</td>
+<td>Reduce this Dataset&#8217;s data by applying <cite>sum</cite> along some dimension(s).</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">swap_dims</span></code>(dims_dict[,&nbsp;inplace])</td>
+<td>Returns a new object with swapped dimensions.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">to_array</span></code>([dim,&nbsp;name])</td>
+<td>Convert this dataset into an xarray.DataArray</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">to_dataframe</span></code>()</td>
+<td>Convert this dataset into a pandas.DataFrame.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">to_dict</span></code>()</td>
+<td>Convert this dataset to a dictionary following xarray naming conventions.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">to_netcdf</span></code>([path,&nbsp;mode,&nbsp;format,&nbsp;group,&nbsp;...])</td>
+<td>Write dataset contents to a netCDF file.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">transpose</span></code>(\*dims)</td>
+<td>Return a new Dataset object with all array dimensions transposed.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">unstack</span></code>(dim)</td>
+<td>Unstack an existing dimension corresponding to a MultiIndex into multiple new dimensions.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">update</span></code>(other[,&nbsp;inplace])</td>
+<td>Update this dataset&#8217;s variables with those from another dataset.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">values</span></code>(...)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">var</span></code>([dim,&nbsp;keep_attrs,&nbsp;skipna])</td>
+<td>Reduce this Dataset&#8217;s data by applying <cite>var</cite> along some dimension(s).</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">where</span></code>(cond[,&nbsp;other,&nbsp;drop])</td>
+<td>Return an object of the same shape with all entries where cond is True and all other entries masked.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cesium.featurize.Featureset.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>data_vars=None</em>, <em>coords=None</em>, <em>attrs=None</em>, <em>compat='broadcast_equals'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.Featureset.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>To load data from a file or file-like object, use the <cite>open_dataset</cite>
+function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data_vars</strong> : dict-like, optional</p>
+<blockquote>
+<div><p>A mapping from variable names to <code class="xref py py-class docutils literal"><span class="pre">DataArray</span></code>
+objects, <code class="xref py py-class docutils literal"><span class="pre">Variable</span></code> objects or tuples of the
+form <code class="docutils literal"><span class="pre">(dims,</span> <span class="pre">data[,</span> <span class="pre">attrs])</span></code> which can be used as arguments to
+create a new <code class="docutils literal"><span class="pre">Variable</span></code>. Each dimension must have the same length
+in all variables in which it appears.</p>
+</div></blockquote>
+<p><strong>coords</strong> : dict-like, optional</p>
+<blockquote>
+<div><p>Another mapping in the same form as the <cite>variables</cite> argument,
+except the each item is saved on the dataset as a &#8220;coordinate&#8221;.
+These variables have an associated meaning: they describe
+constant/fixed/independent quantities, unlike the
+varying/measured/dependent quantities that belong in <cite>variables</cite>.
+Coordinates values may be given by 1-dimensional arrays or scalars,
+in which case <cite>dims</cite> do not need to be supplied: 1D arrays will be
+assumed to give index values along the dimension with the same
+name.</p>
+</div></blockquote>
+<p><strong>attrs</strong> : dict-like, optional</p>
+<blockquote>
+<div><p>Global attributes to save on this dataset.</p>
+</div></blockquote>
+<p><strong>compat</strong> : {&#8216;broadcast_equals&#8217;, &#8216;equals&#8217;, &#8216;identical&#8217;}, optional</p>
+<blockquote class="last">
+<div><p>String indicating how to compare variables of the same name for
+potential conflicts:</p>
+<ul class="simple">
+<li>&#8216;broadcast_equals&#8217;: all values must be equal when variables are
+broadcast against each other to ensure common dimensions.</li>
+<li>&#8216;equals&#8217;: all values and dimensions must be the same.</li>
+<li>&#8216;identical&#8217;: all values, dimensions and attributes must be the
+same.</li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cesium.featurize.Featureset.impute">
+<code class="descname">impute</code><span class="sig-paren">(</span><em>strategy='constant'</em>, <em>value=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.Featureset.impute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace NaN/Inf values with imputed values as defined by <cite>strategy</cite>.
+Output should always satisfy <cite>sklearn.validation.assert_all_finite</cite> so
+that training a model will never produce an error.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>strategy</strong> : str, optional</p>
+<blockquote>
+<div><p>The imputation strategy. Defaults to &#8216;constant&#8217;.</p>
+<ul class="simple">
+<li>&#8216;constant&#8217;: replace all missing with <cite>value</cite></li>
+<li>&#8216;mean&#8217;: replace all missing with mean along <cite>axis</cite></li>
+<li>&#8216;median&#8217;: replace all missing with median along <cite>axis</cite></li>
+<li>&#8216;most_frequent&#8217;: replace all missing with mode along <cite>axis</cite></li>
+</ul>
+</div></blockquote>
+<p><strong>value</strong> : float or None, optional</p>
+<blockquote>
+<div><p>Replacement value to use for <cite>strategy=&#8217;constant&#8217;</cite>. Defaults to
+<cite>None</cite>, in which case a very large negative value is used (a
+good choice for e.g. random forests).</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">cesium.Featureset</p>
+<blockquote class="last">
+<div><p>Featureset wth no missing/infinite values.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="timeseries">
+<h2><a class="reference internal" href="#cesium.featurize.TimeSeries" title="cesium.featurize.TimeSeries"><code class="xref py py-class docutils literal"><span class="pre">TimeSeries</span></code></a><a class="headerlink" href="#timeseries" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cesium.featurize.TimeSeries">
+<em class="property">class </em><code class="descclassname">cesium.featurize.</code><code class="descname">TimeSeries</code><span class="sig-paren">(</span><em>t=None</em>, <em>m=None</em>, <em>e=None</em>, <em>target=None</em>, <em>meta_features={}</em>, <em>name=None</em>, <em>path=None</em>, <em>channel_names=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.TimeSeries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Class representing a single time series of measurements and metadata.</p>
+<p>A <cite>TimeSeries</cite> object encapsulates a single set of time-domain
+measurements, along with any metadata describing the observation.
+Typically the observations will consist of times, measurements, and
+(optionally) measurement errors. The measurements can be scalar- or
+vector-valued (i.e., &#8220;multichannel&#8221;); for multichannel measurements, the 
+times and errors can also be vector-valued, or they can be shared across
+all channels of measurement.</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="4%" />
+<col width="96%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>time</td>
+<td>((n,) or (p, n) array or list of (n,) arrays) Array(s) of times corresponding to measurement values. If <cite>measurement</cite> is two-dimensional, this can be one-dimensional (same times for each channel) or two-dimensional (different times for each channel). If <cite>time</cite> is one-dimensional then it will be broadcast to match <cite>measurement.shape</cite>.</td>
+</tr>
+<tr class="row-even"><td>measurement</td>
+<td>((n,) or (p, n) array or list of (n,) arrays) Array(s) of measurement values; can be two-dimensional for multichannel data. In the case of multichannel data with different numbers of measurements for each channel, <cite>measurement</cite> will be a list of arrays instead of a single two-dimensional array.</td>
+</tr>
+<tr class="row-odd"><td>error</td>
+<td>((n,) or (p, n) array or list of (n,) arrays) Array(s) of measurement errors for each value. If <cite>measurement</cite> is two-dimensional, this can be one-dimensional (same times for each channel) or two-dimensional (different times for each channel). If <cite>error</cite> is one-dimensional then it will be broadcast match <cite>measurement.shape</cite>.</td>
+</tr>
+<tr class="row-even"><td>target</td>
+<td>(str, float, or None) Class label or target value for the given time series (if applicable).</td>
+</tr>
+<tr class="row-odd"><td>meta_features</td>
+<td>(dict) Dictionary of feature names/values specified independently of the featurization process in <cite>featurize</cite>.</td>
+</tr>
+<tr class="row-even"><td>name</td>
+<td>(str or None) Identifying name/label for the given time series (if applicable). Typically the name of the raw data file from which the time series was created.</td>
+</tr>
+<tr class="row-odd"><td>path</td>
+<td>(str or None) Path to the file where the time series is stored on disk (if applicable).</td>
+</tr>
+<tr class="row-even"><td>channel_names</td>
+<td>(list of str) List of names of channels of measurement; by default these are simply <cite>channel_{i}</cite>, but can be arbitrary depending on the nature of the different measurement channels.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.featurize.TimeSeries.channels" title="cesium.featurize.TimeSeries.channels"><code class="xref py py-obj docutils literal"><span class="pre">channels</span></code></a>()</td>
+<td>Iterates over measurement channels (whether one or multiple).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.featurize.TimeSeries.to_netcdf" title="cesium.featurize.TimeSeries.to_netcdf"><code class="xref py py-obj docutils literal"><span class="pre">to_netcdf</span></code></a>([path])</td>
+<td>Store TimeSeries object as a single netCDF.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cesium.featurize.TimeSeries.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>t=None</em>, <em>m=None</em>, <em>e=None</em>, <em>target=None</em>, <em>meta_features={}</em>, <em>name=None</em>, <em>path=None</em>, <em>channel_names=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.TimeSeries.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <cite>TimeSeries</cite> object from measurement values/metadata.</p>
+<p>See <cite>TimeSeries</cite> documentation for parameter values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cesium.featurize.TimeSeries.channels">
+<code class="descname">channels</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.TimeSeries.channels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterates over measurement channels (whether one or multiple).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cesium.featurize.TimeSeries.to_netcdf">
+<code class="descname">to_netcdf</code><span class="sig-paren">(</span><em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.TimeSeries.to_netcdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store TimeSeries object as a single netCDF.</p>
+<p>Each channel of measurements is stored in a separate HDF5 group; metadata
+describing the whole time series is stored in the group corresponding to
+the first channel.</p>
+<p>If <cite>path</cite> is omitted then the <cite>path</cite> attribute from the TimeSeries object
+is used.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, The cesium Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.7.dev0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
