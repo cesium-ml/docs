@@ -99,6 +99,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#build-model-from-featureset">build_model_from_featureset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#fit-model-optimize-hyperparams">fit_model_optimize_hyperparams</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rectangularize-featureset">rectangularize_featureset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#score-model">score_model</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.data_management.html">Module: <code class="docutils literal"><span class="pre">data_management</span></code></a></li>
@@ -172,6 +173,9 @@
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#cesium.build_model.rectangularize_featureset" title="cesium.build_model.rectangularize_featureset"><code class="xref py py-obj docutils literal"><span class="pre">cesium.build_model.rectangularize_featureset</span></code></a>(...)</td>
 <td>Convert xarray.Dataset into (2d) Pandas.DataFrame for use with sklearn.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.build_model.score_model" title="cesium.build_model.score_model"><code class="xref py py-obj docutils literal"><span class="pre">cesium.build_model.score_model</span></code></a>(model,&nbsp;featureset)</td>
+<td>Compute the model training score.</td>
 </tr>
 </tbody>
 </table>
@@ -301,6 +305,41 @@ splits. See documentation for <cite>GridSearchCV</cite> for details.</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Pandas.DataFrame</p>
 <blockquote class="last">
 <div><p>2-D, sklearn-compatible Dataframe containing features.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="score-model">
+<h2>score_model<a class="headerlink" href="#score-model" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.build_model.score_model">
+<code class="descclassname">cesium.build_model.</code><code class="descname">score_model</code><span class="sig-paren">(</span><em>model</em>, <em>featureset</em>, <em>sample_weight=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.build_model.score_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the model training score.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>model</strong> : scikit-learn model object</p>
+<blockquote>
+<div><p>The fitted model.</p>
+</div></blockquote>
+<p><strong>featureset</strong> : xarray.Dataset of features</p>
+<blockquote>
+<div><p>Feature set used for training model.</p>
+</div></blockquote>
+<p><strong>sample_weight</strong> : array-like, shape = [n_samples], optional</p>
+<blockquote>
+<div><p>Sample weights. Defaults to None.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">float</p>
+<blockquote class="last">
+<div><p>Normalized training score.</p>
 </div></blockquote>
 </td>
 </tr>

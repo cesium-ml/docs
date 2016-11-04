@@ -10,6 +10,7 @@ Module: :mod:`build_model`
    cesium.build_model.build_model_from_featureset
    cesium.build_model.fit_model_optimize_hyperparams
    cesium.build_model.rectangularize_featureset
+   cesium.build_model.score_model
 
 
 build_model_from_featureset
@@ -26,4 +27,9 @@ rectangularize_featureset
 -------------------------
 
 .. autofunction:: cesium.build_model.rectangularize_featureset
+
+score_model
+-----------
+
+.. autofunction:: cesium.build_model.score_model
 
