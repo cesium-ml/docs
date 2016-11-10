@@ -805,7 +805,8 @@ period.</p>
 <dl class="function">
 <dt id="cesium.features.graphs.peak_bin">
 <code class="descclassname">cesium.features.graphs.</code><code class="descname">peak_bin</code><span class="sig-paren">(</span><em>peaks</em>, <em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.graphs.peak_bin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the (bin) index of the ith largest peak.</p>
+<dd><p>Return the (bin) index of the ith largest peak. Peaks is a list of tuples (i, x[i]) 
+of peak indices i and values x[i], sorted in decreasing order by peak value.</p>
 </dd></dl>
 
 </div>
@@ -814,7 +815,9 @@ period.</p>
 <dl class="function">
 <dt id="cesium.features.graphs.peak_ratio">
 <code class="descclassname">cesium.features.graphs.</code><code class="descname">peak_ratio</code><span class="sig-paren">(</span><em>peaks</em>, <em>i</em>, <em>j</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.graphs.peak_ratio" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the ratio of the values of the ith and jth largest peaks.</p>
+<dd><p>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list 
+of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order 
+by peak value.</p>
 </dd></dl>
 
 </div>
