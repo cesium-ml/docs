@@ -221,8 +221,8 @@
 <tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.cad_prob" title="cesium.features.graphs.cad_prob"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.cad_prob</span></code></a>(cads,&nbsp;time)</td>
 <td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.delta_t_hist" title="cesium.features.graphs.delta_t_hist"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.delta_t_hist</span></code></a>(t[,&nbsp;nbins])</td>
-<td>Build histogram of all possible delta_t&#8217;s without storing every value</td>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.delta_t_hist" title="cesium.features.graphs.delta_t_hist"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.delta_t_hist</span></code></a>(t[,&nbsp;...])</td>
+<td>Build histogram of all possible <a href="#id1"><span class="problematic" id="id2">|t_i - t_j|</span></a>&#8216;s.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.double_to_single_step" title="cesium.features.graphs.double_to_single_step"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.double_to_single_step</span></code></a>(cads)</td>
 <td>Ratios (t[i+2] - t[i]) / (t[i+1] - t[i]).</td>
@@ -402,8 +402,12 @@ that the next observation occurs within <cite>time</cite> minutes of an arbitrar
 <h2>delta_t_hist<a class="headerlink" href="#delta-t-hist" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="cesium.features.graphs.delta_t_hist">
-<code class="descclassname">cesium.features.graphs.</code><code class="descname">delta_t_hist</code><span class="sig-paren">(</span><em>t</em>, <em>nbins=50</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.graphs.delta_t_hist" title="Permalink to this definition">¶</a></dt>
-<dd><p>Build histogram of all possible delta_t&#8217;s without storing every value</p>
+<code class="descclassname">cesium.features.graphs.</code><code class="descname">delta_t_hist</code><span class="sig-paren">(</span><em>t</em>, <em>nbins=50</em>, <em>conv_oversample=50</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.graphs.delta_t_hist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build histogram of all possible <a href="#id3"><span class="problematic" id="id4">|t_i - t_j|</span></a>&#8216;s.</p>
+<p>For efficiency, we construct the histogram via a convolution of the PDF
+rather than by actually computing all the differences. For better accuracy
+we use a factor <cite>conv_oversample</cite> more bins when performing the convolution
+and then aggregate the result to have <cite>nbins</cite> total values.</p>
 </dd></dl>
 
 </div>
