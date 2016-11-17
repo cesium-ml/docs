@@ -98,7 +98,6 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Module: <code class="docutils literal"><span class="pre">build_model</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#build-model-from-featureset">build_model_from_featureset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#fit-model-optimize-hyperparams">fit_model_optimize_hyperparams</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#rectangularize-featureset">rectangularize_featureset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#score-model">score_model</a></li>
 </ul>
 </li>
@@ -171,10 +170,7 @@
 <tr class="row-even"><td><a class="reference internal" href="#cesium.build_model.fit_model_optimize_hyperparams" title="cesium.build_model.fit_model_optimize_hyperparams"><code class="xref py py-obj docutils literal"><span class="pre">cesium.build_model.fit_model_optimize_hyperparams</span></code></a>(...)</td>
 <td>Optimize estimator hyperparameters.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cesium.build_model.rectangularize_featureset" title="cesium.build_model.rectangularize_featureset"><code class="xref py py-obj docutils literal"><span class="pre">cesium.build_model.rectangularize_featureset</span></code></a>(...)</td>
-<td>Convert xarray.Dataset into (2d) Pandas.DataFrame for use with sklearn.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cesium.build_model.score_model" title="cesium.build_model.score_model"><code class="xref py py-obj docutils literal"><span class="pre">cesium.build_model.score_model</span></code></a>(model,&nbsp;featureset)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.build_model.score_model" title="cesium.build_model.score_model"><code class="xref py py-obj docutils literal"><span class="pre">cesium.build_model.score_model</span></code></a>(model,&nbsp;featureset)</td>
 <td>Compute the model training score.</td>
 </tr>
 </tbody>
@@ -279,33 +275,6 @@ splits. See documentation for <cite>GridSearchCV</cite> for details.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><cite>sklearn.model_selection.GridSearchCV</cite> estimator object</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</div>
-<div class="section" id="rectangularize-featureset">
-<h2>rectangularize_featureset<a class="headerlink" href="#rectangularize-featureset" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="cesium.build_model.rectangularize_featureset">
-<code class="descclassname">cesium.build_model.</code><code class="descname">rectangularize_featureset</code><span class="sig-paren">(</span><em>featureset</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.build_model.rectangularize_featureset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert xarray.Dataset into (2d) Pandas.DataFrame for use with sklearn.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>featureset</strong> : xarray.Dataset</p>
-<blockquote>
-<div><p>The xarray.Dataset object containing features.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Pandas.DataFrame</p>
-<blockquote class="last">
-<div><p>2-D, sklearn-compatible Dataframe containing features.</p>
-</div></blockquote>
 </td>
 </tr>
 </tbody>
