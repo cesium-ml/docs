@@ -7,8 +7,14 @@ Module: :mod:`featureset`
 .. currentmodule:: cesium.featureset
 .. autosummary::
 
+   cesium.featureset.from_netcdf
 
    cesium.featureset.Featureset
+
+from_netcdf
+-----------
+
+.. autofunction:: cesium.featureset.from_netcdf
 
 
 :class:`Featureset`

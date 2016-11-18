@@ -100,6 +100,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html">Module: <code class="docutils literal"><span class="pre">features.cadence_features</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html">Module: <code class="docutils literal"><span class="pre">features.graphs</span></code></a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Module: <code class="docutils literal"><span class="pre">featureset</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#from-netcdf">from_netcdf</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#featureset"><code class="docutils literal"><span class="pre">Featureset</span></code></a><ul class="simple">
 </ul>
 </li>
@@ -163,11 +164,23 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#cesium.featureset.Featureset" title="cesium.featureset.Featureset"><code class="xref py py-obj docutils literal"><span class="pre">cesium.featureset.Featureset</span></code></a>([data_vars,&nbsp;...])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.featureset.from_netcdf" title="cesium.featureset.from_netcdf"><code class="xref py py-obj docutils literal"><span class="pre">cesium.featureset.from_netcdf</span></code></a>(netcdf_path[,&nbsp;...])</td>
+<td>Load serialized Featureset from netCDF file.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.featureset.Featureset" title="cesium.featureset.Featureset"><code class="xref py py-obj docutils literal"><span class="pre">cesium.featureset.Featureset</span></code></a>([data_vars,&nbsp;...])</td>
 <td>Extension of <cite>xarray.Dataset</cite> class that implements some convenience functions specific to featuresets generated from a set of time series.</td>
 </tr>
 </tbody>
 </table>
+<div class="section" id="from-netcdf">
+<h2>from_netcdf<a class="headerlink" href="#from-netcdf" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cesium.featureset.from_netcdf">
+<code class="descclassname">cesium.featureset.</code><code class="descname">from_netcdf</code><span class="sig-paren">(</span><em>netcdf_path</em>, <em>engine='netcdf4'</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featureset.from_netcdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load serialized Featureset from netCDF file.</p>
+</dd></dl>
+
+</div>
 <div class="section" id="featureset">
 <h2><a class="reference internal" href="#cesium.featureset.Featureset" title="cesium.featureset.Featureset"><code class="xref py py-class docutils literal"><span class="pre">Featureset</span></code></a><a class="headerlink" href="#featureset" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
