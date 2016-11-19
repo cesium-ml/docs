@@ -11,6 +11,7 @@ Module: :mod:`build_model`
    cesium.build_model.fit_model_optimize_hyperparams
    cesium.build_model.score_model
 
+   cesium.build_model.Featureset
 
 build_model_from_featureset
 ---------------------------
@@ -27,3 +28,14 @@ score_model
 
 .. autofunction:: cesium.build_model.score_model
 
+
+:class:`Featureset`
+-------------------
+
+
+.. autoclass:: Featureset
+  :members:
+  :undoc-members:
+  :show-inheritance:
+
+  .. automethod:: __init__
