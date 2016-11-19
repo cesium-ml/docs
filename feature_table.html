@@ -140,227 +140,6 @@
 <h1>Cesium Features - By Category<a class="headerlink" href="#cesium-features-by-category" title="Permalink to this headline">¶</a></h1>
 <table border="1" class="docutils">
 <colgroup>
-<col width="13%" />
-<col width="87%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">General</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>amplitude</td>
-<td>Half the difference between the maximum and minimum magnitude.</td>
-</tr>
-<tr class="row-odd"><td>flux_percentile_ratio_mid20</td>
-<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
-</tr>
-<tr class="row-even"><td>flux_percentile_ratio_mid35</td>
-<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
-</tr>
-<tr class="row-odd"><td>flux_percentile_ratio_mid50</td>
-<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
-</tr>
-<tr class="row-even"><td>flux_percentile_ratio_mid65</td>
-<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
-</tr>
-<tr class="row-odd"><td>flux_percentile_ratio_mid80</td>
-<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
-</tr>
-<tr class="row-even"><td>max_slope</td>
-<td>Compute the largest rate of change in the observed data.</td>
-</tr>
-<tr class="row-odd"><td>maximum</td>
-<td>Maximum observed value.</td>
-</tr>
-<tr class="row-even"><td>median</td>
-<td>Median of observed values.</td>
-</tr>
-<tr class="row-odd"><td>median_absolute_deviation</td>
-<td>Median absolute deviation (from the median) of the observed values.</td>
-</tr>
-<tr class="row-even"><td>minimum</td>
-<td>Minimum observed value.</td>
-</tr>
-<tr class="row-odd"><td>percent_amplitude</td>
-<td>Returns the largest distance from the median value, measured as a percentage of the median.</td>
-</tr>
-<tr class="row-even"><td>percent_beyond_1_std</td>
-<td>Percentage of values more than 1 std. dev. from the weighted average.</td>
-</tr>
-<tr class="row-odd"><td>percent_close_to_median</td>
-<td>Percentage of values within window_frac*(max(x)-min(x)) of median.</td>
-</tr>
-<tr class="row-even"><td>percent_difference_flux_percentile</td>
-<td>Difference between the 95th and 5th percentiles of the data, expressed as a percentage of the median value. See Eyer (2005) arXiv:astro-ph/0511458v1, Evans &amp; Belokurov (2005) (there the 98th and 2nd percentiles are used).</td>
-</tr>
-<tr class="row-odd"><td>period_fast</td>
-<td>Fits a simple sinuosidal model</td>
-</tr>
-<tr class="row-even"><td>qso_log_chi2_qsonu</td>
-<td>Natural log of goodness of fit of qso-model given fixed parameters.</td>
-</tr>
-<tr class="row-odd"><td>qso_log_chi2nuNULL_chi2nu</td>
-<td>Natural log of expected chi2/nu for non-qso variable.</td>
-</tr>
-<tr class="row-even"><td>skew</td>
-<td>Skewness of a dataset. Approximately 0 for Gaussian data.</td>
-</tr>
-<tr class="row-odd"><td>std</td>
-<td>Standard deviation of observed values.</td>
-</tr>
-<tr class="row-even"><td>stetson_j</td>
-<td>Robust covariance statistic between pairs of observations x,y whose uncertainties are dx,dy. If y is not given, calculates a robust variance for x.</td>
-</tr>
-<tr class="row-odd"><td>stetson_k</td>
-<td>A robust kurtosis statistic.</td>
-</tr>
-<tr class="row-even"><td>weighted_average</td>
-<td>Arithmetic mean of observed values, weighted by measurement errors.</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="docutils">
-<colgroup>
-<col width="13%" />
-<col width="87%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Cadence/Error</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>all_times_nhist_numpeaks</td>
-<td>Number of peaks (local maxima) in histogram of all possible delta_t&#8217;s.</td>
-</tr>
-<tr class="row-odd"><td>all_times_nhist_peak1_bin</td>
-<td>Return the (bin) index of the ith largest peak. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
-</tr>
-<tr class="row-even"><td>all_times_nhist_peak2_bin</td>
-<td>Return the (bin) index of the ith largest peak. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
-</tr>
-<tr class="row-odd"><td>all_times_nhist_peak3_bin</td>
-<td>Return the (bin) index of the ith largest peak. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
-</tr>
-<tr class="row-even"><td>all_times_nhist_peak4_bin</td>
-<td>Return the (bin) index of the ith largest peak. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
-</tr>
-<tr class="row-odd"><td>all_times_nhist_peak_1_to_2</td>
-<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
-</tr>
-<tr class="row-even"><td>all_times_nhist_peak_1_to_3</td>
-<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
-</tr>
-<tr class="row-odd"><td>all_times_nhist_peak_1_to_4</td>
-<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
-</tr>
-<tr class="row-even"><td>all_times_nhist_peak_2_to_3</td>
-<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
-</tr>
-<tr class="row-odd"><td>all_times_nhist_peak_2_to_4</td>
-<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
-</tr>
-<tr class="row-even"><td>all_times_nhist_peak_3_to_4</td>
-<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
-</tr>
-<tr class="row-odd"><td>all_times_nhist_peak_val</td>
-<td>Peak value in histogram of all possible delta_t&#8217;s.</td>
-</tr>
-<tr class="row-even"><td>avg_double_to_single_step</td>
-<td>Mean value of ratios (t[i+2] - t[i]) / (t[i+2] - t[i+1]).</td>
-</tr>
-<tr class="row-odd"><td>avg_err</td>
-<td>Mean of the error estimates.</td>
-</tr>
-<tr class="row-even"><td>avgt</td>
-<td>Mean of the time values.</td>
-</tr>
-<tr class="row-odd"><td>cad_probs_1</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-even"><td>cad_probs_10</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-odd"><td>cad_probs_20</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-even"><td>cad_probs_30</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-odd"><td>cad_probs_40</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-even"><td>cad_probs_50</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-odd"><td>cad_probs_100</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-even"><td>cad_probs_500</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-odd"><td>cad_probs_1000</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-even"><td>cad_probs_5000</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-odd"><td>cad_probs_10000</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-even"><td>cad_probs_50000</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-odd"><td>cad_probs_100000</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-even"><td>cad_probs_500000</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-odd"><td>cad_probs_1000000</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-even"><td>cad_probs_5000000</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-odd"><td>cad_probs_10000000</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-even"><td>cads_avg</td>
-<td>Mean value of <cite>cads</cite> (discrete difference between times).</td>
-</tr>
-<tr class="row-odd"><td>cads_med</td>
-<td>Median value of <cite>cads</cite> (discrete difference between times).</td>
-</tr>
-<tr class="row-even"><td>cads_std</td>
-<td>Standard deviation of <cite>cads</cite> (discrete difference between times).</td>
-</tr>
-<tr class="row-odd"><td>mean</td>
-<td>Mean of observed values.</td>
-</tr>
-<tr class="row-even"><td>med_double_to_single_step</td>
-<td>Median value of ratios (t[i+2] - t[i]) / (t[i+2] - t[i+1]).</td>
-</tr>
-<tr class="row-odd"><td>med_err</td>
-<td>Median of error estimates.</td>
-</tr>
-<tr class="row-even"><td>n_epochs</td>
-<td>Total number of observed values.</td>
-</tr>
-<tr class="row-odd"><td>std_double_to_single_step</td>
-<td>Standard deviation of ratios (t[i+2] - t[i]) / (t[i+2] - t[i+1]).</td>
-</tr>
-<tr class="row-even"><td>std_err</td>
-<td>Standard deviation of the error estimates.</td>
-</tr>
-<tr class="row-odd"><td>total_time</td>
-<td>Absolute difference between max and min of time values.</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="docutils">
-<colgroup>
 <col width="16%" />
 <col width="84%" />
 </colgroup>
@@ -510,6 +289,227 @@
 </tr>
 <tr class="row-even"><td>scatter_res_raw</td>
 <td>From arXiv 1101_2406v1 Dubath 20110112 paper.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Cadence/Error</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>all_times_nhist_numpeaks</td>
+<td>Number of peaks (local maxima) in histogram of all possible delta_t&#8217;s.</td>
+</tr>
+<tr class="row-odd"><td>all_times_nhist_peak1_bin</td>
+<td>Return the (bin) index of the ith largest peak. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
+</tr>
+<tr class="row-even"><td>all_times_nhist_peak2_bin</td>
+<td>Return the (bin) index of the ith largest peak. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
+</tr>
+<tr class="row-odd"><td>all_times_nhist_peak3_bin</td>
+<td>Return the (bin) index of the ith largest peak. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
+</tr>
+<tr class="row-even"><td>all_times_nhist_peak4_bin</td>
+<td>Return the (bin) index of the ith largest peak. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
+</tr>
+<tr class="row-odd"><td>all_times_nhist_peak_1_to_2</td>
+<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
+</tr>
+<tr class="row-even"><td>all_times_nhist_peak_1_to_3</td>
+<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
+</tr>
+<tr class="row-odd"><td>all_times_nhist_peak_1_to_4</td>
+<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
+</tr>
+<tr class="row-even"><td>all_times_nhist_peak_2_to_3</td>
+<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
+</tr>
+<tr class="row-odd"><td>all_times_nhist_peak_2_to_4</td>
+<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
+</tr>
+<tr class="row-even"><td>all_times_nhist_peak_3_to_4</td>
+<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
+</tr>
+<tr class="row-odd"><td>all_times_nhist_peak_val</td>
+<td>Peak value in histogram of all possible delta_t&#8217;s.</td>
+</tr>
+<tr class="row-even"><td>avg_double_to_single_step</td>
+<td>Mean value of ratios (t[i+2] - t[i]) / (t[i+2] - t[i+1]).</td>
+</tr>
+<tr class="row-odd"><td>avg_err</td>
+<td>Mean of the error estimates.</td>
+</tr>
+<tr class="row-even"><td>avgt</td>
+<td>Mean of the time values.</td>
+</tr>
+<tr class="row-odd"><td>cad_probs_1</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-even"><td>cad_probs_10</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-odd"><td>cad_probs_20</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-even"><td>cad_probs_30</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-odd"><td>cad_probs_40</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-even"><td>cad_probs_50</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-odd"><td>cad_probs_100</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-even"><td>cad_probs_500</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-odd"><td>cad_probs_1000</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-even"><td>cad_probs_5000</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-odd"><td>cad_probs_10000</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-even"><td>cad_probs_50000</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-odd"><td>cad_probs_100000</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-even"><td>cad_probs_500000</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-odd"><td>cad_probs_1000000</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-even"><td>cad_probs_5000000</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-odd"><td>cad_probs_10000000</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-even"><td>cads_avg</td>
+<td>Mean value of <cite>cads</cite> (discrete difference between times).</td>
+</tr>
+<tr class="row-odd"><td>cads_med</td>
+<td>Median value of <cite>cads</cite> (discrete difference between times).</td>
+</tr>
+<tr class="row-even"><td>cads_std</td>
+<td>Standard deviation of <cite>cads</cite> (discrete difference between times).</td>
+</tr>
+<tr class="row-odd"><td>mean</td>
+<td>Mean of observed values.</td>
+</tr>
+<tr class="row-even"><td>med_double_to_single_step</td>
+<td>Median value of ratios (t[i+2] - t[i]) / (t[i+2] - t[i+1]).</td>
+</tr>
+<tr class="row-odd"><td>med_err</td>
+<td>Median of error estimates.</td>
+</tr>
+<tr class="row-even"><td>n_epochs</td>
+<td>Total number of observed values.</td>
+</tr>
+<tr class="row-odd"><td>std_double_to_single_step</td>
+<td>Standard deviation of ratios (t[i+2] - t[i]) / (t[i+2] - t[i+1]).</td>
+</tr>
+<tr class="row-even"><td>std_err</td>
+<td>Standard deviation of the error estimates.</td>
+</tr>
+<tr class="row-odd"><td>total_time</td>
+<td>Absolute difference between max and min of time values.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">General</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>amplitude</td>
+<td>Half the difference between the maximum and minimum magnitude.</td>
+</tr>
+<tr class="row-odd"><td>flux_percentile_ratio_mid20</td>
+<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
+</tr>
+<tr class="row-even"><td>flux_percentile_ratio_mid35</td>
+<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
+</tr>
+<tr class="row-odd"><td>flux_percentile_ratio_mid50</td>
+<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
+</tr>
+<tr class="row-even"><td>flux_percentile_ratio_mid65</td>
+<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
+</tr>
+<tr class="row-odd"><td>flux_percentile_ratio_mid80</td>
+<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
+</tr>
+<tr class="row-even"><td>max_slope</td>
+<td>Compute the largest rate of change in the observed data.</td>
+</tr>
+<tr class="row-odd"><td>maximum</td>
+<td>Maximum observed value.</td>
+</tr>
+<tr class="row-even"><td>median</td>
+<td>Median of observed values.</td>
+</tr>
+<tr class="row-odd"><td>median_absolute_deviation</td>
+<td>Median absolute deviation (from the median) of the observed values.</td>
+</tr>
+<tr class="row-even"><td>minimum</td>
+<td>Minimum observed value.</td>
+</tr>
+<tr class="row-odd"><td>percent_amplitude</td>
+<td>Returns the largest distance from the median value, measured as a percentage of the median.</td>
+</tr>
+<tr class="row-even"><td>percent_beyond_1_std</td>
+<td>Percentage of values more than 1 std. dev. from the weighted average.</td>
+</tr>
+<tr class="row-odd"><td>percent_close_to_median</td>
+<td>Percentage of values within window_frac*(max(x)-min(x)) of median.</td>
+</tr>
+<tr class="row-even"><td>percent_difference_flux_percentile</td>
+<td>Difference between the 95th and 5th percentiles of the data, expressed as a percentage of the median value. See Eyer (2005) arXiv:astro-ph/0511458v1, Evans &amp; Belokurov (2005) (there the 98th and 2nd percentiles are used).</td>
+</tr>
+<tr class="row-odd"><td>period_fast</td>
+<td>Fits a simple sinuosidal model</td>
+</tr>
+<tr class="row-even"><td>qso_log_chi2_qsonu</td>
+<td>Natural log of goodness of fit of qso-model given fixed parameters.</td>
+</tr>
+<tr class="row-odd"><td>qso_log_chi2nuNULL_chi2nu</td>
+<td>Natural log of expected chi2/nu for non-qso variable.</td>
+</tr>
+<tr class="row-even"><td>skew</td>
+<td>Skewness of a dataset. Approximately 0 for Gaussian data.</td>
+</tr>
+<tr class="row-odd"><td>std</td>
+<td>Standard deviation of observed values.</td>
+</tr>
+<tr class="row-even"><td>stetson_j</td>
+<td>Robust covariance statistic between pairs of observations x,y whose uncertainties are dx,dy. If y is not given, calculates a robust variance for x.</td>
+</tr>
+<tr class="row-odd"><td>stetson_k</td>
+<td>A robust kurtosis statistic.</td>
+</tr>
+<tr class="row-even"><td>weighted_average</td>
+<td>Arithmetic mean of observed values, weighted by measurement errors.</td>
 </tr>
 </tbody>
 </table>
