@@ -142,26 +142,16 @@
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">cesium</span>
 </pre></div>
 </div>
-<p><em>Note:</em> We depend on NetCDF4, which currently has no Linux wheel, so tries to
-compile itself.  You may therefore need to install the netcdf4 headers and
-library separately.</p>
 <p>The cesium library has the following dependencies:</p>
 <ul class="simple">
 <li><a class="reference external" href="http://www.numpy.org/">numpy</a></li>
 <li><a class="reference external" href="http://www.scipy.org/">scipy</a></li>
 <li><a class="reference external" href="http://pandas.pydata.org">pandas</a></li>
 <li><a class="reference external" href="http://scikit-learn.org/">scikit-learn</a></li>
-<li><a class="reference external" href="http://cython.org/">cython</a></li>
 <li><a class="reference external" href="http://dask.pydata.org/">dask</a></li>
 <li><a class="reference external" href="http://xarray.pydata.org/">xarray</a></li>
 <li><a class="reference external" href="http://unidata.github.io/netcdf4-python/">NetCDF4</a></li>
-</ul>
-<p>For parallel processing, you will also need:</p>
-<ul class="simple">
-<li>Install <a class="reference external" href="https://www.rabbitmq.com/download.html">RabbitMQ</a><ul>
-<li>Ensure server is running with <code class="docutils literal"><span class="pre">rabbitmq-server</span> <span class="pre">-detached</span></code></li>
-</ul>
-</li>
+<li><a class="reference external" href="http://cython.org/">cython</a> (development only)</li>
 </ul>
 <p>The <code class="docutils literal"><span class="pre">cesium</span></code> library runs on Python 2 and 3.</p>
 </div>
