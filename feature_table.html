@@ -144,6 +144,145 @@
 <col width="87%" />
 </colgroup>
 <thead valign="bottom">
+<tr class="row-odd"><th class="head">Cadence/Error</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>all_times_nhist_numpeaks</td>
+<td>Number of peaks (local maxima) in histogram of all possible delta_t&#8217;s.</td>
+</tr>
+<tr class="row-odd"><td>all_times_nhist_peak1_bin</td>
+<td>Return the (bin) index of the ith largest peak. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
+</tr>
+<tr class="row-even"><td>all_times_nhist_peak2_bin</td>
+<td>Return the (bin) index of the ith largest peak. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
+</tr>
+<tr class="row-odd"><td>all_times_nhist_peak3_bin</td>
+<td>Return the (bin) index of the ith largest peak. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
+</tr>
+<tr class="row-even"><td>all_times_nhist_peak4_bin</td>
+<td>Return the (bin) index of the ith largest peak. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
+</tr>
+<tr class="row-odd"><td>all_times_nhist_peak_1_to_2</td>
+<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
+</tr>
+<tr class="row-even"><td>all_times_nhist_peak_1_to_3</td>
+<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
+</tr>
+<tr class="row-odd"><td>all_times_nhist_peak_1_to_4</td>
+<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
+</tr>
+<tr class="row-even"><td>all_times_nhist_peak_2_to_3</td>
+<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
+</tr>
+<tr class="row-odd"><td>all_times_nhist_peak_2_to_4</td>
+<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
+</tr>
+<tr class="row-even"><td>all_times_nhist_peak_3_to_4</td>
+<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
+</tr>
+<tr class="row-odd"><td>all_times_nhist_peak_val</td>
+<td>Peak value in histogram of all possible delta_t&#8217;s.</td>
+</tr>
+<tr class="row-even"><td>avg_double_to_single_step</td>
+<td>Mean value of ratios (t[i+2] - t[i]) / (t[i+2] - t[i+1]).</td>
+</tr>
+<tr class="row-odd"><td>avg_err</td>
+<td>Mean of the error estimates.</td>
+</tr>
+<tr class="row-even"><td>avgt</td>
+<td>Mean of the time values.</td>
+</tr>
+<tr class="row-odd"><td>cad_probs_1</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-even"><td>cad_probs_10</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-odd"><td>cad_probs_20</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-even"><td>cad_probs_30</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-odd"><td>cad_probs_40</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-even"><td>cad_probs_50</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-odd"><td>cad_probs_100</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-even"><td>cad_probs_500</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-odd"><td>cad_probs_1000</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-even"><td>cad_probs_5000</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-odd"><td>cad_probs_10000</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-even"><td>cad_probs_50000</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-odd"><td>cad_probs_100000</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-even"><td>cad_probs_500000</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-odd"><td>cad_probs_1000000</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-even"><td>cad_probs_5000000</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-odd"><td>cad_probs_10000000</td>
+<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
+</tr>
+<tr class="row-even"><td>cads_avg</td>
+<td>Mean value of <cite>cads</cite> (discrete difference between times).</td>
+</tr>
+<tr class="row-odd"><td>cads_med</td>
+<td>Median value of <cite>cads</cite> (discrete difference between times).</td>
+</tr>
+<tr class="row-even"><td>cads_std</td>
+<td>Standard deviation of <cite>cads</cite> (discrete difference between times).</td>
+</tr>
+<tr class="row-odd"><td>mean</td>
+<td>Mean of observed values.</td>
+</tr>
+<tr class="row-even"><td>med_double_to_single_step</td>
+<td>Median value of ratios (t[i+2] - t[i]) / (t[i+2] - t[i+1]).</td>
+</tr>
+<tr class="row-odd"><td>med_err</td>
+<td>Median of error estimates.</td>
+</tr>
+<tr class="row-even"><td>n_epochs</td>
+<td>Total number of observed values.</td>
+</tr>
+<tr class="row-odd"><td>std_double_to_single_step</td>
+<td>Standard deviation of ratios (t[i+2] - t[i]) / (t[i+2] - t[i+1]).</td>
+</tr>
+<tr class="row-even"><td>std_err</td>
+<td>Standard deviation of the error estimates.</td>
+</tr>
+<tr class="row-odd"><td>total_time</td>
+<td>Absolute difference between max and min of time values.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<thead valign="bottom">
 <tr class="row-odd"><th class="head">General</th>
 <th class="head">Description</th>
 </tr>
@@ -371,145 +510,6 @@
 </tr>
 <tr class="row-even"><td>scatter_res_raw</td>
 <td>From arXiv 1101_2406v1 Dubath 20110112 paper.</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="docutils">
-<colgroup>
-<col width="13%" />
-<col width="87%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Cadence/Error</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>all_times_nhist_numpeaks</td>
-<td>Number of peaks (local maxima) in histogram of all possible delta_t&#8217;s.</td>
-</tr>
-<tr class="row-odd"><td>all_times_nhist_peak1_bin</td>
-<td>Return the (bin) index of the ith largest peak. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
-</tr>
-<tr class="row-even"><td>all_times_nhist_peak2_bin</td>
-<td>Return the (bin) index of the ith largest peak. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
-</tr>
-<tr class="row-odd"><td>all_times_nhist_peak3_bin</td>
-<td>Return the (bin) index of the ith largest peak. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
-</tr>
-<tr class="row-even"><td>all_times_nhist_peak4_bin</td>
-<td>Return the (bin) index of the ith largest peak. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
-</tr>
-<tr class="row-odd"><td>all_times_nhist_peak_1_to_2</td>
-<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
-</tr>
-<tr class="row-even"><td>all_times_nhist_peak_1_to_3</td>
-<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
-</tr>
-<tr class="row-odd"><td>all_times_nhist_peak_1_to_4</td>
-<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
-</tr>
-<tr class="row-even"><td>all_times_nhist_peak_2_to_3</td>
-<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
-</tr>
-<tr class="row-odd"><td>all_times_nhist_peak_2_to_4</td>
-<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
-</tr>
-<tr class="row-even"><td>all_times_nhist_peak_3_to_4</td>
-<td>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list of tuples (i, x[i]) of peak indices i and values x[i], sorted in decreasing order by peak value.</td>
-</tr>
-<tr class="row-odd"><td>all_times_nhist_peak_val</td>
-<td>Peak value in histogram of all possible delta_t&#8217;s.</td>
-</tr>
-<tr class="row-even"><td>avg_double_to_single_step</td>
-<td>Mean value of ratios (t[i+2] - t[i]) / (t[i+2] - t[i+1]).</td>
-</tr>
-<tr class="row-odd"><td>avg_err</td>
-<td>Mean of the error estimates.</td>
-</tr>
-<tr class="row-even"><td>avgt</td>
-<td>Mean of the time values.</td>
-</tr>
-<tr class="row-odd"><td>cad_probs_1</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-even"><td>cad_probs_10</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-odd"><td>cad_probs_20</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-even"><td>cad_probs_30</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-odd"><td>cad_probs_40</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-even"><td>cad_probs_50</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-odd"><td>cad_probs_100</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-even"><td>cad_probs_500</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-odd"><td>cad_probs_1000</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-even"><td>cad_probs_5000</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-odd"><td>cad_probs_10000</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-even"><td>cad_probs_50000</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-odd"><td>cad_probs_100000</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-even"><td>cad_probs_500000</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-odd"><td>cad_probs_1000000</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-even"><td>cad_probs_5000000</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-odd"><td>cad_probs_10000000</td>
-<td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
-</tr>
-<tr class="row-even"><td>cads_avg</td>
-<td>Mean value of <cite>cads</cite> (discrete difference between times).</td>
-</tr>
-<tr class="row-odd"><td>cads_med</td>
-<td>Median value of <cite>cads</cite> (discrete difference between times).</td>
-</tr>
-<tr class="row-even"><td>cads_std</td>
-<td>Standard deviation of <cite>cads</cite> (discrete difference between times).</td>
-</tr>
-<tr class="row-odd"><td>mean</td>
-<td>Mean of observed values.</td>
-</tr>
-<tr class="row-even"><td>med_double_to_single_step</td>
-<td>Median value of ratios (t[i+2] - t[i]) / (t[i+2] - t[i+1]).</td>
-</tr>
-<tr class="row-odd"><td>med_err</td>
-<td>Median of error estimates.</td>
-</tr>
-<tr class="row-even"><td>n_epochs</td>
-<td>Total number of observed values.</td>
-</tr>
-<tr class="row-odd"><td>std_double_to_single_step</td>
-<td>Standard deviation of ratios (t[i+2] - t[i]) / (t[i+2] - t[i+1]).</td>
-</tr>
-<tr class="row-even"><td>std_err</td>
-<td>Standard deviation of the error estimates.</td>
-</tr>
-<tr class="row-odd"><td>total_time</td>
-<td>Absolute difference between max and min of time values.</td>
 </tr>
 </tbody>
 </table>
