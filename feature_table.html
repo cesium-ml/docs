@@ -279,88 +279,6 @@
 </table>
 <table border="1" class="docutils">
 <colgroup>
-<col width="13%" />
-<col width="87%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">General</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>amplitude</td>
-<td>Half the difference between the maximum and minimum magnitude.</td>
-</tr>
-<tr class="row-odd"><td>flux_percentile_ratio_mid20</td>
-<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
-</tr>
-<tr class="row-even"><td>flux_percentile_ratio_mid35</td>
-<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
-</tr>
-<tr class="row-odd"><td>flux_percentile_ratio_mid50</td>
-<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
-</tr>
-<tr class="row-even"><td>flux_percentile_ratio_mid65</td>
-<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
-</tr>
-<tr class="row-odd"><td>flux_percentile_ratio_mid80</td>
-<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
-</tr>
-<tr class="row-even"><td>max_slope</td>
-<td>Compute the largest rate of change in the observed data.</td>
-</tr>
-<tr class="row-odd"><td>maximum</td>
-<td>Maximum observed value.</td>
-</tr>
-<tr class="row-even"><td>median</td>
-<td>Median of observed values.</td>
-</tr>
-<tr class="row-odd"><td>median_absolute_deviation</td>
-<td>Median absolute deviation (from the median) of the observed values.</td>
-</tr>
-<tr class="row-even"><td>minimum</td>
-<td>Minimum observed value.</td>
-</tr>
-<tr class="row-odd"><td>percent_amplitude</td>
-<td>Returns the largest distance from the median value, measured as a percentage of the median.</td>
-</tr>
-<tr class="row-even"><td>percent_beyond_1_std</td>
-<td>Percentage of values more than 1 std. dev. from the weighted average.</td>
-</tr>
-<tr class="row-odd"><td>percent_close_to_median</td>
-<td>Percentage of values within window_frac*(max(x)-min(x)) of median.</td>
-</tr>
-<tr class="row-even"><td>percent_difference_flux_percentile</td>
-<td>Difference between the 95th and 5th percentiles of the data, expressed as a percentage of the median value. See Eyer (2005) arXiv:astro-ph/0511458v1, Evans &amp; Belokurov (2005) (there the 98th and 2nd percentiles are used).</td>
-</tr>
-<tr class="row-odd"><td>period_fast</td>
-<td>Fits a simple sinuosidal model</td>
-</tr>
-<tr class="row-even"><td>qso_log_chi2_qsonu</td>
-<td>Natural log of goodness of fit of qso-model given fixed parameters.</td>
-</tr>
-<tr class="row-odd"><td>qso_log_chi2nuNULL_chi2nu</td>
-<td>Natural log of expected chi2/nu for non-qso variable.</td>
-</tr>
-<tr class="row-even"><td>skew</td>
-<td>Skewness of a dataset. Approximately 0 for Gaussian data.</td>
-</tr>
-<tr class="row-odd"><td>std</td>
-<td>Standard deviation of observed values.</td>
-</tr>
-<tr class="row-even"><td>stetson_j</td>
-<td>Robust covariance statistic between pairs of observations x,y whose uncertainties are dx,dy. If y is not given, calculates a robust variance for x.</td>
-</tr>
-<tr class="row-odd"><td>stetson_k</td>
-<td>A robust kurtosis statistic.</td>
-</tr>
-<tr class="row-even"><td>weighted_average</td>
-<td>Arithmetic mean of observed values, weighted by measurement errors.</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="docutils">
-<colgroup>
 <col width="16%" />
 <col width="84%" />
 </colgroup>
@@ -510,6 +428,88 @@
 </tr>
 <tr class="row-even"><td>scatter_res_raw</td>
 <td>From arXiv 1101_2406v1 Dubath 20110112 paper.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">General</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>amplitude</td>
+<td>Half the difference between the maximum and minimum magnitude.</td>
+</tr>
+<tr class="row-odd"><td>flux_percentile_ratio_mid20</td>
+<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
+</tr>
+<tr class="row-even"><td>flux_percentile_ratio_mid35</td>
+<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
+</tr>
+<tr class="row-odd"><td>flux_percentile_ratio_mid50</td>
+<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
+</tr>
+<tr class="row-even"><td>flux_percentile_ratio_mid65</td>
+<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
+</tr>
+<tr class="row-odd"><td>flux_percentile_ratio_mid80</td>
+<td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
+</tr>
+<tr class="row-even"><td>max_slope</td>
+<td>Compute the largest rate of change in the observed data.</td>
+</tr>
+<tr class="row-odd"><td>maximum</td>
+<td>Maximum observed value.</td>
+</tr>
+<tr class="row-even"><td>median</td>
+<td>Median of observed values.</td>
+</tr>
+<tr class="row-odd"><td>median_absolute_deviation</td>
+<td>Median absolute deviation (from the median) of the observed values.</td>
+</tr>
+<tr class="row-even"><td>minimum</td>
+<td>Minimum observed value.</td>
+</tr>
+<tr class="row-odd"><td>percent_amplitude</td>
+<td>Returns the largest distance from the median value, measured as a percentage of the median.</td>
+</tr>
+<tr class="row-even"><td>percent_beyond_1_std</td>
+<td>Percentage of values more than 1 std. dev. from the weighted average.</td>
+</tr>
+<tr class="row-odd"><td>percent_close_to_median</td>
+<td>Percentage of values within window_frac*(max(x)-min(x)) of median.</td>
+</tr>
+<tr class="row-even"><td>percent_difference_flux_percentile</td>
+<td>Difference between the 95th and 5th percentiles of the data, expressed as a percentage of the median value. See Eyer (2005) arXiv:astro-ph/0511458v1, Evans &amp; Belokurov (2005) (there the 98th and 2nd percentiles are used).</td>
+</tr>
+<tr class="row-odd"><td>period_fast</td>
+<td>Fits a simple sinuosidal model</td>
+</tr>
+<tr class="row-even"><td>qso_log_chi2_qsonu</td>
+<td>Natural log of goodness of fit of qso-model given fixed parameters.</td>
+</tr>
+<tr class="row-odd"><td>qso_log_chi2nuNULL_chi2nu</td>
+<td>Natural log of expected chi2/nu for non-qso variable.</td>
+</tr>
+<tr class="row-even"><td>skew</td>
+<td>Skewness of a dataset. Approximately 0 for Gaussian data.</td>
+</tr>
+<tr class="row-odd"><td>std</td>
+<td>Standard deviation of observed values.</td>
+</tr>
+<tr class="row-even"><td>stetson_j</td>
+<td>Robust covariance statistic between pairs of observations x,y whose uncertainties are dx,dy. If y is not given, calculates a robust variance for x.</td>
+</tr>
+<tr class="row-odd"><td>stetson_k</td>
+<td>A robust kurtosis statistic.</td>
+</tr>
+<tr class="row-even"><td>weighted_average</td>
+<td>Arithmetic mean of observed values, weighted by measurement errors.</td>
 </tr>
 </tbody>
 </table>
