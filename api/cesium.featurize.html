@@ -481,7 +481,7 @@ containing labels (<cite>name</cite>) and targets (<cite>target</cite>), if appl
 <h2><a class="reference internal" href="#cesium.featurize.Featureset" title="cesium.featurize.Featureset"><code class="xref py py-class docutils literal"><span class="pre">Featureset</span></code></a><a class="headerlink" href="#featureset" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cesium.featurize.Featureset">
-<em class="property">class </em><code class="descclassname">cesium.featurize.</code><code class="descname">Featureset</code><span class="sig-paren">(</span><em>data_vars=None</em>, <em>coords=None</em>, <em>attrs=None</em>, <em>compat='broadcast_equals'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.Featureset" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">cesium.featurize.</code><code class="descname">Featureset</code><span class="sig-paren">(</span><em>data_vars=None</em>, <em>coords=None</em>, <em>attrs=None</em>, <em>compat='broadcast_equals'</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.Featureset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xarray.core.dataset.Dataset</span></code></p>
 <p>Extension of <cite>xarray.Dataset</cite> class that implements some convenience
 functions specific to featuresets generated from a set of time series.</p>
@@ -513,26 +513,29 @@ coordinate to simplify extracting features for specific time series.</p>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">dims</span></code></td>
 <td>Mapping from dimension names to lengths.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">imag</span></code></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">encoding</span></code></td>
+<td>Dictionary of global encoding attributes on this dataset</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">imag</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">indexes</span></code></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">indexes</span></code></td>
 <td>OrderedDict of pandas.Index objects used for label based indexing</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">loc</span></code></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">loc</span></code></td>
 <td>Attribute for location based indexing.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">nbytes</span></code></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">nbytes</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">real</span></code></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">real</span></code></td>
 <td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">sizes</span></code></td>
+<td>Mapping from dimension names to lengths.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">variables</span></code></td>
 <td>Frozen dictionary of xarray.Variable objects constituting this</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">vars</span></code></td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -561,10 +564,10 @@ coordinate to simplify extracting features for specific time series.</p>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">argsort</span></code>([axis,&nbsp;kind,&nbsp;order])</td>
 <td>Returns the indices that would sort this array.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">assign</span></code>(\*\*kwargs)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">assign</span></code>(**kwargs)</td>
 <td>Assign new data variables to a Dataset, returning a new object with all the original variables in addition to the new ones.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">assign_coords</span></code>(\*\*kwargs)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">assign_coords</span></code>(**kwargs)</td>
 <td>Assign new coordinates to this object, returning a new object with all the original data in addition to the new coordinates.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">astype</span></code>(dtype[,&nbsp;order,&nbsp;casting,&nbsp;subok,&nbsp;copy])</td>
@@ -580,7 +583,13 @@ coordinate to simplify extracting features for specific time series.</p>
 <td>Return an array whose values are limited to <code class="docutils literal"><span class="pre">[min,</span> <span class="pre">max]</span></code>.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">close</span></code>()</td>
-<td>Close any files linked to this dataset</td>
+<td>Close any files linked to this object</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">combine_first</span></code>(other)</td>
+<td>Combine two Datasets, default to data_vars of self.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">compute</span></code>()</td>
+<td>Manually trigger loading of this dataset&#8217;s data from disk or a remote source into memory and return a new dataset.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">conj</span></code>()</td>
 <td>Complex-conjugate all elements.</td>
@@ -594,44 +603,44 @@ coordinate to simplify extracting features for specific time series.</p>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">count</span></code>([dim,&nbsp;keep_attrs])</td>
 <td>Reduce this Dataset&#8217;s data by applying <cite>count</cite> along some dimension(s).</td>
 </tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">cumprod</span></code>([dim,&nbsp;keep_attrs,&nbsp;skipna])</td>
+<td>Apply <cite>cumprod</cite> along some dimension of Dataset.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">cumsum</span></code>([dim,&nbsp;keep_attrs,&nbsp;skipna])</td>
+<td>Apply <cite>cumsum</cite> along some dimension of Dataset.</td>
+</tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">diff</span></code>(dim[,&nbsp;n,&nbsp;label])</td>
 <td>Calculate the n-th order discrete difference along given axis.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">drop</span></code>(labels[,&nbsp;dim])</td>
 <td>Drop variables or index labels from this dataset.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">drop_vars</span></code>(\*names)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">dropna</span></code>(dim[,&nbsp;how,&nbsp;thresh,&nbsp;subset])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">dropna</span></code>(dim[,&nbsp;how,&nbsp;thresh,&nbsp;subset])</td>
 <td>Returns a new dataset with dropped labels for missing values along the provided dimension.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">dump</span></code>([path,&nbsp;mode,&nbsp;format,&nbsp;group,&nbsp;engine,&nbsp;...])</td>
-<td>Write dataset contents to a netCDF file.</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">dump_to_store</span></code>(store[,&nbsp;encoder,&nbsp;sync,&nbsp;encoding])</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">dump_to_store</span></code>(store[,&nbsp;encoder,&nbsp;sync,&nbsp;...])</td>
 <td>Store dataset contents to a backends.*DataStore object.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">dumps</span></code>([path,&nbsp;mode,&nbsp;format,&nbsp;group,&nbsp;engine,&nbsp;...])</td>
-<td>Write dataset contents to a netCDF file.</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">equals</span></code>(other)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">equals</span></code>(other)</td>
 <td>Two Datasets are equal if they have matching variables and coordinates, all of which are equal.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">fillna</span></code>(value)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">fillna</span></code>(value)</td>
 <td>Fill missing values in this object.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">filter_by_attrs</span></code>(\*\*kwargs)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">filter_by_attrs</span></code>(**kwargs)</td>
 <td>Returns a <code class="docutils literal"><span class="pre">Dataset</span></code> with variables that match specific conditions.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">from_dataframe</span></code>(dataframe)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">from_dataframe</span></code>(dataframe)</td>
 <td>Convert a pandas.DataFrame into an xarray.Dataset</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">from_dict</span></code>(d)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">from_dict</span></code>(d)</td>
 <td>Convert a dictionary into an xarray.Dataset.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get</span></code>((k[,d])&nbsp;-&gt;&nbsp;D[k]&nbsp;if&nbsp;k&nbsp;in&nbsp;D,&nbsp;...)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get</span></code>((k[,d])&nbsp;-&gt;&nbsp;D[k]&nbsp;if&nbsp;k&nbsp;in&nbsp;D,&nbsp;...)</td>
 <td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_index</span></code>(key)</td>
+<td>Get an index for a dimension, with fall-back to a default RangeIndex</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">groupby</span></code>(group[,&nbsp;squeeze])</td>
 <td>Returns a GroupBy object for performing grouped operations.</td>
@@ -648,26 +657,26 @@ coordinate to simplify extracting features for specific time series.</p>
 <tr class="row-odd"><td><a class="reference internal" href="#cesium.featurize.Featureset.impute" title="cesium.featurize.Featureset.impute"><code class="xref py py-obj docutils literal"><span class="pre">impute</span></code></a>([strategy,&nbsp;value])</td>
 <td>Replace NaN/Inf values with imputed values as defined by <cite>strategy</cite>.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">isel</span></code>(\*\*indexers)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">info</span></code>([buf])</td>
+<td>Concise summary of a Dataset variables and attributes.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">isel</span></code>([drop])</td>
 <td>Returns a new dataset with each array indexed along the specified dimension(s).</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">isel_points</span></code>([dim])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">isel_points</span></code>([dim])</td>
 <td>Returns a new dataset with each array indexed pointwise along the specified dimension(s).</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">isnull</span></code>(\*args,&nbsp;\*\*kwargs)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">isnull</span></code>(*args,&nbsp;**kwargs)</td>
 <td>Detect missing values (NaN in numeric arrays, None/NaN in object arrays)</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">items</span></code>(...)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">items</span></code>(...)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">keys</span></code>(...)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">keys</span></code>(...)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">load</span></code>()</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">load</span></code>()</td>
 <td>Manually trigger loading of this dataset&#8217;s data from disk or a remote source into memory and return this dataset.</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">load_data</span></code>()</td>
-<td></td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">load_store</span></code>(store[,&nbsp;decoder])</td>
 <td>Create a new dataset from the contents of a backends.*DataStore</td>
@@ -687,26 +696,32 @@ coordinate to simplify extracting features for specific time series.</p>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">min</span></code>([dim,&nbsp;keep_attrs,&nbsp;skipna])</td>
 <td>Reduce this Dataset&#8217;s data by applying <cite>min</cite> along some dimension(s).</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">notnull</span></code>(\*args,&nbsp;\*\*kwargs)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">notnull</span></code>(*args,&nbsp;**kwargs)</td>
 <td>Replacement for numpy.isfinite / -numpy.isnan which is suitable for use on object arrays.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">pipe</span></code>(func,&nbsp;\*args,&nbsp;\*\*kwargs)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">pipe</span></code>(func,&nbsp;*args,&nbsp;**kwargs)</td>
 <td>Apply func(self, <a href="#id1"><span class="problematic" id="id2">*</span></a>args, <a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs)</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">prod</span></code>([dim,&nbsp;keep_attrs,&nbsp;skipna])</td>
 <td>Reduce this Dataset&#8217;s data by applying <cite>prod</cite> along some dimension(s).</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">reduce</span></code>(func[,&nbsp;dim,&nbsp;keep_attrs,&nbsp;...])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">quantile</span></code>(q[,&nbsp;dim,&nbsp;interpolation,&nbsp;...])</td>
+<td>Compute the qth quantile of the data along the specified dimension.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">reduce</span></code>(func[,&nbsp;dim,&nbsp;keep_attrs,&nbsp;...])</td>
 <td>Reduce this dataset by applying <cite>func</cite> along some dimension(s).</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">reindex</span></code>([indexers,&nbsp;method,&nbsp;tolerance,&nbsp;copy])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">reindex</span></code>([indexers,&nbsp;method,&nbsp;tolerance,&nbsp;copy])</td>
 <td>Conform this object onto a new set of indexes, filling in missing values with NaN.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">reindex_like</span></code>(other[,&nbsp;method,&nbsp;tolerance,&nbsp;copy])</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">reindex_like</span></code>(other[,&nbsp;method,&nbsp;tolerance,&nbsp;copy])</td>
 <td>Conform this object onto the indexes of another object, filling in missing values with NaN.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">rename</span></code>(name_dict[,&nbsp;inplace])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">rename</span></code>(name_dict[,&nbsp;inplace])</td>
 <td>Returns a new object with renamed variables and dimensions.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">reorder_levels</span></code>([inplace])</td>
+<td>Rearrange index levels using input order.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">resample</span></code>(freq,&nbsp;dim[,&nbsp;how,&nbsp;skipna,&nbsp;closed,&nbsp;...])</td>
 <td>Resample this object to a new temporal resolution.</td>
@@ -714,31 +729,37 @@ coordinate to simplify extracting features for specific time series.</p>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">reset_coords</span></code>([names,&nbsp;drop,&nbsp;inplace])</td>
 <td>Given names of coordinates, reset them to become variables</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">roll</span></code>(\*\*shifts)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">reset_index</span></code>(dims_or_levels[,&nbsp;drop,&nbsp;inplace])</td>
+<td>Reset the specified index(es) or multi-index level(s).</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">roll</span></code>(**shifts)</td>
 <td>Roll this dataset by an offset along one or more dimensions.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">rolling</span></code>([min_periods,&nbsp;center])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">rolling</span></code>([min_periods,&nbsp;center])</td>
 <td>Rolling window object.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">round</span></code>(\*args,&nbsp;\*\*kwargs)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">round</span></code>(*args,&nbsp;**kwargs)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">sel</span></code>([method,&nbsp;tolerance])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">sel</span></code>([method,&nbsp;tolerance,&nbsp;drop])</td>
 <td>Returns a new dataset with each array indexed by tick labels along the specified dimension(s).</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">sel_points</span></code>([dim,&nbsp;method,&nbsp;tolerance])</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">sel_points</span></code>([dim,&nbsp;method,&nbsp;tolerance])</td>
 <td>Returns a new dataset with each array indexed pointwise by tick labels along the specified dimension(s).</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_coords</span></code>(names[,&nbsp;inplace])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_coords</span></code>(names[,&nbsp;inplace])</td>
 <td>Given names of one or more variables, set them as coordinates</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">shift</span></code>(\*\*shifts)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_index</span></code>([append,&nbsp;inplace])</td>
+<td>Set Dataset (multi-)indexes using one or more existing coordinates or variables.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">shift</span></code>(**shifts)</td>
 <td>Shift this dataset by an offset along one or more dimensions.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">squeeze</span></code>([dim])</td>
-<td>Returns a new dataset with squeezed data.</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">squeeze</span></code>([dim,&nbsp;drop])</td>
+<td>Return a new object with squeezed data.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">stack</span></code>(\*\*dimensions)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">stack</span></code>(**dimensions)</td>
 <td>Stack any number of existing dimensions into a single new dimension.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">std</span></code>([dim,&nbsp;keep_attrs,&nbsp;skipna])</td>
@@ -762,7 +783,7 @@ coordinate to simplify extracting features for specific time series.</p>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">to_netcdf</span></code>([path,&nbsp;mode,&nbsp;format,&nbsp;group,&nbsp;...])</td>
 <td>Write dataset contents to a netCDF file.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">transpose</span></code>(\*dims)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">transpose</span></code>(*dims)</td>
 <td>Return a new Dataset object with all array dimensions transposed.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">unstack</span></code>(dim)</td>
@@ -784,7 +805,7 @@ coordinate to simplify extracting features for specific time series.</p>
 </table>
 <dl class="method">
 <dt id="cesium.featurize.Featureset.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>data_vars=None</em>, <em>coords=None</em>, <em>attrs=None</em>, <em>compat='broadcast_equals'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.Featureset.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>data_vars=None</em>, <em>coords=None</em>, <em>attrs=None</em>, <em>compat='broadcast_equals'</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.Featureset.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>To load data from a file or file-like object, use the <cite>open_dataset</cite>
 function.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -818,7 +839,7 @@ name.</p>
 <p><strong>compat</strong> : {&#8216;broadcast_equals&#8217;, &#8216;equals&#8217;, &#8216;identical&#8217;}, optional</p>
 <blockquote class="last">
 <div><p>String indicating how to compare variables of the same name for
-potential conflicts:</p>
+potential conflicts when initializing this dataset:</p>
 <ul class="simple">
 <li>&#8216;broadcast_equals&#8217;: all values must be equal when variables are
 broadcast against each other to ensure common dimensions.</li>
