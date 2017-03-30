@@ -39,7 +39,7 @@ First, we'll load the data and inspect a representative time series from each cl
     eeg = datasets.fetch_andrzejak()
 
     # Group together classes (Z, O), (N, F), (S) as normal, interictal, ictal
-    eeg["classes"] = eeg["classes"].astype('U16') #  allocate memory for longer class names
+    eeg["classes"] = eeg["classes"].astype("U16") #  allocate memory for longer class names
     eeg["classes"][np.logical_or(eeg["classes"]=="Z", eeg["classes"]=="O")] = "Normal"
     eeg["classes"][np.logical_or(eeg["classes"]=="N", eeg["classes"]=="F")] = "Interictal"
     eeg["classes"][eeg["classes"]=="S"] = "Ictal"
@@ -82,23 +82,22 @@ schedulers as the ``get`` argument to ``featurize_time_series``.
 
 
     from cesium import featurize
-    features_to_use = ['amplitude',
-                       'percent_beyond_1_std',
-                       'maximum',
-                       'max_slope',
-                       'median',
-                       'median_absolute_deviation',
-                       'percent_close_to_median',
-                       'minimum',
-                       'skew',
-                       'std',
-                       'weighted_average']
+    features_to_use = ["amplitude",
+                       "percent_beyond_1_std",
+                       "maximum",
+                       "max_slope",
+                       "median",
+                       "median_absolute_deviation",
+                       "percent_close_to_median",
+                       "minimum",
+                       "skew",
+                       "std",
+                       "weighted_average"]
     fset_cesium = featurize.featurize_time_series(times=eeg["times"],
                                                   values=eeg["measurements"],
                                                   errors=None,
-                                                  features_to_use=features_to_use,
-                                                  targets=eeg["classes"])
-    print(fset_cesium)
+                                                  features_to_use=features_to_use)
+    print(fset_cesium.head())
 
 
 
@@ -108,31 +107,36 @@ schedulers as the ``get`` argument to ``featurize_time_series``.
 
  Out::
 
-    <cesium.Featureset>
-    Dimensions:                    (channel: 1, name: 500)
-    Coordinates:
-      * name                       (name) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 ...
-        target                     (name) <U10 'Normal' 'Normal' 'Normal' ...
-      * channel                    (channel) int64 0
-    Data variables:
-        max_slope                  (name, channel) float64 1.111e+04 2.065e+04 ...
-        skew                       (name, channel) float64 0.0328 -0.09271 ...
-        maximum                    (name, channel) float64 141.0 169.0 184.0 ...
-        minimum                    (name, channel) float64 -146.0 -254.0 -146.0 ...
-        weighted_average           (name, channel) float64 -4.132 -52.44 12.71 ...
-        percent_beyond_1_std       (name, channel) float64 0.1626 0.1455 0.1523 ...
-        median_absolute_deviation  (name, channel) float64 28.0 32.0 31.0 31.0 ...
-        std                        (name, channel) float64 40.41 48.81 47.14 ...
-        amplitude                  (name, channel) float64 143.5 211.5 165.0 ...
-        median                     (name, channel) float64 -4.0 -51.0 13.0 -4.0 ...
-        percent_close_to_median    (name, channel) float64 0.505 0.6405 0.516 ...
+    feature amplitude percent_beyond_1_std maximum     max_slope median  \
+    channel         0                    0       0             0      0   
+    0           143.5             0.162558   141.0  11107.796610   -4.0   
+    1           211.5             0.145472   169.0  20653.559322  -51.0   
+    2           165.0             0.152307   184.0  13537.627119   13.0   
+    3           171.5             0.152307   162.0  17008.813559   -4.0   
+    4           170.0             0.152062   152.0  13016.949153  -18.0   
+
+    feature median_absolute_deviation percent_close_to_median minimum      skew  \
+    channel                         0                       0       0         0   
+    0                            28.0                0.505004  -146.0  0.032805   
+    1                            32.0                0.640469  -254.0 -0.092715   
+    2                            31.0                0.515987  -146.0 -0.004100   
+    3                            31.0                0.541128  -181.0  0.063678   
+    4                            29.0                0.566268  -188.0  0.142753   
+
+    feature        std weighted_average  
+    channel          0                0  
+    0        40.411000        -4.132048  
+    1        48.812668       -52.444716  
+    2        47.144789        12.705150  
+    3        47.072316        -3.992433  
+    4        44.910958       -17.999268
 
 
-The output of ``featurize_time_series`` is an ``xarray.Dataset`` which contains all
+The output of ``featurize_time_series`` is a ``pandas.DataFrame`` which contains all
 the feature information needed to train a machine learning model: feature
-values are stored as data variables, and the time series index/class label are
-stored as coordinates (a ``channel`` coordinate will also be used later for
-multi-channel data).
+names are stored as column indices (as well as channel numbers, as we'll see
+later for multi-channel data), and the time series index/class label are
+stored as row indices.
 
 
 Custom feature functions
@@ -184,18 +188,18 @@ Now we'll pass the desired feature functions as a dictionary via the
 
 
     guo_features = {
-        'mean': mean_signal,
-        'std': std_signal,
-        'mean2': mean_square_signal,
-        'abs_diffs': abs_diffs_signal,
-        'skew': skew_signal
+        "mean": mean_signal,
+        "std": std_signal,
+        "mean2": mean_square_signal,
+        "abs_diffs": abs_diffs_signal,
+        "skew": skew_signal
     }
 
     fset_guo = featurize.featurize_time_series(times=eeg["times"], values=eeg["measurements"],
-                                               errors=None, targets=eeg["classes"],
+                                               errors=None,
                                                features_to_use=list(guo_features.keys()),
                                                custom_functions=guo_features)
-    print(fset_guo)
+    print(fset_guo.head())
 
 
 
@@ -205,18 +209,13 @@ Now we'll pass the desired feature functions as a dictionary via the
 
  Out::
 
-    <cesium.Featureset>
-    Dimensions:    (channel: 1, name: 500)
-    Coordinates:
-      * name       (name) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 ...
-        target     (name) <U10 'Normal' 'Normal' 'Normal' 'Normal' 'Normal' ...
-      * channel    (channel) int64 0
-    Data variables:
-        skew       (name, channel) float64 0.0328 -0.09271 -0.0041 0.06368 ...
-        std        (name, channel) float64 40.41 48.81 47.14 47.07 44.91 45.02 ...
-        abs_diffs  (name, channel) float64 4.695e+04 6.112e+04 5.127e+04 ...
-        mean2      (name, channel) float64 1.65e+03 5.133e+03 2.384e+03 ...
-        mean       (name, channel) float64 -4.132 -52.44 12.71 -3.992 -18.0 ...
+    feature abs_diffs       mean      skew        std        mean2
+    channel         0          0         0          0            0
+    0         46948.0  -4.132048  0.032805  40.411000  1650.122773
+    1         61118.0 -52.444716 -0.092715  48.812668  5133.124725
+    2         51269.0  12.705150 -0.004100  47.144789  2384.051989
+    3         75014.0  -3.992433  0.063678  47.072316  2231.742495
+    4         52873.0 -17.999268  0.142753  44.910958  2340.967781
 
 
 Multi-channel time series
@@ -236,13 +235,12 @@ and then featurize each band separately using the five functions from above.
     import pywt
 
     n_channels = 5
-    eeg["dwts"] = [pywt.wavedec(m, pywt.Wavelet('db1'), level=n_channels-1)
+    eeg["dwts"] = [pywt.wavedec(m, pywt.Wavelet("db1"), level=n_channels-1)
                    for m in eeg["measurements"]]
     fset_dwt = featurize.featurize_time_series(times=None, values=eeg["dwts"], errors=None,
                                                features_to_use=list(guo_features.keys()),
-                                               targets=eeg["classes"],
                                                custom_functions=guo_features)
-    print(fset_dwt)
+    print(fset_dwt.head())
 
 
 
@@ -252,42 +250,52 @@ and then featurize each band separately using the five functions from above.
 
  Out::
 
-    <cesium.Featureset>
-    Dimensions:    (channel: 5, name: 500)
-    Coordinates:
-      * name       (name) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 ...
-        target     (name) <U10 'Normal' 'Normal' 'Normal' 'Normal' 'Normal' ...
-      * channel    (channel) int64 0 1 2 3 4
-    Data variables:
-        skew       (name, channel) float64 -0.0433 0.06578 0.2999 0.1239 0.1179 ...
-        std        (name, channel) float64 112.5 72.97 48.17 25.77 10.15 119.8 ...
-        abs_diffs  (name, channel) float64 2.513e+04 1.806e+04 3.241e+04 ...
-        mean2      (name, channel) float64 1.294e+04 5.362e+03 2.321e+03 664.4 ...
-        mean       (name, channel) float64 -17.08 -6.067 -0.9793 0.1546 0.03555 ...
+    feature abs_diffs                                                       mean  \
+    channel         0         1             2        3             4           0   
+    0        25127.00  18056.00  32408.117995  34239.0  19883.842687  -17.080739   
+    1        28742.00  25226.00  44392.163723  45330.5  26138.909273 -210.210117   
+    2        28284.75  19826.25  42874.712570  36283.0  21020.163284   51.831712   
+    3        24848.25  25715.25  43004.466665  47952.0  34686.416044  -15.429961   
+    4        23848.25  18328.75  39809.051121  35455.5  22640.144920  -71.982490   
+
+    feature                                             ...             std  \
+    channel         1         2         3         4     ...               0   
+    0       -6.067121 -0.979336  0.154634  0.035545     ...      112.473774   
+    1       -3.743191  0.511377  0.057561 -0.024847     ...      119.836067   
+    2        0.714981  0.247418 -0.101951  0.007937     ...      134.809626   
+    3        9.348249 -0.099243 -0.228293  0.181522     ...      104.420503   
+    4       -3.787938 -0.183324 -0.034146 -0.048314     ...      124.012203   
+
+    feature                                                     mean2  \
+    channel          1          2          3          4             0   
+    0        72.970862  48.167301  25.774846  10.154899  12942.101411   
+    1        92.777487  67.005780  33.957464  13.673398  58548.976167   
+    2        78.294247  60.275759  28.088980  11.246134  20860.161722   
+    3        89.999242  67.249397  35.929621  16.366747  11141.725195   
+    4        73.870175  59.986686  27.599723  11.655378  20560.505350   
+
+    feature                                                     
+    channel            1            2            3           4  
+    0        5361.556663  2321.048002   664.366585  103.123231  
+    1        8621.673638  4490.036062  1153.112683  186.962421  
+    2        6130.500243  3633.228314   789.001220  126.475598  
+    3        8187.253405  4522.491228  1290.989756  267.903367  
+    4        5471.151265  3598.436160   761.745854  135.850171  
+
+    [5 rows x 25 columns]
 
 
 The output featureset has the same form as before, except now the ``channel``
-coordinate is used to index the features by the corresponding frequency band.
-The functions in ``cesium.build_model`` and ``cesium.predict`` all accept
-featuresets from single- or multi-channel data, so no additional steps are
-required to train models or make predictions for multichannel featuresets
-using the ``cesium`` library.
+component of the column index is used to index the features by the
+corresponding frequency band.
 
 
 Model Building
 --------------
-Model building in ``cesium`` is handled by the ``build_model_from_featureset``
-function in the ``cesium.build_model`` submodule. The featureset output by
-``featurize_time_series`` contains both the feature and target information
-needed to train a model; ``build_model_from_featureset`` is simply a wrapper
-that calls the ``fit`` method of a given ``scikit-learn`` model with the
-appropriate inputs. In the case of multichannel features, it also handles
-reshaping the featureset into a (rectangular) form that is compatible with
-``scikit-learn``.
-
-For this example, we'll test a random forest classifier for the built-in
-``cesium`` features, and a 3-nearest neighbors classifier for the others, as
-suggested by
+Featuresets produced by ``cesium.featurize`` are compatible with the ``scikit-learn``
+API. For this example, we'll test a random forest classifier for the
+built-in ``cesium`` features, and a 3-nearest neighbors classifier for the
+others, as suggested by
 `Guo et al. (2012) <http://linkinghub.elsevier.com/retrieve/pii/S0957417411003253>`_.
 
 
@@ -295,25 +303,21 @@ suggested by
 .. code-block:: python
 
 
-    from cesium.build_model import build_model_from_featureset
     from sklearn.ensemble import RandomForestClassifier
     from sklearn.neighbors import KNeighborsClassifier
     from sklearn.model_selection import train_test_split
 
     train, test = train_test_split(np.arange(len(eeg["classes"])), random_state=0)
 
-    rfc_param_grid = {'n_estimators': [8, 16, 32, 64, 128, 256, 512, 1024]}
-    model_cesium = build_model_from_featureset(fset_cesium.isel(name=train),
-                                              RandomForestClassifier(max_features='auto',
-                                                                     random_state=0),
-                                              params_to_optimize=rfc_param_grid)
-    knn_param_grid = {'n_neighbors': [1, 2, 3, 4]}
-    model_guo = build_model_from_featureset(fset_guo.isel(name=train),
-                                            KNeighborsClassifier(),
-                                            params_to_optimize=knn_param_grid)
-    model_dwt = build_model_from_featureset(fset_dwt.isel(name=train),
-                                            KNeighborsClassifier(),
-                                            params_to_optimize=knn_param_grid)
+    model_cesium = RandomForestClassifier(n_estimators=128, max_features="auto",
+                                          random_state=0)
+    model_cesium.fit(fset_cesium.iloc[train], eeg["classes"][train])
+
+    model_guo = KNeighborsClassifier(3)
+    model_guo.fit(fset_guo.iloc[train], eeg["classes"][train])
+
+    model_dwt = KNeighborsClassifier(3)
+    model_dwt.fit(fset_dwt.iloc[train], eeg["classes"][train])
 
 
 
@@ -325,8 +329,8 @@ Prediction
 ----------
 Making predictions for new time series based on these models follows the same
 pattern: first the time series are featurized using ``featurize_time_series``,
-and then predictions are made based on these features using
-``predict.model_predictions``.
+and then predictions are made based on these features using the ``predict``
+method of the ``scikit-learn`` model.
 
 
 
@@ -334,21 +338,20 @@ and then predictions are made based on these features using
 
 
     from sklearn.metrics import accuracy_score
-    from cesium.predict import model_predictions
 
-    preds_cesium = model_predictions(fset_cesium, model_cesium, return_probs=False)
-    preds_guo = model_predictions(fset_guo, model_guo, return_probs=False)
-    preds_dwt = model_predictions(fset_dwt, model_dwt, return_probs=False)
+    preds_cesium = model_cesium.predict(fset_cesium)
+    preds_guo = model_guo.predict(fset_guo)
+    preds_dwt = model_dwt.predict(fset_dwt)
 
     print("Built-in cesium features: training accuracy={:.2%}, test accuracy={:.2%}".format(
-              accuracy_score(preds_cesium.prediction.values[train], eeg["classes"][train]),
-              accuracy_score(preds_cesium.prediction.values[test], eeg["classes"][test])))
+              accuracy_score(preds_cesium[train], eeg["classes"][train]),
+              accuracy_score(preds_cesium[test], eeg["classes"][test])))
     print("Guo et al. features: training accuracy={:.2%}, test accuracy={:.2%}".format(
-              accuracy_score(preds_guo.prediction.values[train], eeg["classes"][train]),
-              accuracy_score(preds_guo.prediction.values[test], eeg["classes"][test])))
+              accuracy_score(preds_guo[train], eeg["classes"][train]),
+              accuracy_score(preds_guo[test], eeg["classes"][test])))
     print("Wavelet transform features: training accuracy={:.2%}, test accuracy={:.2%}".format(
-              accuracy_score(preds_dwt.prediction.values[train], eeg["classes"][train]),
-              accuracy_score(preds_dwt.prediction.values[test], eeg["classes"][test])))
+              accuracy_score(preds_dwt[train], eeg["classes"][train]),
+              accuracy_score(preds_dwt[test], eeg["classes"][test])))
 
 
 
@@ -359,21 +362,21 @@ and then predictions are made based on these features using
  Out::
 
     Built-in cesium features: training accuracy=100.00%, test accuracy=83.20%
-    Guo et al. features: training accuracy=90.93%, test accuracy=84.80%
-    Wavelet transform features: training accuracy=100.00%, test accuracy=95.20%
+    Guo et al. features: training accuracy=92.80%, test accuracy=83.20%
+    Wavelet transform features: training accuracy=97.87%, test accuracy=95.20%
 
 
 The workflow presented here is intentionally simplistic and omits many important steps
 such as feature selection, model parameter selection, etc., which may all be
 incorporated just as they would for any other ``scikit-learn`` analysis.
 But with essentially three function calls (``featurize_time_series``,
-``build_model_from_featureset``, and ``model_predictions``), we are able to build a
+``model.fit``, and ``model.predict``), we are able to build a
 model from a set of time series and make predictions on new, unlabeled data. In
 upcoming posts we'll introduce the web frontend for ``cesium`` and describe how
 the same analysis can be performed in a browser with no setup or coding required.
 
 
-**Total running time of the script:** ( 0 minutes  27.922 seconds)
+**Total running time of the script:** ( 0 minutes  17.605 seconds)
 
 
 

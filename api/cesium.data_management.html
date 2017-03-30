@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Module: data_management &mdash; cesium 0.8.dev0 documentation</title>
+  <title>Module: data_management &mdash; cesium 0.9.dev0 documentation</title>
   
 
   
@@ -39,8 +39,9 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="cesium 0.8.dev0 documentation" href="../index.html"/>
-        <link rel="up" title="API Reference" href="api.html"/> 
+    <link rel="top" title="cesium 0.9.dev0 documentation" href="../index.html"/>
+        <link rel="up" title="API Reference" href="api.html"/>
+        <link rel="prev" title="API Reference" href="api.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -69,7 +70,7 @@
             
             
               <div class="version">
-                0.7
+                0.9
               </div>
             
           
@@ -99,14 +100,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../feature_table.html">Time-Series Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Examples</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="cesium.build_model.html">Module: <code class="docutils literal"><span class="pre">build_model</span></code></a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Module: <code class="docutils literal"><span class="pre">data_management</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#parse-and-store-ts-data">parse_and_store_ts_data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#parse-headerfile">parse_headerfile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#parse-ts-data">parse_ts_data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dataformaterror"><code class="docutils literal"><span class="pre">DataFormatError</span></code></a><ul class="simple">
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="#timeseries"><code class="docutils literal"><span class="pre">TimeSeries</span></code></a><ul class="simple">
 </ul>
 </li>
@@ -115,10 +112,8 @@
 <li class="toctree-l2"><a class="reference internal" href="cesium.datasets.html">Module: <code class="docutils literal"><span class="pre">datasets</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html">Module: <code class="docutils literal"><span class="pre">features.cadence_features</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html">Module: <code class="docutils literal"><span class="pre">features.graphs</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.featureset.html">Module: <code class="docutils literal"><span class="pre">featureset</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html">Module: <code class="docutils literal"><span class="pre">featurize</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.time_series.html">Module: <code class="docutils literal"><span class="pre">time_series</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.transformation.html">Module: <code class="docutils literal"><span class="pre">transformation</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.util.html">Module: <code class="docutils literal"><span class="pre">util</span></code></a></li>
 </ul>
 </li>
@@ -202,10 +197,7 @@
 <tr class="row-odd"><td><a class="reference internal" href="#cesium.data_management.parse_ts_data" title="cesium.data_management.parse_ts_data"><code class="xref py py-obj docutils literal"><span class="pre">cesium.data_management.parse_ts_data</span></code></a>(filepath)</td>
 <td>Parses raw time series data file and returns an (n, 3) array of values.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#cesium.data_management.DataFormatError" title="cesium.data_management.DataFormatError"><code class="xref py py-obj docutils literal"><span class="pre">cesium.data_management.DataFormatError</span></code></a>(value)</td>
-<td>TS data file or header file does not improperly formatted.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cesium.data_management.TimeSeries" title="cesium.data_management.TimeSeries"><code class="xref py py-obj docutils literal"><span class="pre">cesium.data_management.TimeSeries</span></code></a>([t,&nbsp;m,&nbsp;e,&nbsp;...])</td>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.data_management.TimeSeries" title="cesium.data_management.TimeSeries"><code class="xref py py-obj docutils literal"><span class="pre">cesium.data_management.TimeSeries</span></code></a>([t,&nbsp;m,&nbsp;e,&nbsp;...])</td>
 <td>Class representing a single time series of measurements and metadata.</td>
 </tr>
 </tbody>
@@ -229,11 +221,11 @@ series files to be used for feature generation.</p>
 </div></blockquote>
 <p><strong>output_dir</strong> : str</p>
 <blockquote>
-<div><p>Directory in which time series netCDF files will be saved.</p>
+<div><p>Directory in which time series files will be saved.</p>
 </div></blockquote>
 <p><strong>header_path</strong> : str, optional</p>
 <blockquote>
-<div><p>Path to header file containing file names, target names, and
+<div><p>Path to header file containing file names, labels/targets, and
 meta_features.</p>
 </div></blockquote>
 <p><strong>cleanup_archive</strong> : bool, optional</p>
@@ -248,7 +240,7 @@ to True).</p>
 </div></blockquote>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">List of paths to netCDF files</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">List of paths to time series files</p>
 </td>
 </tr>
 </tbody>
@@ -280,11 +272,11 @@ corresponding to the given filenames.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">pandas.Series</p>
 <blockquote>
-<div><p>Target column from header file (if missing, all values are None)</p>
+<div><p>Class labels/targets from header file (if missing, all values are None)</p>
 </div></blockquote>
 <p>pandas.DataFrame</p>
 <blockquote class="last">
-<div><p>Feature data from other columns besides filename, target (can be empty)</p>
+<div><p>Feature data from other columns besides filename, label (can be empty)</p>
 </div></blockquote>
 </td>
 </tr>
@@ -335,50 +327,11 @@ values evenly spaced from 0 to <cite>time_series.DEFAULT_MAX_TIME</cite>.</li>
 </dd></dl>
 
 </div>
-<div class="section" id="dataformaterror">
-<h2><a class="reference internal" href="#cesium.data_management.DataFormatError" title="cesium.data_management.DataFormatError"><code class="xref py py-class docutils literal"><span class="pre">DataFormatError</span></code></a><a class="headerlink" href="#dataformaterror" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cesium.data_management.DataFormatError">
-<em class="property">class </em><code class="descclassname">cesium.data_management.</code><code class="descname">DataFormatError</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.data_management.DataFormatError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></p>
-<p>TS data file or header file does not improperly formatted.</p>
-<p class="rubric">Attributes</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="15%" />
-<col width="85%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>value</td>
-<td>(str) The exception message.</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">with_traceback</span></code></td>
-<td>Exception.with_traceback(tb) &#8211; set self.__traceback__ to tb and return self.</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="cesium.data_management.DataFormatError.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.data_management.DataFormatError.__init__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</div>
 <div class="section" id="timeseries">
 <h2><a class="reference internal" href="#cesium.data_management.TimeSeries" title="cesium.data_management.TimeSeries"><code class="xref py py-class docutils literal"><span class="pre">TimeSeries</span></code></a><a class="headerlink" href="#timeseries" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cesium.data_management.TimeSeries">
-<em class="property">class </em><code class="descclassname">cesium.data_management.</code><code class="descname">TimeSeries</code><span class="sig-paren">(</span><em>t=None</em>, <em>m=None</em>, <em>e=None</em>, <em>target=None</em>, <em>meta_features={}</em>, <em>name=None</em>, <em>path=None</em>, <em>channel_names=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.data_management.TimeSeries" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">cesium.data_management.</code><code class="descname">TimeSeries</code><span class="sig-paren">(</span><em>t=None</em>, <em>m=None</em>, <em>e=None</em>, <em>label=None</em>, <em>meta_features={}</em>, <em>name=None</em>, <em>path=None</em>, <em>channel_names=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.data_management.TimeSeries" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Class representing a single time series of measurements and metadata.</p>
 <p>A <cite>TimeSeries</cite> object encapsulates a single set of time-domain
@@ -404,8 +357,8 @@ all channels of measurement.</p>
 <tr class="row-odd"><td>error</td>
 <td>((n,) or (p, n) array or list of (n,) arrays) Array(s) of measurement errors for each value. If <cite>measurement</cite> is two-dimensional, this can be one-dimensional (same times for each channel) or two-dimensional (different times for each channel). If <cite>error</cite> is one-dimensional then it will be broadcast match <cite>measurement.shape</cite>.</td>
 </tr>
-<tr class="row-even"><td>target</td>
-<td>(str, float, or None) Class label or target value for the given time series (if applicable).</td>
+<tr class="row-even"><td>label</td>
+<td>(str, float, or None) Class label or regression target for the given time series (if applicable).</td>
 </tr>
 <tr class="row-odd"><td>meta_features</td>
 <td>(dict) Dictionary of feature names/values specified independently of the featurization process in <cite>featurize</cite>.</td>
@@ -431,14 +384,14 @@ all channels of measurement.</p>
 <tr class="row-odd"><td><a class="reference internal" href="#cesium.data_management.TimeSeries.channels" title="cesium.data_management.TimeSeries.channels"><code class="xref py py-obj docutils literal"><span class="pre">channels</span></code></a>()</td>
 <td>Iterates over measurement channels (whether one or multiple).</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#cesium.data_management.TimeSeries.to_netcdf" title="cesium.data_management.TimeSeries.to_netcdf"><code class="xref py py-obj docutils literal"><span class="pre">to_netcdf</span></code></a>([path])</td>
-<td>Store TimeSeries object as a single netCDF.</td>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.data_management.TimeSeries.save" title="cesium.data_management.TimeSeries.save"><code class="xref py py-obj docutils literal"><span class="pre">save</span></code></a>([path])</td>
+<td>Store TimeSeries object as a single .npz file.</td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="cesium.data_management.TimeSeries.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>t=None</em>, <em>m=None</em>, <em>e=None</em>, <em>target=None</em>, <em>meta_features={}</em>, <em>name=None</em>, <em>path=None</em>, <em>channel_names=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.data_management.TimeSeries.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>t=None</em>, <em>m=None</em>, <em>e=None</em>, <em>label=None</em>, <em>meta_features={}</em>, <em>name=None</em>, <em>path=None</em>, <em>channel_names=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.data_management.TimeSeries.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a <cite>TimeSeries</cite> object from measurement values/metadata.</p>
 <p>See <cite>TimeSeries</cite> documentation for parameter values.</p>
 </dd></dl>
@@ -450,14 +403,24 @@ all channels of measurement.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="cesium.data_management.TimeSeries.to_netcdf">
-<code class="descname">to_netcdf</code><span class="sig-paren">(</span><em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.data_management.TimeSeries.to_netcdf" title="Permalink to this definition">¶</a></dt>
-<dd><p>Store TimeSeries object as a single netCDF.</p>
-<p>Each channel of measurements is stored in a separate HDF5 group; metadata
-describing the whole time series is stored in the group corresponding to
-the first channel.</p>
-<p>If <cite>path</cite> is omitted then the <cite>path</cite> attribute from the TimeSeries object
-is used.</p>
+<dt id="cesium.data_management.TimeSeries.save">
+<code class="descname">save</code><span class="sig-paren">(</span><em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.data_management.TimeSeries.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store TimeSeries object as a single .npz file.</p>
+<dl class="docutils">
+<dt>Attributes are stored in the following arrays:</dt>
+<dd><ul class="first last simple">
+<li>time</li>
+<li>measurement</li>
+<li>error</li>
+<li>meta_feat_names</li>
+<li>meta_feat_values</li>
+<li>name</li>
+<li>label</li>
+</ul>
+</dd>
+</dl>
+<p>If <cite>path</cite> is omitted then the <cite>path</cite> attribute from the TimeSeries
+object is used.</p>
 </dd></dl>
 
 </dd></dl>
@@ -472,6 +435,13 @@ is used.</p>
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="api.html" class="btn btn-neutral" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -500,7 +470,7 @@ is used.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.8.dev0',
+            VERSION:'0.9.dev0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

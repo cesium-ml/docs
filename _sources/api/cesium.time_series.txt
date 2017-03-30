@@ -7,14 +7,14 @@ Module: :mod:`time_series`
 .. currentmodule:: cesium.time_series
 .. autosummary::
 
-   cesium.time_series.from_netcdf
+   cesium.time_series.load
 
    cesium.time_series.TimeSeries
 
-from_netcdf
------------
+load
+----
 
-.. autofunction:: cesium.time_series.from_netcdf
+.. autofunction:: cesium.time_series.load
 
 
 :class:`TimeSeries`

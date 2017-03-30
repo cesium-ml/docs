@@ -8,21 +8,14 @@ Module: :mod:`util`
 .. autosummary::
 
    cesium.util.extract_time_series
-   cesium.util.make_list
    cesium.util.remove_files
    cesium.util.shorten_fname
 
-   cesium.util.DataFormatError
 
 extract_time_series
 -------------------
 
 .. autofunction:: cesium.util.extract_time_series
-
-make_list
----------
-
-.. autofunction:: cesium.util.make_list
 
 remove_files
 ------------
@@ -34,14 +27,3 @@ shorten_fname
 
 .. autofunction:: cesium.util.shorten_fname
 
-
-:class:`DataFormatError`
-------------------------
-
-
-.. autoclass:: DataFormatError
-  :members:
-  :undoc-members:
-  :show-inheritance:
-
-  .. automethod:: __init__

@@ -12,9 +12,10 @@ Module: :mod:`featurize`
    cesium.featurize.featurize_time_series
    cesium.featurize.featurize_ts_files
    cesium.featurize.generate_dask_graph
-   cesium.featurize.load_and_store_feature_data
+   cesium.featurize.impute_featureset
+   cesium.featurize.load_featureset
+   cesium.featurize.save_featureset
 
-   cesium.featurize.Featureset
    cesium.featurize.TimeSeries
 
 assemble_featureset
@@ -42,22 +43,21 @@ generate_dask_graph
 
 .. autofunction:: cesium.featurize.generate_dask_graph
 
-load_and_store_feature_data
----------------------------
+impute_featureset
+-----------------
 
-.. autofunction:: cesium.featurize.load_and_store_feature_data
+.. autofunction:: cesium.featurize.impute_featureset
 
+load_featureset
+---------------
 
-:class:`Featureset`
--------------------
+.. autofunction:: cesium.featurize.load_featureset
 
+save_featureset
+---------------
 
-.. autoclass:: Featureset
-  :members:
-  :undoc-members:
-  :show-inheritance:
+.. autofunction:: cesium.featurize.save_featureset
 
-  .. automethod:: __init__
 
 :class:`TimeSeries`
 -------------------
