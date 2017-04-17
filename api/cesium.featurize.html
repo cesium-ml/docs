@@ -543,7 +543,7 @@ single dictionary.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">pd.DataFrame</p>
 <blockquote>
-<div><p>Feature dataframe to be saved.</p>
+<div><p>Feature data frame to be saved.</p>
 </div></blockquote>
 <p>dict</p>
 <blockquote class="last">
@@ -562,19 +562,27 @@ single dictionary.</p>
 <dt id="cesium.featurize.save_featureset">
 <code class="descclassname">cesium.featurize.</code><code class="descname">save_featureset</code><span class="sig-paren">(</span><em>fset</em>, <em>path</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.save_featureset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save feature DataFrame in .npz format.</p>
-<p>Can optionally store class labels/targets and other metadata; all other
-keyword arguments will be passed on to <cite>np.savez</cite>.</p>
+<p>Can optionally store class labels/targets and other metadata. All other
+keyword arguments will be passed on to <cite>np.savez</cite>; data frames are saved as
+record arrays and converted back into data frames by <cite>load_featureset</cite>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>fset</strong> : pd.DataFrame</p>
 <blockquote>
-<div><p>Feature dataframe to be saved.</p>
+<div><p>Feature data frame to be saved.</p>
 </div></blockquote>
 <p><strong>path</strong> : str</p>
-<blockquote class="last">
+<blockquote>
 <div><p>Path to store feature data.</p>
+</div></blockquote>
+<p><strong>kwargs</strong> : dict of array or data frame</p>
+<blockquote class="last">
+<div><p>Additional keyword arguments, e.g.:
+labels -&gt; class labels
+preds -&gt; predicted class labels
+pred_probs -&gt; (n_sample, n_class) data frame of class probabilities</p>
 </div></blockquote>
 </td>
 </tr>
