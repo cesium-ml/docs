@@ -211,7 +211,7 @@ holdout set and comparing them to the true class labels.</p>
     <span class="n">subplot</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="home/travis/build/cesium-ml/cesium/doc/auto_examples/images/sphx_glr_plot_EEG_Example_001.png" class="align-center" src="home/travis/build/cesium-ml/cesium/doc/auto_examples/images/sphx_glr_plot_EEG_Example_001.png" />
+<img alt="../_images/sphx_glr_plot_EEG_Example_001.png" class="align-center" src="../_images/sphx_glr_plot_EEG_Example_001.png" />
 <div class="section" id="featurization">
 <h2>Featurization<a class="headerlink" href="#featurization" title="Permalink to this headline">¶</a></h2>
 <p>Once the data is loaded, we can generate features for each time series using the
@@ -320,13 +320,13 @@ Here we&#8217;ll compute five standard features for EEG analysis provided by
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="n">feature</span>        <span class="n">mean2</span>       <span class="n">mean</span> <span class="n">abs_diffs</span>        <span class="n">std</span>      <span class="n">skew</span>
-<span class="n">channel</span>            <span class="mi">0</span>          <span class="mi">0</span>         <span class="mi">0</span>          <span class="mi">0</span>         <span class="mi">0</span>
-<span class="mi">0</span>        <span class="mf">1650.122773</span>  <span class="o">-</span><span class="mf">4.132048</span>   <span class="mf">46948.0</span>  <span class="mf">40.411000</span>  <span class="mf">0.032805</span>
-<span class="mi">1</span>        <span class="mf">5133.124725</span> <span class="o">-</span><span class="mf">52.444716</span>   <span class="mf">61118.0</span>  <span class="mf">48.812668</span> <span class="o">-</span><span class="mf">0.092715</span>
-<span class="mi">2</span>        <span class="mf">2384.051989</span>  <span class="mf">12.705150</span>   <span class="mf">51269.0</span>  <span class="mf">47.144789</span> <span class="o">-</span><span class="mf">0.004100</span>
-<span class="mi">3</span>        <span class="mf">2231.742495</span>  <span class="o">-</span><span class="mf">3.992433</span>   <span class="mf">75014.0</span>  <span class="mf">47.072316</span>  <span class="mf">0.063678</span>
-<span class="mi">4</span>        <span class="mf">2340.967781</span> <span class="o">-</span><span class="mf">17.999268</span>   <span class="mf">52873.0</span>  <span class="mf">44.910958</span>  <span class="mf">0.142753</span>
+<div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="n">feature</span>        <span class="n">std</span>      <span class="n">skew</span>        <span class="n">mean2</span>       <span class="n">mean</span> <span class="n">abs_diffs</span>
+<span class="n">channel</span>          <span class="mi">0</span>         <span class="mi">0</span>            <span class="mi">0</span>          <span class="mi">0</span>         <span class="mi">0</span>
+<span class="mi">0</span>        <span class="mf">40.411000</span>  <span class="mf">0.032805</span>  <span class="mf">1650.122773</span>  <span class="o">-</span><span class="mf">4.132048</span>   <span class="mf">46948.0</span>
+<span class="mi">1</span>        <span class="mf">48.812668</span> <span class="o">-</span><span class="mf">0.092715</span>  <span class="mf">5133.124725</span> <span class="o">-</span><span class="mf">52.444716</span>   <span class="mf">61118.0</span>
+<span class="mi">2</span>        <span class="mf">47.144789</span> <span class="o">-</span><span class="mf">0.004100</span>  <span class="mf">2384.051989</span>  <span class="mf">12.705150</span>   <span class="mf">51269.0</span>
+<span class="mi">3</span>        <span class="mf">47.072316</span>  <span class="mf">0.063678</span>  <span class="mf">2231.742495</span>  <span class="o">-</span><span class="mf">3.992433</span>   <span class="mf">75014.0</span>
+<span class="mi">4</span>        <span class="mf">44.910958</span>  <span class="mf">0.142753</span>  <span class="mf">2340.967781</span> <span class="o">-</span><span class="mf">17.999268</span>   <span class="mf">52873.0</span>
 </pre></div>
 </div>
 </div>
@@ -350,23 +350,7 @@ and then featurize each band separately using the five functions from above.</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="n">feature</span>         <span class="n">mean2</span>                                                     \
-<span class="n">channel</span>             <span class="mi">0</span>            <span class="mi">1</span>            <span class="mi">2</span>            <span class="mi">3</span>           <span class="mi">4</span>
-<span class="mi">0</span>        <span class="mf">12942.101411</span>  <span class="mf">5361.556663</span>  <span class="mf">2321.048002</span>   <span class="mf">664.366585</span>  <span class="mf">103.123231</span>
-<span class="mi">1</span>        <span class="mf">58548.976167</span>  <span class="mf">8621.673638</span>  <span class="mf">4490.036062</span>  <span class="mf">1153.112683</span>  <span class="mf">186.962421</span>
-<span class="mi">2</span>        <span class="mf">20860.161722</span>  <span class="mf">6130.500243</span>  <span class="mf">3633.228314</span>   <span class="mf">789.001220</span>  <span class="mf">126.475598</span>
-<span class="mi">3</span>        <span class="mf">11141.725195</span>  <span class="mf">8187.253405</span>  <span class="mf">4522.491228</span>  <span class="mf">1290.989756</span>  <span class="mf">267.903367</span>
-<span class="mi">4</span>        <span class="mf">20560.505350</span>  <span class="mf">5471.151265</span>  <span class="mf">3598.436160</span>   <span class="mf">761.745854</span>  <span class="mf">135.850171</span>
-
-<span class="n">feature</span>        <span class="n">mean</span>                                            <span class="o">...</span>     \
-<span class="n">channel</span>           <span class="mi">0</span>         <span class="mi">1</span>         <span class="mi">2</span>         <span class="mi">3</span>         <span class="mi">4</span>    <span class="o">...</span>
-<span class="mi">0</span>        <span class="o">-</span><span class="mf">17.080739</span> <span class="o">-</span><span class="mf">6.067121</span> <span class="o">-</span><span class="mf">0.979336</span>  <span class="mf">0.154634</span>  <span class="mf">0.035545</span>    <span class="o">...</span>
-<span class="mi">1</span>       <span class="o">-</span><span class="mf">210.210117</span> <span class="o">-</span><span class="mf">3.743191</span>  <span class="mf">0.511377</span>  <span class="mf">0.057561</span> <span class="o">-</span><span class="mf">0.024847</span>    <span class="o">...</span>
-<span class="mi">2</span>         <span class="mf">51.831712</span>  <span class="mf">0.714981</span>  <span class="mf">0.247418</span> <span class="o">-</span><span class="mf">0.101951</span>  <span class="mf">0.007937</span>    <span class="o">...</span>
-<span class="mi">3</span>        <span class="o">-</span><span class="mf">15.429961</span>  <span class="mf">9.348249</span> <span class="o">-</span><span class="mf">0.099243</span> <span class="o">-</span><span class="mf">0.228293</span>  <span class="mf">0.181522</span>    <span class="o">...</span>
-<span class="mi">4</span>        <span class="o">-</span><span class="mf">71.982490</span> <span class="o">-</span><span class="mf">3.787938</span> <span class="o">-</span><span class="mf">0.183324</span> <span class="o">-</span><span class="mf">0.034146</span> <span class="o">-</span><span class="mf">0.048314</span>    <span class="o">...</span>
-
-<span class="n">feature</span>         <span class="n">std</span>                                                  <span class="n">skew</span>  \
+<div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="n">feature</span>         <span class="n">std</span>                                                  <span class="n">skew</span>  \
 <span class="n">channel</span>           <span class="mi">0</span>          <span class="mi">1</span>          <span class="mi">2</span>          <span class="mi">3</span>          <span class="mi">4</span>         <span class="mi">0</span>
 <span class="mi">0</span>        <span class="mf">112.473774</span>  <span class="mf">72.970862</span>  <span class="mf">48.167301</span>  <span class="mf">25.774846</span>  <span class="mf">10.154899</span> <span class="o">-</span><span class="mf">0.043301</span>
 <span class="mi">1</span>        <span class="mf">119.836067</span>  <span class="mf">92.777487</span>  <span class="mf">67.005780</span>  <span class="mf">33.957464</span>  <span class="mf">13.673398</span> <span class="o">-</span><span class="mf">0.286254</span>
@@ -374,13 +358,29 @@ and then featurize each band separately using the five functions from above.</p>
 <span class="mi">3</span>        <span class="mf">104.420503</span>  <span class="mf">89.999242</span>  <span class="mf">67.249397</span>  <span class="mf">35.929621</span>  <span class="mf">16.366747</span>  <span class="mf">0.177416</span>
 <span class="mi">4</span>        <span class="mf">124.012203</span>  <span class="mf">73.870175</span>  <span class="mf">59.986686</span>  <span class="mf">27.599723</span>  <span class="mf">11.655378</span>  <span class="mf">0.220502</span>
 
+<span class="n">feature</span>                                              <span class="o">...</span>             <span class="n">mean</span>  \
+<span class="n">channel</span>         <span class="mi">1</span>         <span class="mi">2</span>         <span class="mi">3</span>         <span class="mi">4</span>      <span class="o">...</span>                <span class="mi">0</span>
+<span class="mi">0</span>        <span class="mf">0.065784</span>  <span class="mf">0.299892</span>  <span class="mf">0.123948</span>  <span class="mf">0.117937</span>      <span class="o">...</span>       <span class="o">-</span><span class="mf">17.080739</span>
+<span class="mi">1</span>       <span class="o">-</span><span class="mf">0.016437</span>  <span class="mf">0.168179</span> <span class="o">-</span><span class="mf">0.005521</span>  <span class="mf">0.187815</span>      <span class="o">...</span>      <span class="o">-</span><span class="mf">210.210117</span>
+<span class="mi">2</span>       <span class="o">-</span><span class="mf">0.121195</span> <span class="o">-</span><span class="mf">0.254241</span> <span class="o">-</span><span class="mf">0.061304</span> <span class="o">-</span><span class="mf">0.136422</span>      <span class="o">...</span>        <span class="mf">51.831712</span>
+<span class="mi">3</span>        <span class="mf">0.214529</span> <span class="o">-</span><span class="mf">0.013705</span> <span class="o">-</span><span class="mf">0.007339</span>  <span class="mf">0.013836</span>      <span class="o">...</span>       <span class="o">-</span><span class="mf">15.429961</span>
+<span class="mi">4</span>       <span class="o">-</span><span class="mf">0.077603</span>  <span class="mf">0.285906</span>  <span class="mf">0.087555</span>  <span class="mf">0.066677</span>      <span class="o">...</span>       <span class="o">-</span><span class="mf">71.982490</span>
+
+<span class="n">feature</span>                                         <span class="n">abs_diffs</span>            \
+<span class="n">channel</span>         <span class="mi">1</span>         <span class="mi">2</span>         <span class="mi">3</span>         <span class="mi">4</span>         <span class="mi">0</span>         <span class="mi">1</span>
+<span class="mi">0</span>       <span class="o">-</span><span class="mf">6.067121</span> <span class="o">-</span><span class="mf">0.979336</span>  <span class="mf">0.154634</span>  <span class="mf">0.035545</span>  <span class="mf">25127.00</span>  <span class="mf">18056.00</span>
+<span class="mi">1</span>       <span class="o">-</span><span class="mf">3.743191</span>  <span class="mf">0.511377</span>  <span class="mf">0.057561</span> <span class="o">-</span><span class="mf">0.024847</span>  <span class="mf">28742.00</span>  <span class="mf">25226.00</span>
+<span class="mi">2</span>        <span class="mf">0.714981</span>  <span class="mf">0.247418</span> <span class="o">-</span><span class="mf">0.101951</span>  <span class="mf">0.007937</span>  <span class="mf">28284.75</span>  <span class="mf">19826.25</span>
+<span class="mi">3</span>        <span class="mf">9.348249</span> <span class="o">-</span><span class="mf">0.099243</span> <span class="o">-</span><span class="mf">0.228293</span>  <span class="mf">0.181522</span>  <span class="mf">24848.25</span>  <span class="mf">25715.25</span>
+<span class="mi">4</span>       <span class="o">-</span><span class="mf">3.787938</span> <span class="o">-</span><span class="mf">0.183324</span> <span class="o">-</span><span class="mf">0.034146</span> <span class="o">-</span><span class="mf">0.048314</span>  <span class="mf">23848.25</span>  <span class="mf">18328.75</span>
+
 <span class="n">feature</span>
-<span class="n">channel</span>         <span class="mi">1</span>         <span class="mi">2</span>         <span class="mi">3</span>         <span class="mi">4</span>
-<span class="mi">0</span>        <span class="mf">0.065784</span>  <span class="mf">0.299892</span>  <span class="mf">0.123948</span>  <span class="mf">0.117937</span>
-<span class="mi">1</span>       <span class="o">-</span><span class="mf">0.016437</span>  <span class="mf">0.168179</span> <span class="o">-</span><span class="mf">0.005521</span>  <span class="mf">0.187815</span>
-<span class="mi">2</span>       <span class="o">-</span><span class="mf">0.121195</span> <span class="o">-</span><span class="mf">0.254241</span> <span class="o">-</span><span class="mf">0.061304</span> <span class="o">-</span><span class="mf">0.136422</span>
-<span class="mi">3</span>        <span class="mf">0.214529</span> <span class="o">-</span><span class="mf">0.013705</span> <span class="o">-</span><span class="mf">0.007339</span>  <span class="mf">0.013836</span>
-<span class="mi">4</span>       <span class="o">-</span><span class="mf">0.077603</span>  <span class="mf">0.285906</span>  <span class="mf">0.087555</span>  <span class="mf">0.066677</span>
+<span class="n">channel</span>             <span class="mi">2</span>        <span class="mi">3</span>             <span class="mi">4</span>
+<span class="mi">0</span>        <span class="mf">32408.117995</span>  <span class="mf">34239.0</span>  <span class="mf">19883.842687</span>
+<span class="mi">1</span>        <span class="mf">44392.163723</span>  <span class="mf">45330.5</span>  <span class="mf">26138.909273</span>
+<span class="mi">2</span>        <span class="mf">42874.712570</span>  <span class="mf">36283.0</span>  <span class="mf">21020.163284</span>
+<span class="mi">3</span>        <span class="mf">43004.466665</span>  <span class="mf">47952.0</span>  <span class="mf">34686.416044</span>
+<span class="mi">4</span>        <span class="mf">39809.051121</span>  <span class="mf">35455.5</span>  <span class="mf">22640.144920</span>
 
 <span class="p">[</span><span class="mi">5</span> <span class="n">rows</span> <span class="n">x</span> <span class="mi">25</span> <span class="n">columns</span><span class="p">]</span>
 </pre></div>
@@ -452,7 +452,7 @@ But with essentially three function calls (<code class="docutils literal"><span 
 model from a set of time series and make predictions on new, unlabeled data. In
 upcoming posts we&#8217;ll introduce the web frontend for <code class="docutils literal"><span class="pre">cesium</span></code> and describe how
 the same analysis can be performed in a browser with no setup or coding required.</p>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  18.923 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  21.489 seconds)</p>
 <div class="sphx-glr-footer docutils container">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" href="../_downloads/plot_EEG_Example.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_EEG_Example.py</span></code></a></div>
