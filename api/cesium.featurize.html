@@ -203,7 +203,7 @@
 <td>Versatile feature generation function for one or more time series.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#cesium.featurize.featurize_ts_files" title="cesium.featurize.featurize_ts_files"><code class="xref py py-obj docutils literal"><span class="pre">cesium.featurize.featurize_ts_files</span></code></a>(...[,&nbsp;...])</td>
-<td>Feature generation function for on-disk time series (NetCDF) files.</td>
+<td>Feature generation function for on-disk time series (.npz) files.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#cesium.featurize.generate_dask_graph" title="cesium.featurize.generate_dask_graph"><code class="xref py py-obj docutils literal"><span class="pre">cesium.featurize.generate_dask_graph</span></code></a>(t,&nbsp;m,&nbsp;e)</td>
 <td></td>
@@ -413,7 +413,7 @@ computation. Defaults to <cite>dask.multiprocessing.get</cite>.</p>
 <dl class="function">
 <dt id="cesium.featurize.featurize_ts_files">
 <code class="descclassname">cesium.featurize.</code><code class="descname">featurize_ts_files</code><span class="sig-paren">(</span><em>ts_paths</em>, <em>features_to_use</em>, <em>custom_script_path=None</em>, <em>custom_functions=None</em>, <em>scheduler=&lt;function get&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.featurize_ts_files" title="Permalink to this definition">¶</a></dt>
-<dd><p>Feature generation function for on-disk time series (NetCDF) files.</p>
+<dd><p>Feature generation function for on-disk time series (.npz) files.</p>
 <p>By default, computes features concurrently using the
 <cite>dask.multiprocessing.get</cite> scheduler. Other possible options include
 <cite>dask.async.get_sync</cite> for synchronous computation (e.g., when debugging),
