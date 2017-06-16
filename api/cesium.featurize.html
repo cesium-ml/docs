@@ -393,7 +393,7 @@ will be computed.</p>
 <p><strong>scheduler</strong> : function, optional</p>
 <blockquote>
 <div><p><cite>dask</cite> scheduler function used to perform feature extraction
-computation. Defaults to <cite>dask.multiprocessing.get</cite>.</p>
+computation. Defaults to <cite>dask.threaded.get</cite>.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -415,7 +415,7 @@ computation. Defaults to <cite>dask.multiprocessing.get</cite>.</p>
 <code class="descclassname">cesium.featurize.</code><code class="descname">featurize_ts_files</code><span class="sig-paren">(</span><em>ts_paths</em>, <em>features_to_use</em>, <em>custom_script_path=None</em>, <em>custom_functions=None</em>, <em>scheduler=&lt;function get&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.featurize_ts_files" title="Permalink to this definition">¶</a></dt>
 <dd><p>Feature generation function for on-disk time series (.npz) files.</p>
 <p>By default, computes features concurrently using the
-<cite>dask.multiprocessing.get</cite> scheduler. Other possible options include
+<cite>dask.threaded.get</cite> scheduler. Other possible options include
 <cite>dask.local.get</cite> for synchronous computation (e.g., when debugging),
 or <cite>dask.distributed.Executor.get</cite> for distributed computation.</p>
 <p>In the case of multichannel measurements, each channel will be
@@ -453,7 +453,7 @@ will be computed.</p>
 <p><strong>scheduler</strong> : function, optional</p>
 <blockquote>
 <div><p><cite>dask</cite> scheduler function used to perform feature extraction
-computation. Defaults to <cite>dask.multiprocessing.get</cite>.</p>
+computation. Defaults to <cite>dask.threaded.get</cite>.</p>
 </div></blockquote>
 </td>
 </tr>

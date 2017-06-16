@@ -220,7 +220,7 @@ choices of features which can be applied for any type of time series data;
 here we’ve chosen a few generic features that do not have any special
 biological significance.</p>
 <p>By default, the time series will featurized in parallel using the
-<code class="docutils literal"><span class="pre">dask.multiprocessing</span></code> scheduler; other approaches, including serial and
+<code class="docutils literal"><span class="pre">dask.threaded</span></code> scheduler; other approaches, including serial and
 distributed approaches, can be implemented by passing in other <code class="docutils literal"><span class="pre">dask</span></code>
 schedulers as the <code class="docutils literal"><span class="pre">get</span></code> argument to <code class="docutils literal"><span class="pre">featurize_time_series</span></code>.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cesium</span> <span class="kn">import</span> <span class="n">featurize</span>
@@ -452,7 +452,7 @@ But with essentially three function calls (<code class="docutils literal"><span 
 model from a set of time series and make predictions on new, unlabeled data. In
 upcoming posts we’ll introduce the web frontend for <code class="docutils literal"><span class="pre">cesium</span></code> and describe how
 the same analysis can be performed in a browser with no setup or coding required.</p>
-<p><strong>Total running time of the script:</strong> ( 1 minutes  59.160 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  19.571 seconds)</p>
 <div class="sphx-glr-footer docutils container">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" href="../_downloads/plot_EEG_Example.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_EEG_Example.py</span></code></a></div>
