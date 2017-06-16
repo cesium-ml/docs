@@ -178,18 +178,18 @@
             
   <div class="section" id="epilepsy-detection-using-eeg-data">
 <span id="sphx-glr-auto-examples-plot-eeg-example-py"></span><h1>Epilepsy Detection Using EEG Data<a class="headerlink" href="#epilepsy-detection-using-eeg-data" title="Permalink to this headline">¶</a></h1>
-<p>In this example we&#8217;ll use the <a class="reference external" href="https://github.com/cesium-ml/cesium"><code class="docutils literal"><span class="pre">cesium</span></code></a> library to compare
+<p>In this example we’ll use the <a class="reference external" href="https://github.com/cesium-ml/cesium"><code class="docutils literal"><span class="pre">cesium</span></code></a> library to compare
 various techniques for epilepsy detection using a classic EEG time series dataset from
 <a class="reference external" href="http://www.meb.uni-bonn.de/epileptologie/science/physik/eegdata.html">Andrzejak et al.</a>.
 The raw data are separated into five classes: Z, O, N, F, and S; we will consider a
 three-class classification problem of distinguishing normal (Z, O), interictal (N, F), and
 ictal (S) signals.</p>
-<p>The overall workflow consists of three steps: first, we &#8220;featurize&#8221; the time series by
+<p>The overall workflow consists of three steps: first, we “featurize” the time series by
 selecting some set of mathematical functions to apply to each; next, we build some
 classification models which use these features to distinguish between classes;
 finally, we validate our models by generating predictions for some unseen
 holdout set and comparing them to the true class labels.</p>
-<p>First, we&#8217;ll load the data and inspect a representative time series from each class:</p>
+<p>First, we’ll load the data and inspect a representative time series from each class:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span><span class="p">;</span> <span class="n">seaborn</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
@@ -217,7 +217,7 @@ holdout set and comparing them to the true class labels.</p>
 <p>Once the data is loaded, we can generate features for each time series using the
 <a class="reference external" href="http://cesium-ml.org/docs/api/cesium.featurize.html"><code class="docutils literal"><span class="pre">cesium.featurize</span></code></a> module. The <code class="docutils literal"><span class="pre">featurize</span></code> module includes many built-in
 choices of features which can be applied for any type of time series data;
-here we&#8217;ve chosen a few generic features that do not have any special
+here we’ve chosen a few generic features that do not have any special
 biological significance.</p>
 <p>By default, the time series will featurized in parallel using the
 <code class="docutils literal"><span class="pre">dask.multiprocessing</span></code> scheduler; other approaches, including serial and
@@ -270,7 +270,7 @@ schedulers as the <code class="docutils literal"><span class="pre">get</span></c
 </div>
 <p>The output of <code class="docutils literal"><span class="pre">featurize_time_series</span></code> is a <code class="docutils literal"><span class="pre">pandas.DataFrame</span></code> which contains all
 the feature information needed to train a machine learning model: feature
-names are stored as column indices (as well as channel numbers, as we&#8217;ll see
+names are stored as column indices (as well as channel numbers, as we’ll see
 later for multi-channel data), and the time series index/class label are
 stored as row indices.</p>
 <div class="section" id="custom-feature-functions">
@@ -281,7 +281,7 @@ stored as row indices.</p>
 three arrays <code class="docutils literal"><span class="pre">times,</span> <span class="pre">measurements,</span> <span class="pre">errors</span></code> as inputs; details can be found in the
 <code class="docutils literal"><span class="pre">cesium.featurize</span></code>
 <a class="reference external" href="http://cesium-ml.org/docs/api/cesium.featurize.html">documentation</a>.
-Here we&#8217;ll compute five standard features for EEG analysis provided by
+Here we’ll compute five standard features for EEG analysis provided by
 <a class="reference external" href="http://linkinghub.elsevier.com/retrieve/pii/S0957417411003253)">Guo et al. (2012)</a>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy.stats</span>
@@ -302,7 +302,7 @@ Here we&#8217;ll compute five standard features for EEG analysis provided by
     <span class="k">return</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">skew</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Now we&#8217;ll pass the desired feature functions as a dictionary via the
+<p>Now we’ll pass the desired feature functions as a dictionary via the
 <code class="docutils literal"><span class="pre">custom_functions</span></code> keyword argument.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">guo_features</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;mean&quot;</span><span class="p">:</span> <span class="n">mean_signal</span><span class="p">,</span>
@@ -393,7 +393,7 @@ corresponding frequency band.</p>
 <div class="section" id="model-building">
 <h2>Model Building<a class="headerlink" href="#model-building" title="Permalink to this headline">¶</a></h2>
 <p>Featuresets produced by <code class="docutils literal"><span class="pre">cesium.featurize</span></code> are compatible with the <code class="docutils literal"><span class="pre">scikit-learn</span></code>
-API. For this example, we&#8217;ll test a random forest classifier for the
+API. For this example, we’ll test a random forest classifier for the
 built-in <code class="docutils literal"><span class="pre">cesium</span></code> features, and a 3-nearest neighbors classifier for the
 others, as suggested by
 <a class="reference external" href="http://linkinghub.elsevier.com/retrieve/pii/S0957417411003253">Guo et al. (2012)</a>.</p>
@@ -450,16 +450,16 @@ incorporated just as they would for any other <code class="docutils literal"><sp
 But with essentially three function calls (<code class="docutils literal"><span class="pre">featurize_time_series</span></code>,
 <code class="docutils literal"><span class="pre">model.fit</span></code>, and <code class="docutils literal"><span class="pre">model.predict</span></code>), we are able to build a
 model from a set of time series and make predictions on new, unlabeled data. In
-upcoming posts we&#8217;ll introduce the web frontend for <code class="docutils literal"><span class="pre">cesium</span></code> and describe how
+upcoming posts we’ll introduce the web frontend for <code class="docutils literal"><span class="pre">cesium</span></code> and describe how
 the same analysis can be performed in a browser with no setup or coding required.</p>
-<p><strong>Total running time of the script:</strong> ( 1 minutes  1.908 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 1 minutes  59.160 seconds)</p>
 <div class="sphx-glr-footer docutils container">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" href="../_downloads/plot_EEG_Example.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_EEG_Example.py</span></code></a></div>
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" href="../_downloads/plot_EEG_Example.ipynb" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_EEG_Example.ipynb</span></code></a></div>
 </div>
-<p class="sphx-glr-signature"><a class="reference external" href="http://sphinx-gallery.readthedocs.io">Generated by Sphinx-Gallery</a></p>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Generated by Sphinx-Gallery</a></p>
 </div>
 </div>
 

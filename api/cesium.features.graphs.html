@@ -243,8 +243,8 @@
 <tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.cad_prob" title="cesium.features.graphs.cad_prob"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.cad_prob</span></code></a>(cads,&nbsp;time)</td>
 <td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.delta_t_hist" title="cesium.features.graphs.delta_t_hist"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.delta_t_hist</span></code></a>(t[,&nbsp;...])</td>
-<td>Build histogram of all possible <a href="#id1"><span class="problematic" id="id2">|t_i - t_j|</span></a>&#8216;s.</td>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.delta_t_hist" title="cesium.features.graphs.delta_t_hist"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.delta_t_hist</span></code></a>(t[,&nbsp;…])</td>
+<td>Build histogram of all possible <a href="#id1"><span class="problematic" id="id2">|t_i - t_j|</span></a>’s.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.double_to_single_step" title="cesium.features.graphs.double_to_single_step"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.double_to_single_step</span></code></a>(cads)</td>
 <td>Ratios (t[i+2] - t[i]) / (t[i+1] - t[i]).</td>
@@ -252,46 +252,46 @@
 <tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.find_sorted_peaks" title="cesium.features.graphs.find_sorted_peaks"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.find_sorted_peaks</span></code></a>(x)</td>
 <td>Find peaks, i.e.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.flux_percentile_ratio" title="cesium.features.graphs.flux_percentile_ratio"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.flux_percentile_ratio</span></code></a>(x,&nbsp;...)</td>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.flux_percentile_ratio" title="cesium.features.graphs.flux_percentile_ratio"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.flux_percentile_ratio</span></code></a>(x,&nbsp;…)</td>
 <td>A ratio of ((50+x) flux percentile - (50-x) flux percentile) / (95 flux percentile - 5 flux percentile), where x = percentile_range/2.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.generate_dask_graph" title="cesium.features.graphs.generate_dask_graph"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.generate_dask_graph</span></code></a>(t,&nbsp;m,&nbsp;e)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.get_fold2P_slope_percentile" title="cesium.features.graphs.get_fold2P_slope_percentile"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_fold2P_slope_percentile</span></code></a>(...)</td>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.get_fold2P_slope_percentile" title="cesium.features.graphs.get_fold2P_slope_percentile"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_fold2P_slope_percentile</span></code></a>(…)</td>
 <td>Get alphath percentile of slopes of period-folded model.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_amplitude" title="cesium.features.graphs.get_lomb_amplitude"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_amplitude</span></code></a>(...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_amplitude" title="cesium.features.graphs.get_lomb_amplitude"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_amplitude</span></code></a>(…)</td>
 <td>Get the amplitude of the jth harmonic of the ith frequency from a fitted Lomb-Scargle model.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_amplitude_ratio" title="cesium.features.graphs.get_lomb_amplitude_ratio"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_amplitude_ratio</span></code></a>(...)</td>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_amplitude_ratio" title="cesium.features.graphs.get_lomb_amplitude_ratio"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_amplitude_ratio</span></code></a>(…)</td>
 <td>Get the ratio of the amplitudes of the first harmonic for the ith and first frequencies from a fitted Lomb-Scargle model.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_frequency" title="cesium.features.graphs.get_lomb_frequency"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_frequency</span></code></a>(...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_frequency" title="cesium.features.graphs.get_lomb_frequency"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_frequency</span></code></a>(…)</td>
 <td>Get the ith frequency from a fitted Lomb-Scargle model.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_frequency_ratio" title="cesium.features.graphs.get_lomb_frequency_ratio"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_frequency_ratio</span></code></a>(...)</td>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_frequency_ratio" title="cesium.features.graphs.get_lomb_frequency_ratio"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_frequency_ratio</span></code></a>(…)</td>
 <td>Get the ratio of the ith and first frequencies from a fitted Lomb-Scargle model.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_lambda" title="cesium.features.graphs.get_lomb_lambda"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_lambda</span></code></a>(...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_lambda" title="cesium.features.graphs.get_lomb_lambda"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_lambda</span></code></a>(…)</td>
 <td>Get the regularization parameter of a fitted Lomb-Scargle model.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_rel_phase" title="cesium.features.graphs.get_lomb_rel_phase"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_rel_phase</span></code></a>(...)</td>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_rel_phase" title="cesium.features.graphs.get_lomb_rel_phase"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_rel_phase</span></code></a>(…)</td>
 <td>Get the relative phase of the jth harmonic of the ith frequency from a fitted Lomb-Scargle model.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_signif" title="cesium.features.graphs.get_lomb_signif"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_signif</span></code></a>(...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_signif" title="cesium.features.graphs.get_lomb_signif"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_signif</span></code></a>(…)</td>
 <td>Get the significance (in sigmas) of the first frequency from a fitted Lomb-Scargle model.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_signif_ratio" title="cesium.features.graphs.get_lomb_signif_ratio"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_signif_ratio</span></code></a>(...)</td>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_signif_ratio" title="cesium.features.graphs.get_lomb_signif_ratio"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_signif_ratio</span></code></a>(…)</td>
 <td>Get the ratio of the significances (in sigmas) of the ith and first frequencies from a fitted Lomb-Scargle model.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_trend" title="cesium.features.graphs.get_lomb_trend"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_trend</span></code></a>(lomb_model)</td>
 <td>Get the linear trend of a fitted Lomb-Scargle model.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_varrat" title="cesium.features.graphs.get_lomb_varrat"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_varrat</span></code></a>(...)</td>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_varrat" title="cesium.features.graphs.get_lomb_varrat"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_varrat</span></code></a>(…)</td>
 <td>Get the fraction of the variance explained by the first frequency of a fitted Lomb-Scargle model.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_y_offset" title="cesium.features.graphs.get_lomb_y_offset"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_y_offset</span></code></a>(...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.get_lomb_y_offset" title="cesium.features.graphs.get_lomb_y_offset"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_lomb_y_offset</span></code></a>(…)</td>
 <td>Get the y-intercept of a fitted Lomb-Scargle model.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.get_max_delta_mags" title="cesium.features.graphs.get_max_delta_mags"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_max_delta_mags</span></code></a>(model)</td>
@@ -318,16 +318,16 @@
 <tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.get_p2p_ssqr_diff_over_var" title="cesium.features.graphs.get_p2p_ssqr_diff_over_var"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_p2p_ssqr_diff_over_var</span></code></a>(model)</td>
 <td>Get sum of squared differences of consecutive values as a fraction of the variance of the data.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.get_qso_log_chi2_qsonu" title="cesium.features.graphs.get_qso_log_chi2_qsonu"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_qso_log_chi2_qsonu</span></code></a>(...)</td>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.get_qso_log_chi2_qsonu" title="cesium.features.graphs.get_qso_log_chi2_qsonu"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_qso_log_chi2_qsonu</span></code></a>(…)</td>
 <td>Natural log of goodness of fit of qso-model given fixed parameters.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.get_qso_log_chi2nuNULL_chi2nu" title="cesium.features.graphs.get_qso_log_chi2nuNULL_chi2nu"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_qso_log_chi2nuNULL_chi2nu</span></code></a>(...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.get_qso_log_chi2nuNULL_chi2nu" title="cesium.features.graphs.get_qso_log_chi2nuNULL_chi2nu"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.get_qso_log_chi2nuNULL_chi2nu</span></code></a>(…)</td>
 <td>Natural log of expected chi2/nu for non-qso variable.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.lomb_scargle_fast_period" title="cesium.features.graphs.lomb_scargle_fast_period"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.lomb_scargle_fast_period</span></code></a>(t,&nbsp;m,&nbsp;e)</td>
 <td>Fits a simple sinuosidal model</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.lomb_scargle_model" title="cesium.features.graphs.lomb_scargle_model"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.lomb_scargle_model</span></code></a>(...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.lomb_scargle_model" title="cesium.features.graphs.lomb_scargle_model"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.lomb_scargle_model</span></code></a>(…)</td>
 <td>Simultaneous fit of a sum of sinusoids by weighted least squares:</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.max_slope" title="cesium.features.graphs.max_slope"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.max_slope</span></code></a>(t,&nbsp;x)</td>
@@ -345,11 +345,11 @@
 <tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.minimum" title="cesium.features.graphs.minimum"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.minimum</span></code></a>(x)</td>
 <td>Minimum observed value.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.normalize_hist" title="cesium.features.graphs.normalize_hist"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.normalize_hist</span></code></a>(hist,&nbsp;...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.normalize_hist" title="cesium.features.graphs.normalize_hist"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.normalize_hist</span></code></a>(hist,&nbsp;…)</td>
 <td>Normalize histogram such that integral from t_min to t_max equals 1.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.num_alias" title="cesium.features.graphs.num_alias"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.num_alias</span></code></a>(lomb_model)</td>
-<td>Here we check for &#8220;1-day&#8221; aliases in ASAS / Deboss sources.</td>
+<td>Here we check for “1-day” aliases in ASAS / Deboss sources.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.p2p_model" title="cesium.features.graphs.p2p_model"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.p2p_model</span></code></a>(x,&nbsp;y,&nbsp;frequency)</td>
 <td>Compute features that compare the residuals of data folded by estimated period from Lomb-Scargle model with residuals folded by twice the estimated period.</td>
@@ -372,7 +372,7 @@
 <tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.percent_difference_flux_percentile" title="cesium.features.graphs.percent_difference_flux_percentile"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.percent_difference_flux_percentile</span></code></a>(x)</td>
 <td>Difference between the 95th and 5th percentiles of the data, expressed as a percentage of the median value.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.period_folding" title="cesium.features.graphs.period_folding"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.period_folding</span></code></a>(x,&nbsp;y,&nbsp;...)</td>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.period_folding" title="cesium.features.graphs.period_folding"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.period_folding</span></code></a>(x,&nbsp;y,&nbsp;…)</td>
 <td>This section is used to calculate Dubath (10.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.periodic_model" title="cesium.features.graphs.periodic_model"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.periodic_model</span></code></a>(lomb_model)</td>
@@ -381,7 +381,7 @@
 <tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.qso_fit" title="cesium.features.graphs.qso_fit"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.qso_fit</span></code></a>(time,&nbsp;data,&nbsp;error)</td>
 <td>Best-fit qso model determined for Sesar Strip82, ugriz-bands (default r).</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.scatter_res_raw" title="cesium.features.graphs.scatter_res_raw"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.scatter_res_raw</span></code></a>(t,&nbsp;m,&nbsp;...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.graphs.scatter_res_raw" title="cesium.features.graphs.scatter_res_raw"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.scatter_res_raw</span></code></a>(t,&nbsp;m,&nbsp;…)</td>
 <td>From arXiv 1101_2406v1 Dubath 20110112 paper.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#cesium.features.graphs.skew" title="cesium.features.graphs.skew"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.graphs.skew</span></code></a>(x)</td>
@@ -425,7 +425,7 @@ that the next observation occurs within <cite>time</cite> minutes of an arbitrar
 <dl class="function">
 <dt id="cesium.features.graphs.delta_t_hist">
 <code class="descclassname">cesium.features.graphs.</code><code class="descname">delta_t_hist</code><span class="sig-paren">(</span><em>t</em>, <em>nbins=50</em>, <em>conv_oversample=50</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.graphs.delta_t_hist" title="Permalink to this definition">¶</a></dt>
-<dd><p>Build histogram of all possible <a href="#id3"><span class="problematic" id="id4">|t_i - t_j|</span></a>&#8216;s.</p>
+<dd><p>Build histogram of all possible <a href="#id3"><span class="problematic" id="id4">|t_i - t_j|</span></a>’s.</p>
 <p>For efficiency, we construct the histogram via a convolution of the PDF
 rather than by actually computing all the differences. For better accuracy
 we use a factor <cite>conv_oversample</cite> more bins when performing the convolution
@@ -741,8 +741,8 @@ i=[1,nfreq], j=[1,nharm]</dd>
 <blockquote class="last">
 <div><p>Dictionary containing fitted parameter values. Parameters specific to
 a specific fitted frequency are stored in a list of dicts at
-model_dict[&#8216;freq_fits&#8217;], each of which contains the output of
-fit_lomb_scargle(...)</p>
+model_dict[‘freq_fits’], each of which contains the output of
+fit_lomb_scargle(…)</p>
 </div></blockquote>
 </td>
 </tr>
@@ -802,7 +802,7 @@ fit_lomb_scargle(...)</p>
 <dt id="cesium.features.graphs.normalize_hist">
 <code class="descclassname">cesium.features.graphs.</code><code class="descname">normalize_hist</code><span class="sig-paren">(</span><em>hist</em>, <em>total_time</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.graphs.normalize_hist" title="Permalink to this definition">¶</a></dt>
 <dd><p>Normalize histogram such that integral from t_min to t_max equals 1.
-cf. np.histogram(..., density=True).</p>
+cf. np.histogram(…, density=True).</p>
 </dd></dl>
 
 </div>
@@ -811,7 +811,7 @@ cf. np.histogram(..., density=True).</p>
 <dl class="function">
 <dt id="cesium.features.graphs.num_alias">
 <code class="descclassname">cesium.features.graphs.</code><code class="descname">num_alias</code><span class="sig-paren">(</span><em>lomb_model</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.graphs.num_alias" title="Permalink to this definition">¶</a></dt>
-<dd><p>Here we check for &#8220;1-day&#8221; aliases in ASAS / Deboss sources.</p>
+<dd><p>Here we check for “1-day” aliases in ASAS / Deboss sources.</p>
 </dd></dl>
 
 </div>
@@ -919,7 +919,7 @@ model.</p>
 <h2>qso_fit<a class="headerlink" href="#qso-fit" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="cesium.features.graphs.qso_fit">
-<code class="descclassname">cesium.features.graphs.</code><code class="descname">qso_fit</code><span class="sig-paren">(</span><em>time</em>, <em>data</em>, <em>error</em>, <em>filter='g'</em>, <em>mag0=19.0</em>, <em>sys_err=0.0</em>, <em>return_model=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.graphs.qso_fit" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">cesium.features.graphs.</code><code class="descname">qso_fit</code><span class="sig-paren">(</span><em>time</em>, <em>data</em>, <em>error</em>, <em>filter=’g’</em>, <em>mag0=19.0</em>, <em>sys_err=0.0</em>, <em>return_model=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.graphs.qso_fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Best-fit qso model determined for Sesar Strip82, ugriz-bands (default r).
 See additional notes for underlying code qso_engine.</p>
 <dl class="docutils">

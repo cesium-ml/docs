@@ -188,16 +188,16 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#cesium.data_management.parse_and_store_ts_data" title="cesium.data_management.parse_and_store_ts_data"><code class="xref py py-obj docutils literal"><span class="pre">cesium.data_management.parse_and_store_ts_data</span></code></a>(...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.data_management.parse_and_store_ts_data" title="cesium.data_management.parse_and_store_ts_data"><code class="xref py py-obj docutils literal"><span class="pre">cesium.data_management.parse_and_store_ts_data</span></code></a>(…)</td>
 <td>Parses raw time series data from a single file or archive and loads metadata from header file (if applicable).</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#cesium.data_management.parse_headerfile" title="cesium.data_management.parse_headerfile"><code class="xref py py-obj docutils literal"><span class="pre">cesium.data_management.parse_headerfile</span></code></a>(...)</td>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.data_management.parse_headerfile" title="cesium.data_management.parse_headerfile"><code class="xref py py-obj docutils literal"><span class="pre">cesium.data_management.parse_headerfile</span></code></a>(…)</td>
 <td>Parse header file containing classes/targets and meta-feature information.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#cesium.data_management.parse_ts_data" title="cesium.data_management.parse_ts_data"><code class="xref py py-obj docutils literal"><span class="pre">cesium.data_management.parse_ts_data</span></code></a>(filepath)</td>
 <td>Parses raw time series data file and returns an (n, 3) array of values.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#cesium.data_management.TimeSeries" title="cesium.data_management.TimeSeries"><code class="xref py py-obj docutils literal"><span class="pre">cesium.data_management.TimeSeries</span></code></a>([t,&nbsp;m,&nbsp;e,&nbsp;...])</td>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.data_management.TimeSeries" title="cesium.data_management.TimeSeries"><code class="xref py py-obj docutils literal"><span class="pre">cesium.data_management.TimeSeries</span></code></a>([t,&nbsp;m,&nbsp;e,&nbsp;…])</td>
 <td>Class representing a single time series of measurements and metadata.</td>
 </tr>
 </tbody>
@@ -289,7 +289,7 @@ corresponding to the given filenames.</p>
 <h2>parse_ts_data<a class="headerlink" href="#parse-ts-data" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="cesium.data_management.parse_ts_data">
-<code class="descclassname">cesium.data_management.</code><code class="descname">parse_ts_data</code><span class="sig-paren">(</span><em>filepath</em>, <em>sep='</em>, <em>'</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.data_management.parse_ts_data" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">cesium.data_management.</code><code class="descname">parse_ts_data</code><span class="sig-paren">(</span><em>filepath</em>, <em>sep=’</em>, <em>’</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.data_management.parse_ts_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parses raw time series data file and returns an (n, 3) array of values.</p>
 <p>Data is expected as text in tabular format with separator <cite>sep</cite>. The output
 will always have three columns (time, measurement, error), even if the data
@@ -312,7 +312,7 @@ values evenly spaced from 0 to <cite>time_series.DEFAULT_MAX_TIME</cite>.</li>
 </div></blockquote>
 <p><strong>sep</strong> : str, optional</p>
 <blockquote>
-<div><p>Separator of columns in data file; defaults to &#8216;,&#8217;.</p>
+<div><p>Separator of columns in data file; defaults to ‘,’.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -338,7 +338,7 @@ values evenly spaced from 0 to <cite>time_series.DEFAULT_MAX_TIME</cite>.</li>
 measurements, along with any metadata describing the observation.
 Typically the observations will consist of times, measurements, and
 (optionally) measurement errors. The measurements can be scalar- or
-vector-valued (i.e., &#8220;multichannel&#8221;); for multichannel measurements, the
+vector-valued (i.e., “multichannel”); for multichannel measurements, the
 times and errors can also be vector-valued, or they can be shared across
 all channels of measurement.</p>
 <p class="rubric">Attributes</p>

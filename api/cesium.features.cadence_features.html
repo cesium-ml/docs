@@ -190,11 +190,11 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.cadence_features.cad_prob" title="cesium.features.cadence_features.cad_prob"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.cadence_features.cad_prob</span></code></a>(...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.cadence_features.cad_prob" title="cesium.features.cadence_features.cad_prob"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.cadence_features.cad_prob</span></code></a>(…)</td>
 <td>Given the observed distribution of time lags <cite>cads</cite>, compute the probability that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#cesium.features.cadence_features.delta_t_hist" title="cesium.features.cadence_features.delta_t_hist"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.cadence_features.delta_t_hist</span></code></a>(t)</td>
-<td>Build histogram of all possible <a href="#id1"><span class="problematic" id="id2">|t_i - t_j|</span></a>&#8216;s.</td>
+<td>Build histogram of all possible <a href="#id1"><span class="problematic" id="id2">|t_i - t_j|</span></a>’s.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#cesium.features.cadence_features.double_to_single_step" title="cesium.features.cadence_features.double_to_single_step"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.cadence_features.double_to_single_step</span></code></a>(cads)</td>
 <td>Ratios (t[i+2] - t[i]) / (t[i+1] - t[i]).</td>
@@ -202,13 +202,13 @@
 <tr class="row-even"><td><a class="reference internal" href="#cesium.features.cadence_features.find_sorted_peaks" title="cesium.features.cadence_features.find_sorted_peaks"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.cadence_features.find_sorted_peaks</span></code></a>(x)</td>
 <td>Find peaks, i.e.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.cadence_features.normalize_hist" title="cesium.features.cadence_features.normalize_hist"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.cadence_features.normalize_hist</span></code></a>(...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.cadence_features.normalize_hist" title="cesium.features.cadence_features.normalize_hist"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.cadence_features.normalize_hist</span></code></a>(…)</td>
 <td>Normalize histogram such that integral from t_min to t_max equals 1.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#cesium.features.cadence_features.peak_bin" title="cesium.features.cadence_features.peak_bin"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.cadence_features.peak_bin</span></code></a>(...)</td>
+<tr class="row-even"><td><a class="reference internal" href="#cesium.features.cadence_features.peak_bin" title="cesium.features.cadence_features.peak_bin"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.cadence_features.peak_bin</span></code></a>(…)</td>
 <td>Return the (bin) index of the ith largest peak.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.cadence_features.peak_ratio" title="cesium.features.cadence_features.peak_ratio"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.cadence_features.peak_ratio</span></code></a>(...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#cesium.features.cadence_features.peak_ratio" title="cesium.features.cadence_features.peak_ratio"><code class="xref py py-obj docutils literal"><span class="pre">cesium.features.cadence_features.peak_ratio</span></code></a>(…)</td>
 <td>Compute the ratio of the values of the ith and jth largest peaks.</td>
 </tr>
 </tbody>
@@ -228,7 +228,7 @@ that the next observation occurs within <cite>time</cite> minutes of an arbitrar
 <dl class="function">
 <dt id="cesium.features.cadence_features.delta_t_hist">
 <code class="descclassname">cesium.features.cadence_features.</code><code class="descname">delta_t_hist</code><span class="sig-paren">(</span><em>t</em>, <em>nbins=50</em>, <em>conv_oversample=50</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.cadence_features.delta_t_hist" title="Permalink to this definition">¶</a></dt>
-<dd><p>Build histogram of all possible <a href="#id3"><span class="problematic" id="id4">|t_i - t_j|</span></a>&#8216;s.</p>
+<dd><p>Build histogram of all possible <a href="#id3"><span class="problematic" id="id4">|t_i - t_j|</span></a>’s.</p>
 <p>For efficiency, we construct the histogram via a convolution of the PDF
 rather than by actually computing all the differences. For better accuracy
 we use a factor <cite>conv_oversample</cite> more bins when performing the convolution
@@ -266,7 +266,7 @@ sorted in decreasing order by peak value.</p>
 <dt id="cesium.features.cadence_features.normalize_hist">
 <code class="descclassname">cesium.features.cadence_features.</code><code class="descname">normalize_hist</code><span class="sig-paren">(</span><em>hist</em>, <em>total_time</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.cadence_features.normalize_hist" title="Permalink to this definition">¶</a></dt>
 <dd><p>Normalize histogram such that integral from t_min to t_max equals 1.
-cf. np.histogram(..., density=True).</p>
+cf. np.histogram(…, density=True).</p>
 </dd></dl>
 
 </div>
