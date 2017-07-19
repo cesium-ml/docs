@@ -219,32 +219,32 @@ all channels of measurement.</p>
 <p class="rubric">Attributes</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="4%" />
-<col width="96%" />
+<col width="5%" />
+<col width="95%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>time</td>
+<tr class="row-odd"><td><strong>time</strong></td>
 <td>((n,) or (p, n) array or list of (n,) arrays) Array(s) of times corresponding to measurement values. If <cite>measurement</cite> is two-dimensional, this can be one-dimensional (same times for each channel) or two-dimensional (different times for each channel). If <cite>time</cite> is one-dimensional then it will be broadcast to match <cite>measurement.shape</cite>.</td>
 </tr>
-<tr class="row-even"><td>measurement</td>
+<tr class="row-even"><td><strong>measurement</strong></td>
 <td>((n,) or (p, n) array or list of (n,) arrays) Array(s) of measurement values; can be two-dimensional for multichannel data. In the case of multichannel data with different numbers of measurements for each channel, <cite>measurement</cite> will be a list of arrays instead of a single two-dimensional array.</td>
 </tr>
-<tr class="row-odd"><td>error</td>
+<tr class="row-odd"><td><strong>error</strong></td>
 <td>((n,) or (p, n) array or list of (n,) arrays) Array(s) of measurement errors for each value. If <cite>measurement</cite> is two-dimensional, this can be one-dimensional (same times for each channel) or two-dimensional (different times for each channel). If <cite>error</cite> is one-dimensional then it will be broadcast match <cite>measurement.shape</cite>.</td>
 </tr>
-<tr class="row-even"><td>label</td>
+<tr class="row-even"><td><strong>label</strong></td>
 <td>(str, float, or None) Class label or regression target for the given time series (if applicable).</td>
 </tr>
-<tr class="row-odd"><td>meta_features</td>
+<tr class="row-odd"><td><strong>meta_features</strong></td>
 <td>(dict) Dictionary of feature names/values specified independently of the featurization process in <cite>featurize</cite>.</td>
 </tr>
-<tr class="row-even"><td>name</td>
+<tr class="row-even"><td><strong>name</strong></td>
 <td>(str or None) Identifying name for the given time series (if applicable). Typically the name of the raw data file from which the time series was created.</td>
 </tr>
-<tr class="row-odd"><td>path</td>
+<tr class="row-odd"><td><strong>path</strong></td>
 <td>(str or None) Path to the file where the time series is stored on disk (if applicable).</td>
 </tr>
-<tr class="row-even"><td>channel_names</td>
+<tr class="row-even"><td><strong>channel_names</strong></td>
 <td>(list of str) List of names of channels of measurement; by default these are simply <cite>channel_{i}</cite>, but can be arbitrary depending on the nature of the different measurement channels.</td>
 </tr>
 </tbody>
@@ -357,7 +357,7 @@ object is used.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
