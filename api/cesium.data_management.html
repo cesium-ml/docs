@@ -206,7 +206,7 @@
 <h2>parse_and_store_ts_data<a class="headerlink" href="#parse-and-store-ts-data" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="cesium.data_management.parse_and_store_ts_data">
-<code class="descclassname">cesium.data_management.</code><code class="descname">parse_and_store_ts_data</code><span class="sig-paren">(</span><em>data_path</em>, <em>output_dir</em>, <em>header_path=None</em>, <em>cleanup_archive=True</em>, <em>cleanup_header=True</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.data_management.parse_and_store_ts_data" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">cesium.data_management.</code><code class="descname">parse_and_store_ts_data</code><span class="sig-paren">(</span><em>data_path</em>, <em>output_dir</em>, <em>header_path=None</em>, <em>cleanup_archive=True</em>, <em>cleanup_header=True</em>, <em>sep='</em>, <em>'</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.data_management.parse_and_store_ts_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parses raw time series data from a single file or archive and loads
 metadata from header file (if applicable). Data is stored as files within
 <cite>output_dir</cite>, and the list of these paths is returned.</p>
@@ -237,6 +237,10 @@ meta_features.</p>
 <blockquote>
 <div><p>Boolean specifying whether to delete the uploaded header file (defaults
 to True).</p>
+</div></blockquote>
+<p><strong>sep</strong> : str, optional</p>
+<blockquote>
+<div><p>Separator of columns in data file; defaults to ‘,’.</p>
 </div></blockquote>
 </td>
 </tr>

@@ -12,7 +12,7 @@ for time series data.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="In this example we'll use the |cesium|_ library to compare various techniques for epilepsy dete...">
+    <div class="sphx-glr-thumbcontainer" tooltip="In this example we&#x27;ll use the |cesium|_ library to compare various techniques for epilepsy dete...">
 
 .. only:: html
 
