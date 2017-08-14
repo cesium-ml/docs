@@ -109,11 +109,11 @@ schedulers as the ``get`` argument to ``featurize_time_series``.
 
     feature amplitude percent_beyond_1_std maximum     max_slope median  \
     channel         0                    0       0             0      0   
-    0           143.5             0.162558   141.0  11107.796610   -4.0   
-    1           211.5             0.145472   169.0  20653.559322  -51.0   
-    2           165.0             0.152307   184.0  13537.627119   13.0   
-    3           171.5             0.152307   162.0  17008.813559   -4.0   
-    4           170.0             0.152062   152.0  13016.949153  -18.0   
+    0           143.5             0.327313   141.0  11107.796610   -4.0   
+    1           211.5             0.290212   169.0  20653.559322  -51.0   
+    2           165.0             0.302660   184.0  13537.627119   13.0   
+    3           171.5             0.300952   162.0  17008.813559   -4.0   
+    4           170.0             0.305101   152.0  13016.949153  -18.0   
 
     feature median_absolute_deviation percent_close_to_median minimum      skew  \
     channel                         0                       0       0         0   
@@ -376,7 +376,7 @@ upcoming posts we'll introduce the web frontend for ``cesium`` and describe how
 the same analysis can be performed in a browser with no setup or coding required.
 
 
-**Total running time of the script:** ( 0 minutes  21.356 seconds)
+**Total running time of the script:** ( 0 minutes  11.435 seconds)
 
 
 
