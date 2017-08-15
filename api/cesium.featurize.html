@@ -268,7 +268,7 @@ will be used, overriding the <cite>meta_features_list</cite> and <cite>names</ci
 <h2>featurize_single_ts<a class="headerlink" href="#featurize-single-ts" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="cesium.featurize.featurize_single_ts">
-<code class="descclassname">cesium.featurize.</code><code class="descname">featurize_single_ts</code><span class="sig-paren">(</span><em>ts</em>, <em>features_to_use</em>, <em>custom_script_path=None</em>, <em>custom_functions=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.featurize_single_ts" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">cesium.featurize.</code><code class="descname">featurize_single_ts</code><span class="sig-paren">(</span><em>ts</em>, <em>features_to_use</em>, <em>custom_script_path=None</em>, <em>custom_functions=None</em>, <em>raise_exceptions=True</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.featurize_single_ts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute feature values for a given single time-series. Data is
 returned as dictionaries/lists of lists.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -293,6 +293,12 @@ dask graph, these arrays should be referenced as ‘t’, ‘m’, ‘e’,
 respectively, and any values with keys present in <cite>features_to_use</cite>
 will be computed.</p>
 </div></blockquote>
+<p><strong>raise_exceptions</strong> : bool, optional</p>
+<blockquote>
+<div><p>If True, exceptions during feature computation are raised immediately;
+if False, exceptions are supressed and <cite>np.nan</cite> is returned for the
+given feature and any dependent features. Defaults to True.</p>
+</div></blockquote>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dict</p>
@@ -311,7 +317,7 @@ channel) as values.</p>
 <h2>featurize_time_series<a class="headerlink" href="#featurize-time-series" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="cesium.featurize.featurize_time_series">
-<code class="descclassname">cesium.featurize.</code><code class="descname">featurize_time_series</code><span class="sig-paren">(</span><em>times</em>, <em>values</em>, <em>errors=None</em>, <em>features_to_use=[]</em>, <em>meta_features={}</em>, <em>names=None</em>, <em>custom_script_path=None</em>, <em>custom_functions=None</em>, <em>scheduler=&lt;function get&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.featurize_time_series" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">cesium.featurize.</code><code class="descname">featurize_time_series</code><span class="sig-paren">(</span><em>times</em>, <em>values</em>, <em>errors=None</em>, <em>features_to_use=[]</em>, <em>meta_features={}</em>, <em>names=None</em>, <em>custom_script_path=None</em>, <em>custom_functions=None</em>, <em>scheduler=&lt;function get&gt;</em>, <em>raise_exceptions=True</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.featurize_time_series" title="Permalink to this definition">¶</a></dt>
 <dd><p>Versatile feature generation function for one or more time series.</p>
 <p>For a single time series, inputs may have the form:</p>
 <ul class="simple">
@@ -395,6 +401,12 @@ will be computed.</p>
 <div><p><cite>dask</cite> scheduler function used to perform feature extraction
 computation. Defaults to <cite>dask.threaded.get</cite>.</p>
 </div></blockquote>
+<p><strong>raise_exceptions</strong> : bool, optional</p>
+<blockquote>
+<div><p>If True, exceptions during feature computation are raised immediately;
+if False, exceptions are supressed and <cite>np.nan</cite> is returned for the
+given feature and any dependent features. Defaults to True.</p>
+</div></blockquote>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">pd.DataFrame</p>
@@ -412,7 +424,7 @@ computation. Defaults to <cite>dask.threaded.get</cite>.</p>
 <h2>featurize_ts_files<a class="headerlink" href="#featurize-ts-files" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="cesium.featurize.featurize_ts_files">
-<code class="descclassname">cesium.featurize.</code><code class="descname">featurize_ts_files</code><span class="sig-paren">(</span><em>ts_paths</em>, <em>features_to_use</em>, <em>custom_script_path=None</em>, <em>custom_functions=None</em>, <em>scheduler=&lt;function get&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.featurize_ts_files" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">cesium.featurize.</code><code class="descname">featurize_ts_files</code><span class="sig-paren">(</span><em>ts_paths</em>, <em>features_to_use</em>, <em>custom_script_path=None</em>, <em>custom_functions=None</em>, <em>scheduler=&lt;function get&gt;</em>, <em>raise_exceptions=True</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.featurize.featurize_ts_files" title="Permalink to this definition">¶</a></dt>
 <dd><p>Feature generation function for on-disk time series (.npz) files.</p>
 <p>By default, computes features concurrently using the
 <cite>dask.threaded.get</cite> scheduler. Other possible options include
@@ -454,6 +466,12 @@ will be computed.</p>
 <blockquote>
 <div><p><cite>dask</cite> scheduler function used to perform feature extraction
 computation. Defaults to <cite>dask.threaded.get</cite>.</p>
+</div></blockquote>
+<p><strong>raise_exceptions</strong> : bool, optional</p>
+<blockquote>
+<div><p>If True, exceptions during feature computation are raised immediately;
+if False, exceptions are supressed and <cite>np.nan</cite> is returned for the
+given feature and any dependent features. Defaults to True.</p>
 </div></blockquote>
 </td>
 </tr>
