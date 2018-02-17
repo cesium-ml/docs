@@ -178,7 +178,7 @@
             
   <div class="section" id="epilepsy-detection-using-eeg-data">
 <span id="sphx-glr-auto-examples-plot-eeg-example-py"></span><h1>Epilepsy Detection Using EEG Data<a class="headerlink" href="#epilepsy-detection-using-eeg-data" title="Permalink to this headline">¶</a></h1>
-<p>In this example we’ll use the <a class="reference external" href="https://github.com/cesium-ml/cesium"><code class="docutils literal"><span class="pre">cesium</span></code></a> library to compare
+<p>In this example we’ll use the <a class="reference external" href="https://github.com/cesium-ml/cesium"><code class="docutils literal notranslate"><span class="pre">cesium</span></code></a> library to compare
 various techniques for epilepsy detection using a classic EEG time series dataset from
 <a class="reference external" href="http://www.meb.uni-bonn.de/epileptologie/science/physik/eegdata.html">Andrzejak et al.</a>.
 The raw data are separated into five classes: Z, O, N, F, and S; we will consider a
@@ -190,7 +190,7 @@ classification models which use these features to distinguish between classes;
 finally, we validate our models by generating predictions for some unseen
 holdout set and comparing them to the true class labels.</p>
 <p>First, we’ll load the data and inspect a representative time series from each class:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span><span class="p">;</span> <span class="n">seaborn</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 
@@ -215,15 +215,15 @@ holdout set and comparing them to the true class labels.</p>
 <div class="section" id="featurization">
 <h2>Featurization<a class="headerlink" href="#featurization" title="Permalink to this headline">¶</a></h2>
 <p>Once the data is loaded, we can generate features for each time series using the
-<a class="reference external" href="http://cesium-ml.org/docs/api/cesium.featurize.html"><code class="docutils literal"><span class="pre">cesium.featurize</span></code></a> module. The <code class="docutils literal"><span class="pre">featurize</span></code> module includes many built-in
+<a class="reference external" href="http://cesium-ml.org/docs/api/cesium.featurize.html"><code class="docutils literal notranslate"><span class="pre">cesium.featurize</span></code></a> module. The <code class="docutils literal notranslate"><span class="pre">featurize</span></code> module includes many built-in
 choices of features which can be applied for any type of time series data;
 here we’ve chosen a few generic features that do not have any special
 biological significance.</p>
 <p>By default, the time series will featurized in parallel using the
-<code class="docutils literal"><span class="pre">dask.threaded</span></code> scheduler; other approaches, including serial and
-distributed approaches, can be implemented by passing in other <code class="docutils literal"><span class="pre">dask</span></code>
-schedulers as the <code class="docutils literal"><span class="pre">get</span></code> argument to <code class="docutils literal"><span class="pre">featurize_time_series</span></code>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cesium</span> <span class="kn">import</span> <span class="n">featurize</span>
+<code class="docutils literal notranslate"><span class="pre">dask.threaded</span></code> scheduler; other approaches, including serial and
+distributed approaches, can be implemented by passing in other <code class="docutils literal notranslate"><span class="pre">dask</span></code>
+schedulers as the <code class="docutils literal notranslate"><span class="pre">get</span></code> argument to <code class="docutils literal notranslate"><span class="pre">featurize_time_series</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cesium</span> <span class="kn">import</span> <span class="n">featurize</span>
 <span class="n">features_to_use</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;amplitude&quot;</span><span class="p">,</span>
                    <span class="s2">&quot;percent_beyond_1_std&quot;</span><span class="p">,</span>
                    <span class="s2">&quot;maximum&quot;</span><span class="p">,</span>
@@ -243,7 +243,7 @@ schedulers as the <code class="docutils literal"><span class="pre">get</span></c
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="n">feature</span> <span class="n">amplitude</span> <span class="n">percent_beyond_1_std</span> <span class="n">maximum</span>     <span class="n">max_slope</span> <span class="n">median</span>  \
+<div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">feature</span> <span class="n">amplitude</span> <span class="n">percent_beyond_1_std</span> <span class="n">maximum</span>     <span class="n">max_slope</span> <span class="n">median</span>  \
 <span class="n">channel</span>         <span class="mi">0</span>                    <span class="mi">0</span>       <span class="mi">0</span>             <span class="mi">0</span>      <span class="mi">0</span>
 <span class="mi">0</span>           <span class="mf">143.5</span>             <span class="mf">0.327313</span>   <span class="mf">141.0</span>  <span class="mf">11107.796610</span>   <span class="o">-</span><span class="mf">4.0</span>
 <span class="mi">1</span>           <span class="mf">211.5</span>             <span class="mf">0.290212</span>   <span class="mf">169.0</span>  <span class="mf">20653.559322</span>  <span class="o">-</span><span class="mf">51.0</span>
@@ -268,22 +268,22 @@ schedulers as the <code class="docutils literal"><span class="pre">get</span></c
 <span class="mi">4</span>        <span class="mf">44.910958</span>       <span class="o">-</span><span class="mf">17.999268</span>
 </pre></div>
 </div>
-<p>The output of <code class="docutils literal"><span class="pre">featurize_time_series</span></code> is a <code class="docutils literal"><span class="pre">pandas.DataFrame</span></code> which contains all
+<p>The output of <code class="docutils literal notranslate"><span class="pre">featurize_time_series</span></code> is a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> which contains all
 the feature information needed to train a machine learning model: feature
 names are stored as column indices (as well as channel numbers, as we’ll see
 later for multi-channel data), and the time series index/class label are
 stored as row indices.</p>
 <div class="section" id="custom-feature-functions">
 <h3>Custom feature functions<a class="headerlink" href="#custom-feature-functions" title="Permalink to this headline">¶</a></h3>
-<p>Custom feature functions not built into <code class="docutils literal"><span class="pre">cesium</span></code> may be passed in using the
-<code class="docutils literal"><span class="pre">custom_functions</span></code> keyword, either as a dictionary <code class="docutils literal"><span class="pre">{feature_name:</span> <span class="pre">function}</span></code>, or as a
+<p>Custom feature functions not built into <code class="docutils literal notranslate"><span class="pre">cesium</span></code> may be passed in using the
+<code class="docutils literal notranslate"><span class="pre">custom_functions</span></code> keyword, either as a dictionary <code class="docutils literal notranslate"><span class="pre">{feature_name:</span> <span class="pre">function}</span></code>, or as a
 <a class="reference external" href="http://dask.pydata.org/en/latest/custom-graphs.html">dask graph</a>. Functions should take
-three arrays <code class="docutils literal"><span class="pre">times,</span> <span class="pre">measurements,</span> <span class="pre">errors</span></code> as inputs; details can be found in the
-<code class="docutils literal"><span class="pre">cesium.featurize</span></code>
+three arrays <code class="docutils literal notranslate"><span class="pre">times,</span> <span class="pre">measurements,</span> <span class="pre">errors</span></code> as inputs; details can be found in the
+<code class="docutils literal notranslate"><span class="pre">cesium.featurize</span></code>
 <a class="reference external" href="http://cesium-ml.org/docs/api/cesium.featurize.html">documentation</a>.
 Here we’ll compute five standard features for EEG analysis provided by
 <a class="reference external" href="http://linkinghub.elsevier.com/retrieve/pii/S0957417411003253)">Guo et al. (2012)</a>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy.stats</span>
 
 <span class="k">def</span> <span class="nf">mean_signal</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
@@ -303,8 +303,8 @@ Here we’ll compute five standard features for EEG analysis provided by
 </pre></div>
 </div>
 <p>Now we’ll pass the desired feature functions as a dictionary via the
-<code class="docutils literal"><span class="pre">custom_functions</span></code> keyword argument.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">guo_features</span> <span class="o">=</span> <span class="p">{</span>
+<code class="docutils literal notranslate"><span class="pre">custom_functions</span></code> keyword argument.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">guo_features</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;mean&quot;</span><span class="p">:</span> <span class="n">mean_signal</span><span class="p">,</span>
     <span class="s2">&quot;std&quot;</span><span class="p">:</span> <span class="n">std_signal</span><span class="p">,</span>
     <span class="s2">&quot;mean2&quot;</span><span class="p">:</span> <span class="n">mean_square_signal</span><span class="p">,</span>
@@ -320,7 +320,7 @@ Here we’ll compute five standard features for EEG analysis provided by
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="n">feature</span>       <span class="n">mean</span>        <span class="n">std</span>        <span class="n">mean2</span> <span class="n">abs_diffs</span>      <span class="n">skew</span>
+<div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">feature</span>       <span class="n">mean</span>        <span class="n">std</span>        <span class="n">mean2</span> <span class="n">abs_diffs</span>      <span class="n">skew</span>
 <span class="n">channel</span>          <span class="mi">0</span>          <span class="mi">0</span>            <span class="mi">0</span>         <span class="mi">0</span>         <span class="mi">0</span>
 <span class="mi">0</span>        <span class="o">-</span><span class="mf">4.132048</span>  <span class="mf">40.411000</span>  <span class="mf">1650.122773</span>   <span class="mf">46948.0</span>  <span class="mf">0.032805</span>
 <span class="mi">1</span>       <span class="o">-</span><span class="mf">52.444716</span>  <span class="mf">48.812668</span>  <span class="mf">5133.124725</span>   <span class="mf">61118.0</span> <span class="o">-</span><span class="mf">0.092715</span>
@@ -333,12 +333,12 @@ Here we’ll compute five standard features for EEG analysis provided by
 <div class="section" id="multi-channel-time-series">
 <h3>Multi-channel time series<a class="headerlink" href="#multi-channel-time-series" title="Permalink to this headline">¶</a></h3>
 <p>The EEG time series considered here consist of univariate signal measurements along a
-uniform time grid. But <code class="docutils literal"><span class="pre">featurize_time_series</span></code> also accepts multi-channel
+uniform time grid. But <code class="docutils literal notranslate"><span class="pre">featurize_time_series</span></code> also accepts multi-channel
 data; to demonstrate this, we will decompose each signal into five frequency
 bands using a discrete wavelet transform as suggested by
 <a class="reference external" href="http://www.sciencedirect.com/science/article/pii/S0957417404001745">Subasi (2005)</a>,
 and then featurize each band separately using the five functions from above.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pywt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pywt</span>
 
 <span class="n">n_channels</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">eeg</span><span class="p">[</span><span class="s2">&quot;dwts&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">pywt</span><span class="o">.</span><span class="n">wavedec</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">pywt</span><span class="o">.</span><span class="n">Wavelet</span><span class="p">(</span><span class="s2">&quot;db1&quot;</span><span class="p">),</span> <span class="n">level</span><span class="o">=</span><span class="n">n_channels</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -350,7 +350,7 @@ and then featurize each band separately using the five functions from above.</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="n">feature</span>        <span class="n">mean</span>                                                 <span class="n">std</span>  \
+<div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">feature</span>        <span class="n">mean</span>                                                 <span class="n">std</span>  \
 <span class="n">channel</span>           <span class="mi">0</span>         <span class="mi">1</span>         <span class="mi">2</span>         <span class="mi">3</span>         <span class="mi">4</span>           <span class="mi">0</span>
 <span class="mi">0</span>        <span class="o">-</span><span class="mf">17.080739</span> <span class="o">-</span><span class="mf">6.067121</span> <span class="o">-</span><span class="mf">0.979336</span>  <span class="mf">0.154634</span>  <span class="mf">0.035545</span>  <span class="mf">112.473774</span>
 <span class="mi">1</span>       <span class="o">-</span><span class="mf">210.210117</span> <span class="o">-</span><span class="mf">3.743191</span>  <span class="mf">0.511377</span>  <span class="mf">0.057561</span> <span class="o">-</span><span class="mf">0.024847</span>  <span class="mf">119.836067</span>
@@ -385,19 +385,19 @@ and then featurize each band separately using the five functions from above.</p>
 <span class="p">[</span><span class="mi">5</span> <span class="n">rows</span> <span class="n">x</span> <span class="mi">25</span> <span class="n">columns</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>The output featureset has the same form as before, except now the <code class="docutils literal"><span class="pre">channel</span></code>
+<p>The output featureset has the same form as before, except now the <code class="docutils literal notranslate"><span class="pre">channel</span></code>
 component of the column index is used to index the features by the
 corresponding frequency band.</p>
 </div>
 </div>
 <div class="section" id="model-building">
 <h2>Model Building<a class="headerlink" href="#model-building" title="Permalink to this headline">¶</a></h2>
-<p>Featuresets produced by <code class="docutils literal"><span class="pre">cesium.featurize</span></code> are compatible with the <code class="docutils literal"><span class="pre">scikit-learn</span></code>
+<p>Featuresets produced by <code class="docutils literal notranslate"><span class="pre">cesium.featurize</span></code> are compatible with the <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>
 API. For this example, we’ll test a random forest classifier for the
-built-in <code class="docutils literal"><span class="pre">cesium</span></code> features, and a 3-nearest neighbors classifier for the
+built-in <code class="docutils literal notranslate"><span class="pre">cesium</span></code> features, and a 3-nearest neighbors classifier for the
 others, as suggested by
 <a class="reference external" href="http://linkinghub.elsevier.com/retrieve/pii/S0957417411003253">Guo et al. (2012)</a>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 
@@ -418,10 +418,10 @@ others, as suggested by
 <div class="section" id="prediction">
 <h2>Prediction<a class="headerlink" href="#prediction" title="Permalink to this headline">¶</a></h2>
 <p>Making predictions for new time series based on these models follows the same
-pattern: first the time series are featurized using <code class="docutils literal"><span class="pre">featurize_time_series</span></code>,
-and then predictions are made based on these features using the <code class="docutils literal"><span class="pre">predict</span></code>
-method of the <code class="docutils literal"><span class="pre">scikit-learn</span></code> model.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+pattern: first the time series are featurized using <code class="docutils literal notranslate"><span class="pre">featurize_time_series</span></code>,
+and then predictions are made based on these features using the <code class="docutils literal notranslate"><span class="pre">predict</span></code>
+method of the <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> model.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
 
 <span class="n">preds_cesium</span> <span class="o">=</span> <span class="n">model_cesium</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">fset_cesium</span><span class="p">)</span>
 <span class="n">preds_guo</span> <span class="o">=</span> <span class="n">model_guo</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">fset_guo</span><span class="p">)</span>
@@ -439,27 +439,27 @@ method of the <code class="docutils literal"><span class="pre">scikit-learn</spa
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span> <span class="n">cesium</span> <span class="n">features</span><span class="p">:</span> <span class="n">training</span> <span class="n">accuracy</span><span class="o">=</span><span class="mf">100.00</span><span class="o">%</span><span class="p">,</span> <span class="n">test</span> <span class="n">accuracy</span><span class="o">=</span><span class="mf">83.20</span><span class="o">%</span>
+<div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span> <span class="n">cesium</span> <span class="n">features</span><span class="p">:</span> <span class="n">training</span> <span class="n">accuracy</span><span class="o">=</span><span class="mf">100.00</span><span class="o">%</span><span class="p">,</span> <span class="n">test</span> <span class="n">accuracy</span><span class="o">=</span><span class="mf">83.20</span><span class="o">%</span>
 <span class="n">Guo</span> <span class="n">et</span> <span class="n">al</span><span class="o">.</span> <span class="n">features</span><span class="p">:</span> <span class="n">training</span> <span class="n">accuracy</span><span class="o">=</span><span class="mf">92.80</span><span class="o">%</span><span class="p">,</span> <span class="n">test</span> <span class="n">accuracy</span><span class="o">=</span><span class="mf">83.20</span><span class="o">%</span>
 <span class="n">Wavelet</span> <span class="n">transform</span> <span class="n">features</span><span class="p">:</span> <span class="n">training</span> <span class="n">accuracy</span><span class="o">=</span><span class="mf">97.87</span><span class="o">%</span><span class="p">,</span> <span class="n">test</span> <span class="n">accuracy</span><span class="o">=</span><span class="mf">95.20</span><span class="o">%</span>
 </pre></div>
 </div>
 <p>The workflow presented here is intentionally simplistic and omits many important steps
 such as feature selection, model parameter selection, etc., which may all be
-incorporated just as they would for any other <code class="docutils literal"><span class="pre">scikit-learn</span></code> analysis.
-But with essentially three function calls (<code class="docutils literal"><span class="pre">featurize_time_series</span></code>,
-<code class="docutils literal"><span class="pre">model.fit</span></code>, and <code class="docutils literal"><span class="pre">model.predict</span></code>), we are able to build a
+incorporated just as they would for any other <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> analysis.
+But with essentially three function calls (<code class="docutils literal notranslate"><span class="pre">featurize_time_series</span></code>,
+<code class="docutils literal notranslate"><span class="pre">model.fit</span></code>, and <code class="docutils literal notranslate"><span class="pre">model.predict</span></code>), we are able to build a
 model from a set of time series and make predictions on new, unlabeled data. In
-upcoming posts we’ll introduce the web frontend for <code class="docutils literal"><span class="pre">cesium</span></code> and describe how
+upcoming posts we’ll introduce the web frontend for <code class="docutils literal notranslate"><span class="pre">cesium</span></code> and describe how
 the same analysis can be performed in a browser with no setup or coding required.</p>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  11.537 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 1 minutes  4.404 seconds)</p>
 <div class="sphx-glr-footer docutils container">
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../_downloads/plot_EEG_Example.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_EEG_Example.py</span></code></a></div>
+<a class="reference download internal" href="../_downloads/plot_EEG_Example.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_EEG_Example.py</span></code></a></div>
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../_downloads/plot_EEG_Example.ipynb" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_EEG_Example.ipynb</span></code></a></div>
+<a class="reference download internal" href="../_downloads/plot_EEG_Example.ipynb" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_EEG_Example.ipynb</span></code></a></div>
 </div>
-<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Generated by Sphinx-Gallery</a></p>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
 </div>
 </div>
 
