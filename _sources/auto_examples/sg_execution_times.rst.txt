@@ -1,0 +1,13 @@
+
+:orphan:
+
+.. _sphx_glr_auto_examples_sg_execution_times:
+
+
+Computation times
+=================
+**00:15.376** total execution time for **auto_examples** files:
+
++-----------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_plot_EEG_Example.py` (``plot_EEG_Example.py``) | 00:15.376 | 0.0 MB |
++-----------------------------------------------------------------------------+-----------+--------+

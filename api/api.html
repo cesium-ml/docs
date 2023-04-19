@@ -1,362 +1,512 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>API Reference &mdash; cesium vUndefined documentation</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; cesium 0.11.2.dev16+gd05adf4 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/output_cells.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/output_cells.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="cesium vUndefined documentation" href="../index.html"/>
-        <link rel="next" title="Module: data_management" href="cesium.data_management.html"/>
-        <link rel="prev" title="Epilepsy Detection Using EEG Data" href="../auto_examples/plot_EEG_Example.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Module: data_management" href="cesium.data_management.html" />
+    <link rel="prev" title="Epilepsy Detection Using EEG Data" href="../auto_examples/plot_EEG_Example.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
+        <div class="wy-side-nav-search" >
 
           
-            <a href="../index.html" class="icon icon-home"> cesium
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            cesium
           </a>
-
-          
-            
-            
               <div class="version">
-                vUndefined
+                0.11.2.dev16+gd05adf4
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install.html#testing">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../feature_table.html">Time-Series Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Examples</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cesium.data_management.html">Module: <code class="docutils literal notranslate"><span class="pre">data_management</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.datasets.html">Module: <code class="docutils literal notranslate"><span class="pre">datasets</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html">Module: <code class="docutils literal notranslate"><span class="pre">features.cadence_features</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html">Module: <code class="docutils literal notranslate"><span class="pre">features.graphs</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html">Module: <code class="docutils literal notranslate"><span class="pre">featurize</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.time_series.html">Module: <code class="docutils literal notranslate"><span class="pre">time_series</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.util.html">Module: <code class="docutils literal notranslate"><span class="pre">util</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.data_management.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">data_management</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.datasets.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">datasets</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">features</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">features.cadence_features</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">features.graphs</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">featurize</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.time_series.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">time_series</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.util.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">util</span></code></a></li>
 </ul>
 </li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">cesium</a>
-        
       </nav>
 
-
-      
       <div class="wy-nav-content">
         <div class="rst-content">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>API Reference</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API Reference</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="api-reference">
-<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="cesium.data_management.html">Module: <code class="docutils literal notranslate"><span class="pre">data_management</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cesium.data_management.html#parse-and-store-ts-data">parse_and_store_ts_data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.data_management.html#parse-headerfile">parse_headerfile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.data_management.html#parse-ts-data">parse_ts_data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.data_management.html#timeseries"><code class="docutils literal notranslate"><span class="pre">TimeSeries</span></code></a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="cesium.data_management.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">data_management</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cesium.data_management.html#parse-and-store-ts-data">parse_and_store_ts_data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.data_management.html#cesium.data_management.parse_and_store_ts_data"><code class="docutils literal notranslate"><span class="pre">parse_and_store_ts_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.data_management.html#parse-headerfile">parse_headerfile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.data_management.html#cesium.data_management.parse_headerfile"><code class="docutils literal notranslate"><span class="pre">parse_headerfile()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.data_management.html#parse-ts-data">parse_ts_data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.data_management.html#cesium.data_management.parse_ts_data"><code class="docutils literal notranslate"><span class="pre">parse_ts_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.data_management.html#timeseries"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeSeries</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.data_management.html#cesium.data_management.TimeSeries"><code class="docutils literal notranslate"><span class="pre">TimeSeries</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cesium.data_management.html#cesium.data_management.TimeSeries.__init__"><code class="docutils literal notranslate"><span class="pre">TimeSeries.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cesium.data_management.html#cesium.data_management.TimeSeries.channels"><code class="docutils literal notranslate"><span class="pre">TimeSeries.channels()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cesium.data_management.html#cesium.data_management.TimeSeries.save"><code class="docutils literal notranslate"><span class="pre">TimeSeries.save()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cesium.data_management.html#cesium.data_management.TimeSeries.sort"><code class="docutils literal notranslate"><span class="pre">TimeSeries.sort()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cesium.datasets.html">Module: <code class="docutils literal notranslate"><span class="pre">datasets</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cesium.datasets.html#fetch-andrzejak">fetch_andrzejak</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.datasets.html#fetch-asas-training">fetch_asas_training</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cesium.features.cadence_features.html">Module: <code class="docutils literal notranslate"><span class="pre">features.cadence_features</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html#cad-prob">cad_prob</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html#delta-t-hist">delta_t_hist</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html#double-to-single-step">double_to_single_step</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html#find-sorted-peaks">find_sorted_peaks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html#normalize-hist">normalize_hist</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html#peak-bin">peak_bin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html#peak-ratio">peak_ratio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cesium.datasets.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">datasets</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cesium.datasets.html#fetch-andrzejak">fetch_andrzejak</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.datasets.html#cesium.datasets.fetch_andrzejak"><code class="docutils literal notranslate"><span class="pre">fetch_andrzejak()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cesium.features.graphs.html">Module: <code class="docutils literal notranslate"><span class="pre">features.graphs</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#amplitude">amplitude</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#cad-prob">cad_prob</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#delta-t-hist">delta_t_hist</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#double-to-single-step">double_to_single_step</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#find-sorted-peaks">find_sorted_peaks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#flux-percentile-ratio">flux_percentile_ratio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#generate-dask-graph">generate_dask_graph</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-fold2p-slope-percentile">get_fold2P_slope_percentile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-amplitude">get_lomb_amplitude</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-amplitude-ratio">get_lomb_amplitude_ratio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-frequency">get_lomb_frequency</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-frequency-ratio">get_lomb_frequency_ratio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-lambda">get_lomb_lambda</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-rel-phase">get_lomb_rel_phase</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-signif">get_lomb_signif</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-signif-ratio">get_lomb_signif_ratio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-trend">get_lomb_trend</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-varrat">get_lomb_varrat</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-y-offset">get_lomb_y_offset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-max-delta-mags">get_max_delta_mags</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-medperc90-2p-p">get_medperc90_2p_p</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-min-delta-mags">get_min_delta_mags</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-model-phi1-phi2">get_model_phi1_phi2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-p2p-scatter-2praw">get_p2p_scatter_2praw</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-p2p-scatter-over-mad">get_p2p_scatter_over_mad</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-p2p-scatter-pfold-over-mad">get_p2p_scatter_pfold_over_mad</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-p2p-ssqr-diff-over-var">get_p2p_ssqr_diff_over_var</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-qso-log-chi2-qsonu">get_qso_log_chi2_qsonu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-qso-log-chi2nunull-chi2nu">get_qso_log_chi2nuNULL_chi2nu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#lomb-scargle-fast-period">lomb_scargle_fast_period</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#lomb-scargle-model">lomb_scargle_model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#max-slope">max_slope</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#maximum">maximum</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#median">median</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#median-absolute-deviation">median_absolute_deviation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#minimum">minimum</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#normalize-hist">normalize_hist</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#num-alias">num_alias</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#p2p-model">p2p_model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#peak-bin">peak_bin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#peak-ratio">peak_ratio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#percent-amplitude">percent_amplitude</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#percent-beyond-1-std">percent_beyond_1_std</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#percent-close-to-median">percent_close_to_median</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#percent-difference-flux-percentile">percent_difference_flux_percentile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#period-folding">period_folding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#periodic-model">periodic_model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#qso-fit">qso_fit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#scatter-res-raw">scatter_res_raw</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#skew">skew</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#std">std</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#stetson-j">stetson_j</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#stetson-k">stetson_k</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#weighted-average">weighted_average</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="cesium.featurize.html">Module: <code class="docutils literal notranslate"><span class="pre">featurize</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html#assemble-featureset">assemble_featureset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html#featurize-single-ts">featurize_single_ts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html#featurize-time-series">featurize_time_series</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html#featurize-ts-files">featurize_ts_files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html#generate-dask-graph">generate_dask_graph</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html#impute-featureset">impute_featureset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html#load-featureset">load_featureset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html#save-featureset">save_featureset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html#timeseries"><code class="docutils literal notranslate"><span class="pre">TimeSeries</span></code></a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="cesium.datasets.html#fetch-asas-training">fetch_asas_training</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.datasets.html#cesium.datasets.fetch_asas_training"><code class="docutils literal notranslate"><span class="pre">fetch_asas_training()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cesium.time_series.html">Module: <code class="docutils literal notranslate"><span class="pre">time_series</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cesium.time_series.html#load">load</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.time_series.html#timeseries"><code class="docutils literal notranslate"><span class="pre">TimeSeries</span></code></a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="cesium.features.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">features</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.html#generate-dask-graph">generate_dask_graph</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.html#cesium.features.generate_dask_graph"><code class="docutils literal notranslate"><span class="pre">generate_dask_graph()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cesium.util.html">Module: <code class="docutils literal notranslate"><span class="pre">util</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cesium.util.html#extract-time-series">extract_time_series</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.util.html#remove-files">remove_files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.util.html#shorten-fname">shorten_fname</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cesium.features.cadence_features.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">features.cadence_features</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html#cad-prob">cad_prob</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.cadence_features.html#cesium.features.cadence_features.cad_prob"><code class="docutils literal notranslate"><span class="pre">cad_prob()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html#delta-t-hist">delta_t_hist</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.cadence_features.html#cesium.features.cadence_features.delta_t_hist"><code class="docutils literal notranslate"><span class="pre">delta_t_hist()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html#double-to-single-step">double_to_single_step</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.cadence_features.html#cesium.features.cadence_features.double_to_single_step"><code class="docutils literal notranslate"><span class="pre">double_to_single_step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html#find-sorted-peaks">find_sorted_peaks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.cadence_features.html#cesium.features.cadence_features.find_sorted_peaks"><code class="docutils literal notranslate"><span class="pre">find_sorted_peaks()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html#normalize-hist">normalize_hist</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.cadence_features.html#cesium.features.cadence_features.normalize_hist"><code class="docutils literal notranslate"><span class="pre">normalize_hist()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html#peak-bin">peak_bin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.cadence_features.html#cesium.features.cadence_features.peak_bin"><code class="docutils literal notranslate"><span class="pre">peak_bin()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html#peak-ratio">peak_ratio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.cadence_features.html#cesium.features.cadence_features.peak_ratio"><code class="docutils literal notranslate"><span class="pre">peak_ratio()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cesium.features.graphs.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">features.graphs</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#amplitude">amplitude</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.amplitude"><code class="docutils literal notranslate"><span class="pre">amplitude()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#anderson-darling">anderson_darling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.anderson_darling"><code class="docutils literal notranslate"><span class="pre">anderson_darling()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#cad-prob">cad_prob</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.cad_prob"><code class="docutils literal notranslate"><span class="pre">cad_prob()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#delta-t-hist">delta_t_hist</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.delta_t_hist"><code class="docutils literal notranslate"><span class="pre">delta_t_hist()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#double-to-single-step">double_to_single_step</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.double_to_single_step"><code class="docutils literal notranslate"><span class="pre">double_to_single_step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#find-sorted-peaks">find_sorted_peaks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.find_sorted_peaks"><code class="docutils literal notranslate"><span class="pre">find_sorted_peaks()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#flux-percentile-ratio">flux_percentile_ratio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.flux_percentile_ratio"><code class="docutils literal notranslate"><span class="pre">flux_percentile_ratio()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#generate-dask-graph">generate_dask_graph</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.generate_dask_graph"><code class="docutils literal notranslate"><span class="pre">generate_dask_graph()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-fold2p-slope-percentile">get_fold2P_slope_percentile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_fold2P_slope_percentile"><code class="docutils literal notranslate"><span class="pre">get_fold2P_slope_percentile()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-amplitude">get_lomb_amplitude</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_lomb_amplitude"><code class="docutils literal notranslate"><span class="pre">get_lomb_amplitude()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-amplitude-ratio">get_lomb_amplitude_ratio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_lomb_amplitude_ratio"><code class="docutils literal notranslate"><span class="pre">get_lomb_amplitude_ratio()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-frequency">get_lomb_frequency</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_lomb_frequency"><code class="docutils literal notranslate"><span class="pre">get_lomb_frequency()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-frequency-ratio">get_lomb_frequency_ratio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_lomb_frequency_ratio"><code class="docutils literal notranslate"><span class="pre">get_lomb_frequency_ratio()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-lambda">get_lomb_lambda</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_lomb_lambda"><code class="docutils literal notranslate"><span class="pre">get_lomb_lambda()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-rel-phase">get_lomb_rel_phase</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_lomb_rel_phase"><code class="docutils literal notranslate"><span class="pre">get_lomb_rel_phase()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-signif">get_lomb_signif</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_lomb_signif"><code class="docutils literal notranslate"><span class="pre">get_lomb_signif()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-signif-ratio">get_lomb_signif_ratio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_lomb_signif_ratio"><code class="docutils literal notranslate"><span class="pre">get_lomb_signif_ratio()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-trend">get_lomb_trend</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_lomb_trend"><code class="docutils literal notranslate"><span class="pre">get_lomb_trend()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-varrat">get_lomb_varrat</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_lomb_varrat"><code class="docutils literal notranslate"><span class="pre">get_lomb_varrat()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-lomb-y-offset">get_lomb_y_offset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_lomb_y_offset"><code class="docutils literal notranslate"><span class="pre">get_lomb_y_offset()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-max-delta-mags">get_max_delta_mags</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_max_delta_mags"><code class="docutils literal notranslate"><span class="pre">get_max_delta_mags()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-medperc90-2p-p">get_medperc90_2p_p</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_medperc90_2p_p"><code class="docutils literal notranslate"><span class="pre">get_medperc90_2p_p()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-min-delta-mags">get_min_delta_mags</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_min_delta_mags"><code class="docutils literal notranslate"><span class="pre">get_min_delta_mags()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-model-phi1-phi2">get_model_phi1_phi2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_model_phi1_phi2"><code class="docutils literal notranslate"><span class="pre">get_model_phi1_phi2()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-p2p-scatter-2praw">get_p2p_scatter_2praw</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_p2p_scatter_2praw"><code class="docutils literal notranslate"><span class="pre">get_p2p_scatter_2praw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-p2p-scatter-over-mad">get_p2p_scatter_over_mad</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_p2p_scatter_over_mad"><code class="docutils literal notranslate"><span class="pre">get_p2p_scatter_over_mad()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-p2p-scatter-pfold-over-mad">get_p2p_scatter_pfold_over_mad</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_p2p_scatter_pfold_over_mad"><code class="docutils literal notranslate"><span class="pre">get_p2p_scatter_pfold_over_mad()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-p2p-ssqr-diff-over-var">get_p2p_ssqr_diff_over_var</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_p2p_ssqr_diff_over_var"><code class="docutils literal notranslate"><span class="pre">get_p2p_ssqr_diff_over_var()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-qso-log-chi2-qsonu">get_qso_log_chi2_qsonu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_qso_log_chi2_qsonu"><code class="docutils literal notranslate"><span class="pre">get_qso_log_chi2_qsonu()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#get-qso-log-chi2nunull-chi2nu">get_qso_log_chi2nuNULL_chi2nu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.get_qso_log_chi2nuNULL_chi2nu"><code class="docutils literal notranslate"><span class="pre">get_qso_log_chi2nuNULL_chi2nu()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#kurtosis">kurtosis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.kurtosis"><code class="docutils literal notranslate"><span class="pre">kurtosis()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#lomb-scargle-fast-period">lomb_scargle_fast_period</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.lomb_scargle_fast_period"><code class="docutils literal notranslate"><span class="pre">lomb_scargle_fast_period()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#lomb-scargle-model">lomb_scargle_model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.lomb_scargle_model"><code class="docutils literal notranslate"><span class="pre">lomb_scargle_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#max-slope">max_slope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.max_slope"><code class="docutils literal notranslate"><span class="pre">max_slope()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#maximum">maximum</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.maximum"><code class="docutils literal notranslate"><span class="pre">maximum()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#median">median</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.median"><code class="docutils literal notranslate"><span class="pre">median()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#median-absolute-deviation">median_absolute_deviation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.median_absolute_deviation"><code class="docutils literal notranslate"><span class="pre">median_absolute_deviation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#minimum">minimum</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.minimum"><code class="docutils literal notranslate"><span class="pre">minimum()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#normalize-hist">normalize_hist</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.normalize_hist"><code class="docutils literal notranslate"><span class="pre">normalize_hist()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#num-alias">num_alias</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.num_alias"><code class="docutils literal notranslate"><span class="pre">num_alias()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#p2p-model">p2p_model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.p2p_model"><code class="docutils literal notranslate"><span class="pre">p2p_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#peak-bin">peak_bin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.peak_bin"><code class="docutils literal notranslate"><span class="pre">peak_bin()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#peak-ratio">peak_ratio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.peak_ratio"><code class="docutils literal notranslate"><span class="pre">peak_ratio()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#percent-amplitude">percent_amplitude</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.percent_amplitude"><code class="docutils literal notranslate"><span class="pre">percent_amplitude()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#percent-beyond-1-std">percent_beyond_1_std</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.percent_beyond_1_std"><code class="docutils literal notranslate"><span class="pre">percent_beyond_1_std()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#percent-close-to-median">percent_close_to_median</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.percent_close_to_median"><code class="docutils literal notranslate"><span class="pre">percent_close_to_median()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#percent-difference-flux-percentile">percent_difference_flux_percentile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.percent_difference_flux_percentile"><code class="docutils literal notranslate"><span class="pre">percent_difference_flux_percentile()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#period-folding">period_folding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.period_folding"><code class="docutils literal notranslate"><span class="pre">period_folding()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#periodic-model">periodic_model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.periodic_model"><code class="docutils literal notranslate"><span class="pre">periodic_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#qso-fit">qso_fit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.qso_fit"><code class="docutils literal notranslate"><span class="pre">qso_fit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#scatter-res-raw">scatter_res_raw</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.scatter_res_raw"><code class="docutils literal notranslate"><span class="pre">scatter_res_raw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#shapiro-wilk">shapiro_wilk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.shapiro_wilk"><code class="docutils literal notranslate"><span class="pre">shapiro_wilk()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#skew">skew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.skew"><code class="docutils literal notranslate"><span class="pre">skew()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#std">std</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.std"><code class="docutils literal notranslate"><span class="pre">std()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#stetson-j">stetson_j</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.stetson_j"><code class="docutils literal notranslate"><span class="pre">stetson_j()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#stetson-k">stetson_k</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.stetson_k"><code class="docutils literal notranslate"><span class="pre">stetson_k()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html#weighted-average">weighted_average</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.features.graphs.html#cesium.features.graphs.weighted_average"><code class="docutils literal notranslate"><span class="pre">weighted_average()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cesium.featurize.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">featurize</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html#assemble-featureset">assemble_featureset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.featurize.html#cesium.featurize.assemble_featureset"><code class="docutils literal notranslate"><span class="pre">assemble_featureset()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html#featurize-single-ts">featurize_single_ts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.featurize.html#cesium.featurize.featurize_single_ts"><code class="docutils literal notranslate"><span class="pre">featurize_single_ts()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html#featurize-time-series">featurize_time_series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.featurize.html#cesium.featurize.featurize_time_series"><code class="docutils literal notranslate"><span class="pre">featurize_time_series()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html#featurize-ts-files">featurize_ts_files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.featurize.html#cesium.featurize.featurize_ts_files"><code class="docutils literal notranslate"><span class="pre">featurize_ts_files()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html#generate-dask-graph">generate_dask_graph</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.featurize.html#cesium.featurize.generate_dask_graph"><code class="docutils literal notranslate"><span class="pre">generate_dask_graph()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html#impute-featureset">impute_featureset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.featurize.html#cesium.featurize.impute_featureset"><code class="docutils literal notranslate"><span class="pre">impute_featureset()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html#load-featureset">load_featureset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.featurize.html#cesium.featurize.load_featureset"><code class="docutils literal notranslate"><span class="pre">load_featureset()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html#save-featureset">save_featureset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.featurize.html#cesium.featurize.save_featureset"><code class="docutils literal notranslate"><span class="pre">save_featureset()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html#timeseries"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeSeries</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.featurize.html#cesium.featurize.TimeSeries"><code class="docutils literal notranslate"><span class="pre">TimeSeries</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cesium.featurize.html#cesium.featurize.TimeSeries.__init__"><code class="docutils literal notranslate"><span class="pre">TimeSeries.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cesium.featurize.html#cesium.featurize.TimeSeries.channels"><code class="docutils literal notranslate"><span class="pre">TimeSeries.channels()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cesium.featurize.html#cesium.featurize.TimeSeries.save"><code class="docutils literal notranslate"><span class="pre">TimeSeries.save()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cesium.featurize.html#cesium.featurize.TimeSeries.sort"><code class="docutils literal notranslate"><span class="pre">TimeSeries.sort()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cesium.time_series.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">time_series</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cesium.time_series.html#load">load</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.time_series.html#cesium.time_series.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.time_series.html#timeseries"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeSeries</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.time_series.html#cesium.time_series.TimeSeries"><code class="docutils literal notranslate"><span class="pre">TimeSeries</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cesium.time_series.html#cesium.time_series.TimeSeries.__init__"><code class="docutils literal notranslate"><span class="pre">TimeSeries.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cesium.time_series.html#cesium.time_series.TimeSeries.channels"><code class="docutils literal notranslate"><span class="pre">TimeSeries.channels()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cesium.time_series.html#cesium.time_series.TimeSeries.save"><code class="docutils literal notranslate"><span class="pre">TimeSeries.save()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cesium.time_series.html#cesium.time_series.TimeSeries.sort"><code class="docutils literal notranslate"><span class="pre">TimeSeries.sort()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cesium.util.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">util</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cesium.util.html#extract-time-series">extract_time_series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.util.html#cesium.util.extract_time_series"><code class="docutils literal notranslate"><span class="pre">extract_time_series()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.util.html#remove-files">remove_files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.util.html#cesium.util.remove_files"><code class="docutils literal notranslate"><span class="pre">remove_files()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.util.html#shorten-fname">shorten_fname</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cesium.util.html#cesium.util.shorten_fname"><code class="docutils literal notranslate"><span class="pre">shorten_fname()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
-</div>
+</section>
 
 
-           </div>
-           <div class="articleComments">
-            
            </div>
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cesium.data_management.html" class="btn btn-neutral float-right" title="Module: data_management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../auto_examples/plot_EEG_Example.html" class="btn btn-neutral" title="Epilepsy Detection Using EEG Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../auto_examples/plot_EEG_Example.html" class="btn btn-neutral float-left" title="Epilepsy Detection Using EEG Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cesium.data_management.html" class="btn btn-neutral float-right" title="Module: data_management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2015, The cesium Team.
-
-    </p>
+    <p>&#169; Copyright 2015, The cesium Team.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'vUndefined',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

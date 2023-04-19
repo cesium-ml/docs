@@ -8,6 +8,7 @@ Module: :mod:`features.graphs`
 .. autosummary::
 
    cesium.features.graphs.amplitude
+   cesium.features.graphs.anderson_darling
    cesium.features.graphs.cad_prob
    cesium.features.graphs.delta_t_hist
    cesium.features.graphs.double_to_single_step
@@ -36,6 +37,7 @@ Module: :mod:`features.graphs`
    cesium.features.graphs.get_p2p_ssqr_diff_over_var
    cesium.features.graphs.get_qso_log_chi2_qsonu
    cesium.features.graphs.get_qso_log_chi2nuNULL_chi2nu
+   cesium.features.graphs.kurtosis
    cesium.features.graphs.lomb_scargle_fast_period
    cesium.features.graphs.lomb_scargle_model
    cesium.features.graphs.max_slope
@@ -56,6 +58,7 @@ Module: :mod:`features.graphs`
    cesium.features.graphs.periodic_model
    cesium.features.graphs.qso_fit
    cesium.features.graphs.scatter_res_raw
+   cesium.features.graphs.shapiro_wilk
    cesium.features.graphs.skew
    cesium.features.graphs.std
    cesium.features.graphs.stetson_j
@@ -67,6 +70,11 @@ amplitude
 ---------
 
 .. autofunction:: cesium.features.graphs.amplitude
+
+anderson_darling
+----------------
+
+.. autofunction:: cesium.features.graphs.anderson_darling
 
 cad_prob
 --------
@@ -208,6 +216,11 @@ get_qso_log_chi2nuNULL_chi2nu
 
 .. autofunction:: cesium.features.graphs.get_qso_log_chi2nuNULL_chi2nu
 
+kurtosis
+--------
+
+.. autofunction:: cesium.features.graphs.kurtosis
+
 lomb_scargle_fast_period
 ------------------------
 
@@ -307,6 +320,11 @@ scatter_res_raw
 ---------------
 
 .. autofunction:: cesium.features.graphs.scatter_res_raw
+
+shapiro_wilk
+------------
+
+.. autofunction:: cesium.features.graphs.shapiro_wilk
 
 skew
 ----

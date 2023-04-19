@@ -1,356 +1,226 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Module: util &mdash; cesium vUndefined documentation</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module: util &mdash; cesium 0.11.2.dev16+gd05adf4 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/output_cells.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
-  
-    <link rel="stylesheet" href="../_static/output_cells.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="cesium vUndefined documentation" href="../index.html"/>
-        <link rel="up" title="API Reference" href="api.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Module: time_series" href="cesium.time_series.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
+        <div class="wy-side-nav-search" >
 
           
-            <a href="../index.html" class="icon icon-home"> cesium
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            cesium
           </a>
-
-          
-            
-            
               <div class="version">
-                vUndefined
+                0.11.2.dev16+gd05adf4
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install.html#testing">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../feature_table.html">Time-Series Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Examples</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="cesium.data_management.html">Module: <code class="docutils literal notranslate"><span class="pre">data_management</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.datasets.html">Module: <code class="docutils literal notranslate"><span class="pre">datasets</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html">Module: <code class="docutils literal notranslate"><span class="pre">features.cadence_features</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html">Module: <code class="docutils literal notranslate"><span class="pre">features.graphs</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html">Module: <code class="docutils literal notranslate"><span class="pre">featurize</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="cesium.time_series.html">Module: <code class="docutils literal notranslate"><span class="pre">time_series</span></code></a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Module: <code class="docutils literal notranslate"><span class="pre">util</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#extract-time-series">extract_time_series</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#remove-files">remove_files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#shorten-fname">shorten_fname</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.data_management.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">data_management</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.datasets.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">datasets</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">features</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.cadence_features.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">features.cadence_features</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.features.graphs.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">features.graphs</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">featurize</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesium.time_series.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">time_series</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">util</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#extract-time-series">extract_time_series</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cesium.util.extract_time_series"><code class="docutils literal notranslate"><span class="pre">extract_time_series()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#remove-files">remove_files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cesium.util.remove_files"><code class="docutils literal notranslate"><span class="pre">remove_files()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#shorten-fname">shorten_fname</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cesium.util.shorten_fname"><code class="docutils literal notranslate"><span class="pre">shorten_fname()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">cesium</a>
-        
       </nav>
 
-
-      
       <div class="wy-nav-content">
         <div class="rst-content">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="api.html">API Reference</a> &raquo;</li>
-        
-      <li>Module: <code class="docutils literal notranslate"><span class="pre">util</span></code></li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api.html">API Reference</a></li>
+      <li class="breadcrumb-item active">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">util</span></code></li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="module-cesium.util">
-<span id="module-util"></span><h1>Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">util</span></code><a class="headerlink" href="#module-cesium.util" title="Permalink to this headline">¶</a></h1>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#cesium.util.extract_time_series" title="cesium.util.extract_time_series"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cesium.util.extract_time_series</span></code></a>(data_path[,&nbsp;…])</td>
-<td>Extract zip- or tarfile of time series file and return file paths.</td>
+             
+  <section id="module-cesium.util">
+<span id="module-util"></span><h1>Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">util</span></code><a class="headerlink" href="#module-cesium.util" title="Permalink to this heading"></a></h1>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cesium.util.extract_time_series" title="cesium.util.extract_time_series"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cesium.util.extract_time_series</span></code></a>(data_path[, ...])</p></td>
+<td><p>Extract zip- or tarfile of time series file and return file paths.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#cesium.util.remove_files" title="cesium.util.remove_files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cesium.util.remove_files</span></code></a>(paths)</td>
-<td>Remove specified file(s) from disk.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="#cesium.util.remove_files" title="cesium.util.remove_files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cesium.util.remove_files</span></code></a>(paths)</p></td>
+<td><p>Remove specified file(s) from disk.</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cesium.util.shorten_fname" title="cesium.util.shorten_fname"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cesium.util.shorten_fname</span></code></a>(file_path)</td>
-<td>Extract the name of a file (omitting directory names and extensions).</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cesium.util.shorten_fname" title="cesium.util.shorten_fname"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cesium.util.shorten_fname</span></code></a>(file_path)</p></td>
+<td><p>Extract the name of a file (omitting directory names and extensions).</p></td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="extract-time-series">
-<h2>extract_time_series<a class="headerlink" href="#extract-time-series" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="cesium.util.extract_time_series">
-<code class="descclassname">cesium.util.</code><code class="descname">extract_time_series</code><span class="sig-paren">(</span><em>data_path</em>, <em>cleanup_archive=True</em>, <em>cleanup_files=False</em>, <em>extract_dir=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.extract_time_series" title="Permalink to this definition">¶</a></dt>
+<section id="extract-time-series">
+<h2>extract_time_series<a class="headerlink" href="#extract-time-series" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="cesium.util.extract_time_series">
+<span class="sig-prename descclassname"><span class="pre">cesium.util.</span></span><span class="sig-name descname"><span class="pre">extract_time_series</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cleanup_archive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cleanup_files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extract_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.extract_time_series" title="Permalink to this definition"></a></dt>
 <dd><p>Extract zip- or tarfile of time series file and return file paths.</p>
 <p>If the given file is not a tar- or zipfile then it is treated as a single
 time series filepath.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data_path</strong> : str</p>
-<blockquote>
-<div><p>Path to data archive or single data file.</p>
-</div></blockquote>
-<p><strong>cleanup_archive</strong> : bool, optional</p>
-<blockquote>
-<div><p>Boolean specifying whether to delete the original archive (if
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data_path</strong><span class="classifier">str</span></dt><dd><p>Path to data archive or single data file.</p>
+</dd>
+<dt><strong>cleanup_archive</strong><span class="classifier">bool, optional</span></dt><dd><p>Boolean specifying whether to delete the original archive (if
 applicable). Defaults to True.</p>
-</div></blockquote>
-<p><strong>cleanup_files</strong> : bool, optional</p>
-<blockquote>
-<div><p>Boolean specifying whether to delete the extracted files when exiting
+</dd>
+<dt><strong>cleanup_files</strong><span class="classifier">bool, optional</span></dt><dd><p>Boolean specifying whether to delete the extracted files when exiting
 the given context. Defaults to False.</p>
-</div></blockquote>
-<p><strong>extract_dir</strong> : str, optional</p>
-<blockquote>
-<div><p>Directory into which files are to be extracted (if applicable). If
+</dd>
+<dt><strong>extract_dir</strong><span class="classifier">str, optional</span></dt><dd><p>Directory into which files are to be extracted (if applicable). If
 None, a temporary directory is created.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Yields:</th><td class="field-body"><p class="first">list of str</p>
-<blockquote class="last">
-<div><p>List of full paths to time series files.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Yields<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>list of str</dt><dd><p>List of full paths to time series files.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
-</div>
-<div class="section" id="remove-files">
-<h2>remove_files<a class="headerlink" href="#remove-files" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="cesium.util.remove_files">
-<code class="descclassname">cesium.util.</code><code class="descname">remove_files</code><span class="sig-paren">(</span><em>paths</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.remove_files" title="Permalink to this definition">¶</a></dt>
+</section>
+<section id="remove-files">
+<h2>remove_files<a class="headerlink" href="#remove-files" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="cesium.util.remove_files">
+<span class="sig-prename descclassname"><span class="pre">cesium.util.</span></span><span class="sig-name descname"><span class="pre">remove_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paths</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.remove_files" title="Permalink to this definition"></a></dt>
 <dd><p>Remove specified file(s) from disk.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>paths</strong> : str or list of str</p>
-<blockquote class="last">
-<div><p>Path(s) to file(s) to be removed from disk.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>paths</strong><span class="classifier">str or list of str</span></dt><dd><p>Path(s) to file(s) to be removed from disk.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
-</div>
-<div class="section" id="shorten-fname">
-<h2>shorten_fname<a class="headerlink" href="#shorten-fname" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="cesium.util.shorten_fname">
-<code class="descclassname">cesium.util.</code><code class="descname">shorten_fname</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.shorten_fname" title="Permalink to this definition">¶</a></dt>
+</section>
+<section id="shorten-fname">
+<h2>shorten_fname<a class="headerlink" href="#shorten-fname" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="cesium.util.shorten_fname">
+<span class="sig-prename descclassname"><span class="pre">cesium.util.</span></span><span class="sig-name descname"><span class="pre">shorten_fname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.shorten_fname" title="Permalink to this definition"></a></dt>
 <dd><p>Extract the name of a file (omitting directory names and extensions).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>file_path</strong> : str</p>
-<blockquote>
-<div><p>Absolute or relative path to a file.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">str</p>
-<blockquote class="last">
-<div><p>The name of the file with directory names and extensions removed.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>file_path</strong><span class="classifier">str</span></dt><dd><p>Absolute or relative path to a file.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>str</dt><dd><p>The name of the file with directory names and extensions removed.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
-           </div>
-           <div class="articleComments">
-            
            </div>
           </div>
-          <footer>
-  
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cesium.time_series.html" class="btn btn-neutral float-left" title="Module: time_series" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2015, The cesium Team.
-
-    </p>
+    <p>&#169; Copyright 2015, The cesium Team.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'vUndefined',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

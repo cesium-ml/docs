@@ -1,0 +1,17 @@
+.. AUTO-GENERATED FILE -- DO NOT EDIT!
+
+Module: :mod:`features`
+=======================
+.. automodule:: cesium.features
+
+.. currentmodule:: cesium.features
+.. autosummary::
+
+   cesium.features.generate_dask_graph
+
+
+generate_dask_graph
+-------------------
+
+.. autofunction:: cesium.features.generate_dask_graph
+

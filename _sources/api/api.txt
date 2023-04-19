@@ -7,6 +7,7 @@ API Reference
 
    cesium.data_management
    cesium.datasets
+   cesium.features
    cesium.features.cadence_features
    cesium.features.graphs
    cesium.featurize
