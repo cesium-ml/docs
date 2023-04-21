@@ -6,8 +6,8 @@
 
 Computation times
 =================
-**00:17.350** total execution time for **auto_examples** files:
+**00:24.208** total execution time for **auto_examples** files:
 
 +-----------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_EEG_Example.py` (``plot_EEG_Example.py``) | 00:17.350 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_EEG_Example.py` (``plot_EEG_Example.py``) | 00:24.208 | 0.0 MB |
 +-----------------------------------------------------------------------------+-----------+--------+
