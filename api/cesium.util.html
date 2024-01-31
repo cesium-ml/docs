@@ -1,24 +1,28 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Module: util &mdash; cesium 0.12.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/output_cells.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>Module: util &mdash; cesium 0.12.2.dev1+g4241aed documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/output_cells.css?v=4c393c42" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f81ed490"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +41,7 @@
             cesium
           </a>
               <div class="version">
-                0.12.1
+                0.12.2.dev1+g4241aed
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -103,7 +107,7 @@
            <div itemprop="articleBody">
              
   <section id="module-cesium.util">
-<span id="module-util"></span><h1>Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">util</span></code><a class="headerlink" href="#module-cesium.util" title="Permalink to this heading"></a></h1>
+<span id="module-util"></span><h1>Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">util</span></code><a class="headerlink" href="#module-cesium.util" title="Link to this heading"></a></h1>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#cesium.util.extract_time_series" title="cesium.util.extract_time_series"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cesium.util.extract_time_series</span></code></a>(data_path[, ...])</p></td>
@@ -118,10 +122,10 @@
 </tbody>
 </table>
 <section id="extract-time-series">
-<h2>extract_time_series<a class="headerlink" href="#extract-time-series" title="Permalink to this heading"></a></h2>
+<h2>extract_time_series<a class="headerlink" href="#extract-time-series" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="cesium.util.extract_time_series">
-<span class="sig-prename descclassname"><span class="pre">cesium.util.</span></span><span class="sig-name descname"><span class="pre">extract_time_series</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cleanup_archive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cleanup_files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extract_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.extract_time_series" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">cesium.util.</span></span><span class="sig-name descname"><span class="pre">extract_time_series</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cleanup_archive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cleanup_files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extract_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.extract_time_series" title="Link to this definition"></a></dt>
 <dd><p>Extract zip- or tarfile of time series file and return file paths.</p>
 <p>If the given file is not a tar- or zipfile then it is treated as a single
 time series filepath.</p>
@@ -152,10 +156,10 @@ None, a temporary directory is created.</p>
 
 </section>
 <section id="remove-files">
-<h2>remove_files<a class="headerlink" href="#remove-files" title="Permalink to this heading"></a></h2>
+<h2>remove_files<a class="headerlink" href="#remove-files" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="cesium.util.remove_files">
-<span class="sig-prename descclassname"><span class="pre">cesium.util.</span></span><span class="sig-name descname"><span class="pre">remove_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paths</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.remove_files" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">cesium.util.</span></span><span class="sig-name descname"><span class="pre">remove_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paths</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.remove_files" title="Link to this definition"></a></dt>
 <dd><p>Remove specified file(s) from disk.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -169,10 +173,10 @@ None, a temporary directory is created.</p>
 
 </section>
 <section id="shorten-fname">
-<h2>shorten_fname<a class="headerlink" href="#shorten-fname" title="Permalink to this heading"></a></h2>
+<h2>shorten_fname<a class="headerlink" href="#shorten-fname" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="cesium.util.shorten_fname">
-<span class="sig-prename descclassname"><span class="pre">cesium.util.</span></span><span class="sig-name descname"><span class="pre">shorten_fname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.shorten_fname" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">cesium.util.</span></span><span class="sig-name descname"><span class="pre">shorten_fname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.util.shorten_fname" title="Link to this definition"></a></dt>
 <dd><p>Extract the name of a file (omitting directory names and extensions).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

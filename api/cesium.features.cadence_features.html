@@ -1,24 +1,28 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Module: features.cadence_features &mdash; cesium 0.12.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/output_cells.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>Module: features.cadence_features &mdash; cesium 0.12.2.dev1+g4241aed documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/output_cells.css?v=4c393c42" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f81ed490"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -38,7 +42,7 @@
             cesium
           </a>
               <div class="version">
-                0.12.1
+                0.12.2.dev1+g4241aed
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -120,7 +124,7 @@
            <div itemprop="articleBody">
              
   <section id="module-cesium.features.cadence_features">
-<span id="module-features-cadence-features"></span><h1>Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">features.cadence_features</span></code><a class="headerlink" href="#module-cesium.features.cadence_features" title="Permalink to this heading"></a></h1>
+<span id="module-features-cadence-features"></span><h1>Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">features.cadence_features</span></code><a class="headerlink" href="#module-cesium.features.cadence_features" title="Link to this heading"></a></h1>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#cesium.features.cadence_features.cad_prob" title="cesium.features.cadence_features.cad_prob"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cesium.features.cadence_features.cad_prob</span></code></a>(...)</p></td>
@@ -147,20 +151,20 @@
 </tbody>
 </table>
 <section id="cad-prob">
-<h2>cad_prob<a class="headerlink" href="#cad-prob" title="Permalink to this heading"></a></h2>
+<h2>cad_prob<a class="headerlink" href="#cad-prob" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="cesium.features.cadence_features.cad_prob">
-<span class="sig-prename descclassname"><span class="pre">cesium.features.cadence_features.</span></span><span class="sig-name descname"><span class="pre">cad_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cads</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.cadence_features.cad_prob" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">cesium.features.cadence_features.</span></span><span class="sig-name descname"><span class="pre">cad_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cads</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.cadence_features.cad_prob" title="Link to this definition"></a></dt>
 <dd><p>Given the observed distribution of time lags <cite>cads</cite>, compute the probability
 that the next observation occurs within <cite>time</cite> minutes of an arbitrary epoch.</p>
 </dd></dl>
 
 </section>
 <section id="delta-t-hist">
-<h2>delta_t_hist<a class="headerlink" href="#delta-t-hist" title="Permalink to this heading"></a></h2>
+<h2>delta_t_hist<a class="headerlink" href="#delta-t-hist" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="cesium.features.cadence_features.delta_t_hist">
-<span class="sig-prename descclassname"><span class="pre">cesium.features.cadence_features.</span></span><span class="sig-name descname"><span class="pre">delta_t_hist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conv_oversample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.cadence_features.delta_t_hist" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">cesium.features.cadence_features.</span></span><span class="sig-name descname"><span class="pre">delta_t_hist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conv_oversample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.cadence_features.delta_t_hist" title="Link to this definition"></a></dt>
 <dd><p>Build histogram of all possible <code class="docutils literal notranslate"><span class="pre">|t_i</span> <span class="pre">-</span> <span class="pre">t_j|</span></code>’s.</p>
 <p>For efficiency, we construct the histogram via a convolution of the PDF
 rather than by actually computing all the differences. For better accuracy
@@ -170,19 +174,19 @@ and then aggregate the result to have <cite>nbins</cite> total values.</p>
 
 </section>
 <section id="double-to-single-step">
-<h2>double_to_single_step<a class="headerlink" href="#double-to-single-step" title="Permalink to this heading"></a></h2>
+<h2>double_to_single_step<a class="headerlink" href="#double-to-single-step" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="cesium.features.cadence_features.double_to_single_step">
-<span class="sig-prename descclassname"><span class="pre">cesium.features.cadence_features.</span></span><span class="sig-name descname"><span class="pre">double_to_single_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cads</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.cadence_features.double_to_single_step" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">cesium.features.cadence_features.</span></span><span class="sig-name descname"><span class="pre">double_to_single_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cads</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.cadence_features.double_to_single_step" title="Link to this definition"></a></dt>
 <dd><p>Ratios <code class="docutils literal notranslate"><span class="pre">(t[i+2]</span> <span class="pre">-</span> <span class="pre">t[i])</span> <span class="pre">/</span> <span class="pre">(t[i+1]</span> <span class="pre">-</span> <span class="pre">t[i]</span></code>).</p>
 </dd></dl>
 
 </section>
 <section id="find-sorted-peaks">
-<h2>find_sorted_peaks<a class="headerlink" href="#find-sorted-peaks" title="Permalink to this heading"></a></h2>
+<h2>find_sorted_peaks<a class="headerlink" href="#find-sorted-peaks" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="cesium.features.cadence_features.find_sorted_peaks">
-<span class="sig-prename descclassname"><span class="pre">cesium.features.cadence_features.</span></span><span class="sig-name descname"><span class="pre">find_sorted_peaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.cadence_features.find_sorted_peaks" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">cesium.features.cadence_features.</span></span><span class="sig-name descname"><span class="pre">find_sorted_peaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.cadence_features.find_sorted_peaks" title="Link to this definition"></a></dt>
 <dd><p>Find peaks, i.e. local maxima, of an array. Interior points are peaks if
 they are greater than both their neighbors, and edge points are peaks if
 they are greater than their only neighbor. In the case of ties, we
@@ -194,20 +198,20 @@ Returns a list of tuples <code class="docutils literal notranslate"><span class=
 
 </section>
 <section id="normalize-hist">
-<h2>normalize_hist<a class="headerlink" href="#normalize-hist" title="Permalink to this heading"></a></h2>
+<h2>normalize_hist<a class="headerlink" href="#normalize-hist" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="cesium.features.cadence_features.normalize_hist">
-<span class="sig-prename descclassname"><span class="pre">cesium.features.cadence_features.</span></span><span class="sig-name descname"><span class="pre">normalize_hist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.cadence_features.normalize_hist" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">cesium.features.cadence_features.</span></span><span class="sig-name descname"><span class="pre">normalize_hist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.cadence_features.normalize_hist" title="Link to this definition"></a></dt>
 <dd><p>Normalize histogram such that integral from <code class="docutils literal notranslate"><span class="pre">t_min</span></code> to <code class="docutils literal notranslate"><span class="pre">t_max</span></code> equals 1.
 cf. <code class="docutils literal notranslate"><span class="pre">np.histogram(...,</span> <span class="pre">density=True)</span></code>.</p>
 </dd></dl>
 
 </section>
 <section id="peak-bin">
-<h2>peak_bin<a class="headerlink" href="#peak-bin" title="Permalink to this heading"></a></h2>
+<h2>peak_bin<a class="headerlink" href="#peak-bin" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="cesium.features.cadence_features.peak_bin">
-<span class="sig-prename descclassname"><span class="pre">cesium.features.cadence_features.</span></span><span class="sig-name descname"><span class="pre">peak_bin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">peaks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.cadence_features.peak_bin" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">cesium.features.cadence_features.</span></span><span class="sig-name descname"><span class="pre">peak_bin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">peaks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.cadence_features.peak_bin" title="Link to this definition"></a></dt>
 <dd><p>Return the (bin) index of the ith largest peak. Peaks is a list of tuples
 <code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">x[i])</span></code> of peak indices <code class="docutils literal notranslate"><span class="pre">i</span></code> and values <code class="docutils literal notranslate"><span class="pre">x[i]</span></code>, sorted in
 decreasing order by peak value.</p>
@@ -215,10 +219,10 @@ decreasing order by peak value.</p>
 
 </section>
 <section id="peak-ratio">
-<h2>peak_ratio<a class="headerlink" href="#peak-ratio" title="Permalink to this heading"></a></h2>
+<h2>peak_ratio<a class="headerlink" href="#peak-ratio" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="cesium.features.cadence_features.peak_ratio">
-<span class="sig-prename descclassname"><span class="pre">cesium.features.cadence_features.</span></span><span class="sig-name descname"><span class="pre">peak_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">peaks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.cadence_features.peak_ratio" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">cesium.features.cadence_features.</span></span><span class="sig-name descname"><span class="pre">peak_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">peaks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.cadence_features.peak_ratio" title="Link to this definition"></a></dt>
 <dd><p>Compute the ratio of the values of the ith and jth largest peaks. Peaks is a list
 of tuples <code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">x[i])</span></code> of peak indices <code class="docutils literal notranslate"><span class="pre">i</span></code> and values <code class="docutils literal notranslate"><span class="pre">x[i]</span></code>, sorted in decreasing order
 by peak value.</p>
