@@ -64,6 +64,7 @@ Module: :mod:`features.graphs`
    cesium.features.graphs.stetson_j
    cesium.features.graphs.stetson_k
    cesium.features.graphs.weighted_average
+   cesium.features.graphs.weighted_std_dev
 
 
 amplitude
@@ -350,4 +351,9 @@ weighted_average
 ----------------
 
 .. autofunction:: cesium.features.graphs.weighted_average
+
+weighted_std_dev
+----------------
+
+.. autofunction:: cesium.features.graphs.weighted_std_dev
 

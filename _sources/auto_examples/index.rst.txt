@@ -14,10 +14,11 @@ for time series data.
 
     <div class="sphx-glr-thumbnails">
 
+.. thumbnail-parent-div-open
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="In this example we&#x27;ll use the |cesium|_ library to compare various techniques for epilepsy dete...">
+    <div class="sphx-glr-thumbcontainer" tooltip="In this example we&#x27;ll use the |cesium|_ library to compare various techniques for epilepsy detection using a classic EEG time series dataset from Andrzejak et al. . The raw data are separated into five classes: Z, O, N, F, and S; we will consider a three-class classification problem of distinguishing normal (Z, O), interictal (N, F), and ictal (S) signals.">
 
 .. only:: html
 
@@ -31,6 +32,8 @@ for time series data.
       <div class="sphx-glr-thumbnail-title">Epilepsy Detection Using EEG Data</div>
     </div>
 
+
+.. thumbnail-parent-div-close
 
 .. raw:: html
 

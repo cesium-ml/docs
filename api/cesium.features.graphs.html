@@ -4,11 +4,11 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Module: features.graphs &mdash; cesium 0.12.2.dev1+g4241aed documentation</title>
+  <title>Module: features.graphs &mdash; cesium 0.12.2.dev4+ge7643e1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/output_cells.css?v=4c393c42" />
-      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
@@ -20,8 +20,8 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f81ed490"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/documentation_options.js?v=97a2f05c"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -42,7 +42,7 @@
             cesium
           </a>
               <div class="version">
-                0.12.2.dev1+g4241aed
+                0.12.2.dev4+ge7643e1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -290,6 +290,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#cesium.features.graphs.weighted_average"><code class="docutils literal notranslate"><span class="pre">weighted_average()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#weighted-std-dev">weighted_std_dev</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cesium.features.graphs.weighted_std_dev"><code class="docutils literal notranslate"><span class="pre">weighted_std_dev()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cesium.featurize.html">Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">featurize</span></code></a></li>
@@ -497,6 +501,9 @@
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#cesium.features.graphs.weighted_average" title="cesium.features.graphs.weighted_average"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cesium.features.graphs.weighted_average</span></code></a>(x, e)</p></td>
 <td><p>Arithmetic mean of observed values, weighted by measurement errors.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cesium.features.graphs.weighted_std_dev" title="cesium.features.graphs.weighted_std_dev"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cesium.features.graphs.weighted_std_dev</span></code></a>(x, e)</p></td>
+<td><p>Standard deviation of observed values, weighted by measurement errors.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1138,6 +1145,15 @@ variance for x.</p>
 <dt class="sig sig-object py" id="cesium.features.graphs.weighted_average">
 <span class="sig-prename descclassname"><span class="pre">cesium.features.graphs.</span></span><span class="sig-name descname"><span class="pre">weighted_average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.graphs.weighted_average" title="Link to this definition"></a></dt>
 <dd><p>Arithmetic mean of observed values, weighted by measurement errors.</p>
+</dd></dl>
+
+</section>
+<section id="weighted-std-dev">
+<h2>weighted_std_dev<a class="headerlink" href="#weighted-std-dev" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="cesium.features.graphs.weighted_std_dev">
+<span class="sig-prename descclassname"><span class="pre">cesium.features.graphs.</span></span><span class="sig-name descname"><span class="pre">weighted_std_dev</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesium.features.graphs.weighted_std_dev" title="Link to this definition"></a></dt>
+<dd><p>Standard deviation of observed values, weighted by measurement errors.</p>
 </dd></dl>
 
 </section>

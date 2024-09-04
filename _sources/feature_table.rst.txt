@@ -79,6 +79,7 @@ std                                 Standard deviation of observed values.
 stetson_j                           Robust covariance statistic between pairs of observations x,y whose uncertainties are dx,dy. If y is not given, calculates a robust variance for x.
 stetson_k                           A robust kurtosis statistic.
 weighted_average                    Arithmetic mean of observed values, weighted by measurement errors.
+weighted_std_dev                    Standard deviation of observed values, weighted by measurement errors.
 ==================================  =============================================================================================================================================================================================================================
 
 ==========================  =============================================================================================================================================
